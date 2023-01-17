@@ -387,6 +387,7 @@ def in_cercle(dico, x, y, color):
     - color : couleur du cercle à divisé.
     Renvoie s'il y a eu division de cercle et le dictionnaire avec les deux nouveaux cercles.
     Cette fonction vérifie si le clique est à l'intérieur d'un cercle."""
+    # Le clic est-il dans un cercle
     for cle, valeur in dico.items():
             distance = sqrt((valeur[0]-x)**2 + (valeur[1]-y)**2)
             if distance <= valeur[2]:
