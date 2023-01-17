@@ -599,7 +599,7 @@ def GAME(dico_j1, dico_j2, dico_obs, rayon, compteur):
     fond = rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, couleur="grey75")
     dico_obs = obstacles(V_obstacle, dico_obs)
     banque1, banque2 = None, None
-    if V_taille:
+    if V_taille: # Ajout d'argent dans les banques en cas d'activation de la variante Taille des Boules
         banque1, banque2 = 10000, 10000
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour
         crayon('red', compteur, tour, pseudo1)
@@ -610,7 +610,7 @@ def GAME(dico_j1, dico_j2, dico_obs, rayon, compteur):
         gomme()
         mise_a_jour()
         compteur += 1
-        if V_dynamique == True:
+        if V_dynamique == True:  # Si la variante Version Dynamique est activée.
             dico_j1 = version_dynamique(dico_j1, dico_j2, dico_obs, 'red')
             dico_j2 = version_dynamique(dico_j2, dico_j1, dico_obs, 'blue')
             mise_a_jour()
@@ -627,7 +627,7 @@ def INTERFACE():
     cree_fenetre(largeur_Fenetre, hauteur_Fenetre)
     dico_j1, dico_j2, pseudo1, pseudo2 = GAME(dico_j1, dico_j2, dico_obs, rayon, compteur)
     attente_clic_ou_touche()
-    VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2)
+    VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2) # Détermination du vainqueur.
     attente_clic_ou_touche()
     # time.sleep(3)
     ferme_fenetre()
