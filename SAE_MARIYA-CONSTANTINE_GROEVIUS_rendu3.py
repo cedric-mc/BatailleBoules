@@ -387,7 +387,7 @@ def in_cercle(dico, x, y, color):
     - color : couleur du cercle à divisé.
     Renvoie s'il y a eu division de cercle et le dictionnaire avec les deux nouveaux cercles.
     Cette fonction vérifie si le clique est à l'intérieur d'un cercle."""
-    # Le clic est-il dans un cercle
+    # Le clic est-il dans un cercle ?
     for cle, valeur in dico.items():
             distance = sqrt((valeur[0]-x)**2 + (valeur[1]-y)**2)
             if distance <= valeur[2]:
@@ -430,6 +430,7 @@ def enter_numbers():
     while key != 'Return' and key != 'KP_Enter':
         texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(numbers), couleur='purple', ancrage='center', police='Z003', taille=20, tag='liste')
         key = attente_touche()
+        # Seul les nombres peuvent être entrés.
         if key == '1' or key == 'ampersand' or key == 'KP_1':
             numbers.append('1')
         elif key == '2' or key == 'eacute' or key == 'KP_2':
@@ -496,10 +497,10 @@ def J1(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque1, V_terminaison):
     Renvoie les dictionnaires des deux joueurs, le nombre de tours et le budget du joueur pour la variante Taille des Boules.
     Cette fonction permet de créer le cercle du Joueur 1 ou diviser un cercle adverse."""
     diviser = False
-    if dico_j2 != {}:  # Si le joueur 2 a jouer
-        diviser, dico_j2 = in_cercle(dico_j2, x, y, 'blue')
+    if dico_j2 != {}:  # Si le joueur 2 a posé un cercle
+        diviser, dico_j2 = in_cercle(dico_j2, x, y, 'blue') # Vérification en cas de clic dans un cercle, et division de cercle.
     if diviser == False:
-        if type(banque1) == int:
+        if type(banque1) == int: # Parti réservé à la variante Taille des Boules.
             banque1, rayon = taille_des_boules(banque1, 'red')
         c = cercle(x, y, rayon, couleur='red', remplissage='red') # insère un cercle d'une certaine couleur dans la fenêtre
         dico_j1[c] = [x, y, rayon]
@@ -507,7 +508,7 @@ def J1(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque1, V_terminaison):
             efface(c)
             dico_j1.pop(c)
     if compteur % 2 == 0 and V_terminaison:
-        V_terminaison, tour = terminaison(V_terminaison, tour, compteur)
+        V_terminaison, tour = terminaison(V_terminaison, tour, compteur) # Pour la variante Terminaison.
     return dico_j1, dico_j2, tour, banque1
 
 
@@ -523,17 +524,17 @@ def J2(x, y, dico_j2, dico_j1, compteur, tour, rayon, banque2, V_terminaison):
     Renvoie les dictionnaires des deux joueurs, le nombre de tours et le budget du joueur pour la variante Taille des Boules.
     Cette fonction permet de créer le cercle du Joueur 2 ou diviser un cercle adverse."""
     diviser = False
-    if dico_j1 != {}:
-        diviser, dico_j1 = in_cercle(dico_j1, x, y, 'red')
+    if dico_j1 != {}: # Si le joueur 1 a posé un cercle.
+        diviser, dico_j1 = in_cercle(dico_j1, x, y, 'red') # division des cercles si clic dans un cercle.
     if diviser == False:
-        if type(banque2) == int:
+        if type(banque2) == int: # Pour la variante Taille des Boules
             banque2, rayon = taille_des_boules(banque2, 'blue')
         c = cercle(x, y, rayon, couleur='blue', remplissage='blue')
         dico_j2[c] = [x, y, rayon]
         if intersection(dico_j1, x, y, rayon):
             efface(c)
             dico_j2.pop(c)
-    if compteur%2 == 1 and V_terminaison:
+    if compteur%2 == 1 and V_terminaison:  # Pour la variante Terminaison.
         V_terminaison, tour = terminaison(V_terminaison, tour, compteur)
     return dico_j2, dico_j1, tour, banque2
 
@@ -553,26 +554,26 @@ def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, V_sablier, V_scores, banq
     Si la variante Scores est activée et enfin faire jouer le joueur (poser le cercle)."""
     timing = False
     x, e = None, None
-    if V_sablier:
+    if V_sablier: # Pour variante Sablier
         x, y, e = sablier(10, V_scores)
-        if x == None and y == None == e == None:
+        if x == None and y == None == e == None: # Si le temps est écoulé.
             timing = True
-        if V_scores and y == 's':
+        if V_scores and y == 's': # En cas d'utilisation simultanée des variantes Sablier et Scores.
             scores(dico_j1, dico_j2)
     else:
-        if V_scores:
+        if V_scores: # Pour la variante Scores.
             e = 'Touche'
-            while e == 'Touche':
+            while e == 'Touche': # Affichage du Scores pendant, sans s'arrêter tant que l'interaction n'est pas un clic.
                 x, y, e = attente_clic_ou_touche()
                 if e == 'Touche' and y == 's':
                     scores(dico_j1, dico_j2)
         else:
-            x, y, e = attente_clic()
+            x, y, e = attente_clic() # Lorsqu'aucune variante concernée (Sablier et Scores) n'est activée. 
     if not timing:
         if e == "Touche":
             x, y , e = attente_clic()
         if V_obstacle == True and intersection(dico_obs, x, y, rayon) == True:
-            return dico_j1, dico_j2, tour
+            return dico_j1, dico_j2, tour # En cas d'intersection avec les cercles adverses ou les obstacles
         if joueur == 1:
             dico_j1, dico_j2, tour, banque = J1(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque, V_terminaison)
         elif joueur == 2:
