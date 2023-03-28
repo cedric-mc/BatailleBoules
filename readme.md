@@ -11,11 +11,7 @@ Le projet est à réaliser en plusieurs phases. Lisez bien le sujet dans son int
 Dans sa version de base, l’aire de jeu est initialement vide. Le jeu montre à qui est le tour. À la fin, il doit indiquer qui a gagné. Vous devrez implémenter le jeu avec les règles suivantes :
 
 1. Les intérieurs de deux boules de couleurs différentes ne peuvent pas s’intersecter. Si un joueur essaye d’inclure une boule qui intersecte l’intérieur d’une boule de la couleur opposée, rien ne se passe et il perd son tour.
-1. Si un joueur clique dans l’intérieur d’une boule de l’adversaire, il la transforme en deux boules de même couleur plus petites. Une des deux boules a pour centre l’endroit où l’on
-
-a cliqué, et est tangente à la boule d’origine, et l’autre est tangente à la boule d’origine et
-
-à la nouvelle boule. Voici un exemple où le × indique l’emplacement du clic du joueur :
+1. Si un joueur clique dans l’intérieur d’une boule de l’adversaire, il la transforme en deux boules de même couleur plus petites. Une des deux boules a pour centre l’endroit où l’on a cliqué, et est tangente à la boule d’origine, et l’autre est tangente à la boule d’origine et à la nouvelle boule. Voici un exemple où le × indique l’emplacement du clic du joueur :
 
 × ×![](Aspose.Words.318bc314-9fe0-4d0f-bedf-05e3b670645f.003.png)![](Aspose.Words.318bc314-9fe0-4d0f-bedf-05e3b670645f.004.png)![](Aspose.Words.318bc314-9fe0-4d0f-bedf-05e3b670645f.005.png)
 
