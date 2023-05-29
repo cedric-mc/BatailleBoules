@@ -3,4 +3,4 @@ plugins:
 - jekyll-remote-theme
 title: 🎮 Jeu de la Bataille des Boules
 show_downloads: true
-description: [A short description of your site's purpose]
+description: Jeu programmé en Python, à jouer à 2.
