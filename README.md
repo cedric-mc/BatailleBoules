@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
 <!--## Bonus et améliorations
 
 Finalement, vous devrez implémenter au moins deux des améliorations suivantes :
