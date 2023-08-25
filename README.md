@@ -27,5 +27,16 @@ Le jeu de la Bataille des Boules propose également différentes variantes pour 
 5. **Terminaison** : Les joueurs ont la possibilité de décider une fois par partie que le jeu se termine dans 5 tours.
 6. **Obstacles** : Le tableau de jeu commence avec certains obstacles que les boules ne peuvent pas toucher.
 
+## Options du jeu
+Le jeu de la Bataille des Boules propose également différentes options pour personnaliser le jeu :
+
+1. **Sélection de variantes** : Les joueurs peuvent choisir les variantes qu'ils souhaitent jouer (davantage d'informations au-dessus).
+2. **Sélection de couleurs** : Les joueurs peuvent se mettre d'accord et choisir un couple de couleur pour jouer.
+3. **Sélection de pseudos** : Les joueurs peuvent entrer un pseudo pour les identifier (par défaut, les joueurs sont nommés "Joueur 1" et "Joueur 2", accents et symboles exclus).
+4. **Sélection de tours** : Les joueurs peuvent se mettre d'accord sur le nombre de tours qu'ils souhaitent jouer (par défaut et minimum, 5 tours).
+
+## Installation
+Pour installer le jeu, il suffit de cloner télécharger le fichier `GAME.zip` et de lancer le fichier `main.py` avec Python 3.6 ou supérieur.
+
 
 Amusez-vous bien en jouant à la Bataille des Boules !
