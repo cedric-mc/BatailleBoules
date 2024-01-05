@@ -36,7 +36,7 @@ Le jeu de la Bataille des Boules propose également différentes options pour pe
 4. **Sélection de tours** : Les joueurs peuvent se mettre d'accord sur le nombre de tours qu'ils souhaitent jouer (par défaut et minimum, 5 tours).
 
 ## Installation
-Pour installer le jeu, il suffit de cloner le dépôt ou télécharger le fichier `GAME.zip` et de lancer le fichier `main.py` avec Python 3.6 ou supérieur.
+Pour installer le jeu, il suffit de cloner le dépôt ou le télécharger et de lancer le fichier `main.py` avec Python 3.6 ou supérieur.
 
 
 Amusez-vous bien en jouant à la Bataille des Boules !
