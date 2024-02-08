@@ -1,13 +1,3 @@
-<!--## Bonus et améliorations
-
-Finalement, vous devrez implémenter au moins deux des améliorations suivantes :
-
-1. **IA** : ajoutez un mode où l'ordinateur joue tout seul.
-2. **Classement** : si vous implémentez l'IA, rajoutez de quoi mémoriser / afficher le classement des meilleurs scores.
-3. **Mode billard** : les boules bougent selon les règles d'un billard.
-4. **Création des obstacles** : rajoutez la possibilité de charger une aire de jeu agrémentée d'obstacles à partir d'un fichier texte.
-5. **Pause et sauvegarde** : rajoutez la possibilité de mettre en pause le jeu et de reprendre la partie, et de sauvegarder l'état du jeu à ce moment-là.
-6. **Sauvegarde des paramètres** : rajoutez un fichier de configuration pour le jeu afin de fixer les valeurs des différents paramètres.-->
 # 🎮 Jeu de la Bataille des Boules
 Le jeu de la Bataille des Boules est un jeu de placement de boules où chaque joueur contrôle une couleur et vise à occuper la plus grande aire coloriée avec sa couleur. Les joueurs jouent à tour de rôle en utilisant la souris, et le nombre de tours est prédéterminé.
 
