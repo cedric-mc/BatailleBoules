@@ -31,8 +31,8 @@ Le jeu de la Bataille des Boules propose également différentes variantes pour 
 Le jeu de la Bataille des Boules propose également différentes options pour personnaliser le jeu :
 
 1. **Sélection de variantes** : Les joueurs peuvent choisir les variantes qu'ils souhaitent jouer (davantage d'informations au-dessus).
-2. **Sélection de couleurs** : Les joueurs peuvent se mettre d'accord et choisir un couple de couleur pour jouer.
-3. **Sélection de pseudos** : Les joueurs peuvent entrer un pseudo pour les identifier (par défaut, les joueurs sont nommés "Joueur 1" et "Joueur 2", accents et symboles exclus).
+2. **Sélection de couleurs** : Les joueurs doivent se mettre d'accord et choisir un couple de couleur pour jouer.
+3. **Sélection de pseudos** : Les joueurs peuvent entrer un pseudo pour les identifier (par défaut, les joueurs sont nommés "Joueur 1" et "Joueur 2", accents et symboles exclus), veuillez appuyez sur la touche "Entrée" pour valider.
 4. **Sélection de tours** : Les joueurs peuvent se mettre d'accord sur le nombre de tours qu'ils souhaitent jouer (par défaut et minimum, 5 tours).
 
 ## Installation
