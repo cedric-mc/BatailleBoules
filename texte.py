@@ -87,16 +87,16 @@ def enter_surname(joueur, color):
     return pseudo
 
 
-def surname(color1, color2):
+def surname(lst_colors):
     """Fait appel à la fonction enter_surname pour entrer les noms des deux joueurs, c'est accompagné d'un texte pour indiqué pour qui doit être entrer le pseudo.
     Elle renvoie les deux pseudos, type : str"""
-    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du premier Joueur, (pseudo 'quit' interdit)", couleur=color1, police=game_font, ancrage='center', taille=20, tag='names')
-    pseudo1 = enter_surname(1, color1)
+    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du premier Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[0], police=game_font, ancrage='center', taille=20, tag='names')
+    pseudo1 = enter_surname(1, lst_colors[0])
     efface('names')
     if pseudo1 == "quit":
         return "quit", "quit"
-    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du deuxième Joueur, (pseudo 'quit' interdit)", couleur=color2, police=game_font, ancrage='center', taille=20, tag='names')
-    pseudo2 = enter_surname(2, color2)
+    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du deuxième Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[1], police=game_font, ancrage='center', taille=20, tag='names')
+    pseudo2 = enter_surname(2, lst_colors[1])
     efface('names')
     return pseudo1, pseudo2
 

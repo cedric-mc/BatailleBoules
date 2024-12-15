@@ -1,7 +1,7 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
 # ------------------------------ Importation depuis le dossier source
-from upemtk import *
-from default import *
+from upemtk import efface, attente_clic_ou_touche, texte, rectangle, mise_a_jour
+from default import b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, largeur_Fenetre, hauteur_Fenetre, b_milieu_y1, b_milieu_y2, b3_y1, b3_y2, b_droit_x1, b_droit_x2, b4_y1, b4_y2, b6_y1, b6_y2, txt_y2, game_font
 import colors
 import buttons
 
@@ -28,7 +28,7 @@ def boutons(variantes):
     Renvoie les 6 variables booléennes.
     Cette fonction permet de changer les activations/désactivations des six variantes dans le menu, tout est stocker dans le dictionnaire (len(dict() = 6))."""
     V_menu = False
-    while V_menu != True:
+    while not V_menu:
         x, y, e = attente_clic_ou_touche()
         if (b_gauche_x1 < x < b_gauche_x2 and b1_y1 < y < b1_y2) or y == "1" or y == 'KP_1' or y == "ampersand":
             variantes["sablier"] = buttons.f_boutons(variantes["sablier"], b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, largeur_Fenetre//2-550, hauteur_Fenetre//2-150, "Sablier", "sablier", "text_sablier")
@@ -49,7 +49,7 @@ def boutons(variantes):
     return variantes, V_menu
 
 
-def MENU():
+def menu():
     """Cette fonction renvoie les variables booléennes des six variantes.
     MENU permet de créer le menu."""
     variantes = {
