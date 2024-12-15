@@ -27,11 +27,13 @@ def colors():
     rec6 = rectangle(largeur_Fenetre//2+200, 100, largeur_Fenetre//2+350, 250, remplissage="#F7777F", epaisseur=0)
     rec7 = rectangle(largeur_Fenetre//2+400, 100, largeur_Fenetre//2+550, 250, remplissage="#552B24", epaisseur=0)
     rec8 = rectangle(largeur_Fenetre//2+550, 100, largeur_Fenetre//2+700, 250, remplissage="#F33129", epaisseur=0)
+
     # ------------------------------ Choix des couleurs des joueurs deuxième ligne
     rec9 = rectangle(largeur_Fenetre//2-700, hauteur_Fenetre//2-75, largeur_Fenetre//2-550, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
     rec10 = rectangle(largeur_Fenetre//2-550, hauteur_Fenetre//2-75, largeur_Fenetre//2-400, hauteur_Fenetre//2+75, remplissage="#65419C", epaisseur=0)
     rec11 = rectangle(largeur_Fenetre//2+400, hauteur_Fenetre//2-75, largeur_Fenetre//2+550, hauteur_Fenetre//2+75, remplissage="#F7777F", epaisseur=0)
     rec12 = rectangle(largeur_Fenetre//2+550, hauteur_Fenetre//2-75, largeur_Fenetre//2+700, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
+
     # ------------------------------ Choix des couleurs des joueurs troisième ligne
     rec13 = rectangle(largeur_Fenetre//2-700, hauteur_Fenetre-100, largeur_Fenetre//2-550, hauteur_Fenetre-250, remplissage="#65419C", epaisseur=0)
     rec14 = rectangle(largeur_Fenetre//2-550, hauteur_Fenetre-100, largeur_Fenetre//2-400, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
@@ -41,6 +43,7 @@ def colors():
     rec18 = rectangle(largeur_Fenetre//2+200, hauteur_Fenetre-100, largeur_Fenetre//2+350, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
     rec19 = rectangle(largeur_Fenetre//2+400, hauteur_Fenetre-100, largeur_Fenetre//2+550, hauteur_Fenetre-250, remplissage="#552B24", epaisseur=0)
     rec20 = rectangle(largeur_Fenetre//2+550, hauteur_Fenetre-100, largeur_Fenetre//2+700, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
+
     # ------------------------------ Texte des couleurs des joueurs première ligne
     txt1 = texte(largeur_Fenetre//2-625, 175, "J1", taille=45, couleur="white", ancrage="center")
     txt2 = texte(largeur_Fenetre//2-475, 175, "J2", taille=45, couleur="white", ancrage="center")
@@ -50,11 +53,13 @@ def colors():
     txt6 = texte(largeur_Fenetre//2+275, 175, "J2", taille=45, couleur="white", ancrage="center")
     txt7 = texte(largeur_Fenetre//2+475, 175, "J1", taille=45, couleur="white", ancrage="center")
     txt8 = texte(largeur_Fenetre//2+625, 175, "J2", taille=45, couleur="white", ancrage="center")
+
     # ------------------------------ Texte des couleurs des joueurs deuxième ligne
     txt9 = texte(largeur_Fenetre//2-625, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
     txt10 = texte(largeur_Fenetre//2-475, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
     txt11 = texte(largeur_Fenetre//2+475, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
     txt12 = texte(largeur_Fenetre//2+625, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
+
     # ------------------------------ Texte des couleurs des joueurs troisième ligne
     txt13 = texte(largeur_Fenetre//2-625, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
     txt14 = texte(largeur_Fenetre//2-475, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
@@ -78,7 +83,7 @@ def colors():
     efface(txt9), efface(txt10), efface(txt11), efface(txt12) # Efface les textes de la deuxième ligne
     # Efface les textes de la troisième ligne
     efface(txt13), efface(txt14), efface(txt15), efface(txt16), efface(txt17), efface(txt18), efface(txt19), efface(txt20)
-    return color1, color2
+    return [color1, color2]
 
 
 def melangeur_colors(color1, color2):

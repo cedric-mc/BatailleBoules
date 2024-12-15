@@ -1,18 +1,15 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
 # ------------------------------ Importation depuis le dossier source
-from upemtk import *
-from variantes import *
-from calcul import *
-from joueur import *
-from default import *
-from menu import MENU
+from buttons import pause_button
 from colors import colors, melangeur_colors
-from texte import *
 from interface import *
-from restart import RESTART
+from joueur import *
+from menu import menu
+from restart import restart
+from texte import *
 
 
-def VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2, color1, color2):
+def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
     """Cette fonction permet de déterminer et d'annoncer le vainqueur de la partie.
 
     Args:
@@ -38,15 +35,15 @@ def VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2, color1, color2):
     if rouge == 0 and bleu == 0:
         texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Vous êtes pas doué pour jouer !", ancrage='center', taille=25, police=game_font)
     elif rouge > bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo1 + " !", ancrage="center", police=game_font, taille=25, couleur=color1)
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo1 + " !", ancrage="center", police=game_font, taille=25, couleur=lst_colors[0])
     elif rouge < bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo2 + " !", ancrage="center", police=game_font, taille=25, couleur=color2)
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo2 + " !", ancrage="center", police=game_font, taille=25, couleur=lst_colors[1])
     elif rouge == bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Égalité !", ancrage="center", police=game_font, taille=25, couleur=melangeur_colors(color1, color2))
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Égalité !", ancrage="center", police=game_font, taille=25, couleur=melangeur_colors(lst_colors[0], lst_colors[1]))
     mise_a_jour()
 
 
-def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_obs, joueur, color1, color2):
+def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_obs, number, color1, color2):
     """Paramètres :
     - dico_j1, dico_j2 : dictionnaires des deux joueurs ;
     - rayon : rayon par défaut de 50 pixels ;
@@ -55,7 +52,7 @@ def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_o
     - V_sablier, V_scores, V_terminaison, V_obstacles : variables booléennes indiquant si les variantes Sablier, Scores, Terminaison et Obstacles sont activées ;
     - banque : budget du joueur, type : int ;
     - dico_obs : dictionnaire des obstacles ;
-    - joueur : numéro du joueur, type : int.
+    - number : numéro du joueur, type : int.
     Renvoie les dictionnaires des deux joueurs, le nombre de tours et le budget du joueur.
     La fonction vérifie d'abord le temps de réaction si la variante Sablier est activée.
     Si la variante Scores est activée et enfin faire jouer le joueur (poser le cercle)."""
@@ -63,7 +60,7 @@ def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_o
     x, e = None, None
     if variantes["sablier"]:
         x, y, e = sablier(10, variantes["scores"])
-        if x == None and y == None == e == None:
+        if x is None and y is None and e is None:
             timing = True
         if variantes["scores"] and y == 's':
             scores(dico_j1, dico_j2, color1, color2)
@@ -81,19 +78,19 @@ def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_o
             x, y , e = attente_clic()
         if variantes["obstacle"] == True and intersection(dico_obs, x, y, rayon) == True:
             return dico_j1, dico_j2, tour, banque
-        dico_j1, dico_j2, tour, banque = JOUEUR(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque, variantes["terminaison"], color1, color2, joueur)
+        dico_j1, dico_j2, tour, banque = joueur(x, y, dico_j1, dico_j2, tour, rayon, banque, color1, color2, number)
     return dico_j1, dico_j2, tour, banque
 
 
-def JOUEUR(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque, V_terminaison, color1, color2, joueur):
-    if joueur == 1:
-            dico_j1, dico_j2, tour, banque = J1(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque, V_terminaison, color1, color2)
-    elif joueur == 2:
-        dico_j2, dico_j1, tour, banque = J2(x, y, dico_j2, dico_j1, compteur, tour, rayon, banque, V_terminaison, color1, color2)
+def joueur(x, y, dico_j1, dico_j2, tour, rayon, banque, color1, color2, number):
+    if number == 1:
+            dico_j1, dico_j2, tour, banque = J1(x, y, dico_j1, dico_j2, tour, rayon, banque, color1, color2)
+    elif number == 2:
+        dico_j2, dico_j1, tour, banque = J2(x, y, dico_j2, dico_j1, tour, rayon, banque, color1, color2)
     return dico_j1, dico_j2, tour, banque
 
 
-def GAME():
+def game():
     """Paramètres :
     - dico_j1, dico_j2, dico_obs : dictionnaires des cercles des deux joueurs et les obstacles ;
     - rayon : rayon par défaut des cercles soit 50 pixels ;
@@ -104,45 +101,45 @@ def GAME():
     dico_obs = dict()
     rayon = 50
     compteur = 1
-    variantes, V_menu = MENU()
+    variantes, V_menu = menu()
     if not V_menu:
         return
-    color1, color2 = colors()
-    if color1 == "quit" or color2 == "quit":
+    lst_colors = colors()
+    if 'quit' in lst_colors:
         return
-    pseudo1, pseudo2 = surname(color1, color2)
+    pseudo1, pseudo2 = surname(lst_colors)
     if pseudo1 == "quit" or pseudo2 == "quit":
         return
-    tour = enter_numbers(melangeur_colors(color1, color2))
+    tour = enter_numbers(melangeur_colors(lst_colors[0], lst_colors[2]))
     if tour == "quit":
         return
     efface("quit"), efface("croix1"), efface("croix2")
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(color1, color2), police=game_font, ancrage="center", tag='jouer')
+    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(lst_colors[0], lst_colors[2]), police=game_font, ancrage="center", tag='jouer')
     attente_clic_ou_touche()
     efface('jouer')
+    pause_button() # Dessine le bouton pause
     dico_obs = obstacles(variantes["obstacle"], dico_obs)
     banque1, banque2 = None, None
     # create_Interface(variantes)
     if variantes["taille"]:
         banque1, banque2 = 10000, 10000
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour
-        crayon(color1, compteur, tour, pseudo1)
-        dico_j1, dico_j2, tour, banque1 = avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque1, dico_obs, 1, color1, color2)
+        crayon(lst_colors[0], compteur, tour, pseudo1)
+        dico_j1, dico_j2, tour, banque1 = avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque1, dico_obs, 1, lst_colors[0], lst_colors[1])
         gomme()
-        crayon(color2, compteur, tour, pseudo2)
-        dico_j1, dico_j2, tour, banque2 = avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque2, dico_obs, 2, color1, color2)
+        crayon(lst_colors[1], compteur, tour, pseudo2)
+        dico_j1, dico_j2, tour, banque2 = avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque2, dico_obs, 2, lst_colors[0], lst_colors[1])
         gomme()
         variantes["terminaison"], tour = terminaison(variantes["terminaison"], tour, compteur)
         mise_a_jour()
         compteur += 1
         if variantes["dynamique"]:
-            dico_j1 = version_dynamique(dico_j1, dico_j2, dico_obs, color1)
-            dico_j2 = version_dynamique(dico_j2, dico_j1, dico_obs, color2)
+            dico_j1 = version_dynamique(dico_j1, dico_j2, dico_obs, lst_colors[0])
+            dico_j2 = version_dynamique(dico_j2, dico_j1, dico_obs, lst_colors[1])
             mise_a_jour()
     attente_clic_ou_touche()
-    VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2, color1, color2)
+    vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors)
     attente_clic_ou_touche()
-    isRestart = RESTART()
-    if isRestart:
-        GAME()
+    if restart():
+        game()
     return
