@@ -10,12 +10,12 @@ Si un joueur clique à l'intérieur d'une boule de l'adversaire, cette boule est
 Variantes du jeu
 Le jeu de la Bataille des Boules propose également différentes variantes pour augmenter le défi et la diversité de gameplay :
 
-1. **Sablier** : Chaque joueur dispose d'un temps limité pour jouer à chaque tour. S'il ne joue pas dans le temps imparti, il perd son tour.
-2. **Scores** : Les joueurs peuvent vérifier à tout moment quelle est l'aire totale coloriée par leurs boules en appuyant sur la touche 's'.
-3. **Taille des boules** : À chaque tour, les joueurs doivent définir le rayon des boules qu'ils souhaitent placer.
-4. **Version dynamique** : Les rayons de toutes les boules augmentent à chaque tour, rendant le jeu de plus en plus complexe.
-5. **Terminaison** : Les joueurs ont la possibilité de décider une fois par partie que le jeu se termine dans 5 tours.
-6. **Obstacles** : Le tableau de jeu commence avec certains obstacles que les boules ne peuvent pas toucher.
+1. **Sablier** <img src="img/hourglass.png" width="25" height="25"> : Chaque joueur dispose d'un temps limité pour jouer à chaque tour. S'il ne joue pas dans le temps imparti, il perd son tour.
+2. **Scores** <img src="img/scores.png" width="25" height="25"> : Les joueurs peuvent vérifier à tout moment quelle est l'aire totale coloriée par leurs boules en appuyant sur la touche 's'.
+3. **Taille des boules** <img src="img/taille-des-boules.png" width="25" height="25"> : À chaque tour, les joueurs doivent définir le rayon des boules qu'ils souhaitent placer.
+4. **Version dynamique** <img src="img/dynamique.png" width="25" height="25"> : Les rayons de toutes les boules augmentent à chaque tour, rendant le jeu de plus en plus complexe.
+5. **Terminaison** <img src="img/terminaison.png" width="25" height="25"> : Les joueurs ont la possibilité de décider une fois par partie que le jeu se termine dans 5 tours.
+6. **Obstacles** <img src="img/obstacles.png" width="25" height="25"> : Le tableau de jeu commence avec certains obstacles que les boules ne peuvent pas toucher.
 
 ## Options du jeu
 Le jeu de la Bataille des Boules propose également différentes options pour personnaliser le jeu :
