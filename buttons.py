@@ -4,7 +4,20 @@ from upemtk import *
 from default import *
 
 
+def button_background(isActive):
+    """Cette fonction prend en paramètre une variable booléenne et renvoie une couleur en fonction de la valeur de la variable.
+
+    Args:
+        isActive (bool): Variable booléenne qui permet de savoir si la variante est activée ou non.
+
+    Returns:
+        _type_ (str): Retourne une couleur en fonction de la valeur de la variable.
+    """
+    return '#00FF00' if isActive else '#FF0000'
+
+
 def default_buttons(variantes):
+    # TODO: Changer l'apparence des boutons pour un carré avec une image en haut et un texte en bas (tout centré et à l'intérieur du carré).
     variantes["sablier"] = f_boutons(True, b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, txt_gauche_x, txt_y1, "Sablier", "sablier", "text_sablier")
     variantes["scores"] = f_boutons(True, b_gauche_x1, b_gauche_x2, b_milieu_y1, b_milieu_y2, txt_gauche_x, txt_y2, "Scores", "scores", "text_scores")
     variantes["taille"] = f_boutons(True, b_gauche_x1, b_gauche_x2, b3_y1, b3_y2, txt_gauche_x, txt_y3, "Taille Des Boules", "taille_des_boules", "text_taille_des_boules")
@@ -27,20 +40,15 @@ def f_boutons(variante, rec_x1, rec_x2, rec_y1, rec_y2, txt_x, txt_y, txt_in, ta
     Renvoie la variante.
     La fonction permet de changer l'apparence du bouton."""
     efface(tag1), efface(tag2)
-    if not variante:
-        variante = True
-        rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage='#00FF00', epaisseur=3, tag=tag1)
-        texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police="Monocraft", taille=18, tag=tag2)
-    else:
-        variante = False
-        rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage='#FF0000', epaisseur=3, tag=tag1)
-        texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police="Monocraft", taille=18, tag=tag2)
+    variante = not variante
+    rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage=button_background(variante), epaisseur=3, tag=tag1)
+    texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18, tag=tag2)
     return variante
 
 
 def pause_button():
     rectangle(largeur_Fenetre//2-150, b_milieu_y1, largeur_Fenetre//2+150, b_milieu_y2, couleur='black', remplissage='black', epaisseur=3, tag='pause')
-    texte(largeur_Fenetre//2, txt_y2, "Pause", couleur='white', police="Monocraft", ancrage='center', tag='text_pause')
+    texte(largeur_Fenetre//2, txt_y2, "Pause", couleur='white', police=game_font, ancrage='center', tag='text_pause')
     mise_a_jour()
 
 

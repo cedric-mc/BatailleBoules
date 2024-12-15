@@ -2,14 +2,16 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
 # ------------------------------ Importation depuis le dossier source
 from upemtk import *
-from default import largeur_Fenetre, hauteur_Fenetre
+from default import largeur_Fenetre, hauteur_Fenetre, game_font
 from game import GAME
 
 
 def INTERFACE():
     """Corps principal du jeu avec création et destruction de l'interface"""
     cree_fenetre(largeur_Fenetre, hauteur_Fenetre)
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bienvenue !", taille=40, police="Monocraft", ancrage="center", tag='jouer')
+    rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, remplissage="white", couleur="black")
+    rectangle(10, hauteur_Fenetre//9, largeur_Fenetre//11, hauteur_Fenetre//10, couleur='green', remplissage='green', tag="sablier")
+    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bienvenue !", taille=40, police=game_font, ancrage="center", tag='jouer')
     attente_clic_ou_touche()
     efface('jouer')
     GAME()

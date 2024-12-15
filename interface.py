@@ -43,10 +43,10 @@ def delete_Interface():
     efface("interface3")
 
 
-def update_Interface():
+def update_Interface(variantes):
     """Cette fonction permet de mettre à jour l'interface."""
     delete_Interface()
-    create_Interface()
+    create_Interface(variantes)
 
 
 def crayon(color, compteur, tour, pseudo):
@@ -58,8 +58,8 @@ def crayon(color, compteur, tour, pseudo):
     Cette fonction permet d'afficher le numéro (nombre) du tour et indique qui doit jouer."""
     txt = "Tour de " + pseudo
     txt_tour = 'Tour : ' + str(compteur) + '/' + str(tour)
-    texte(largeur_Fenetre//2, hauteur_Fenetre//18, txt, color, police="Monocraft", ancrage='center', taille=20, tag="joueur")
-    texte(largeur_Fenetre//2, hauteur_Fenetre-hauteur_Fenetre//18, txt_tour, color, police="Monocraft", ancrage='center', taille=20, tag="tour")
+    texte(largeur_Fenetre//2, hauteur_Fenetre//18, txt, color, police=game_font, ancrage='center', taille=20, tag="joueur")
+    texte(largeur_Fenetre//2, hauteur_Fenetre-hauteur_Fenetre//18, txt_tour, color, police=game_font, ancrage='center', taille=20, tag="tour")
 
 
 def gomme():
