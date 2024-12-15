@@ -1,11 +1,9 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
 # ------------------------------ Importation depuis le doissier source
-from upemtk import *
-from calcul import *
 from variantes import *
 
 
-def J1(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque1, V_terminaison, color1, color2):
+def J1(x, y, dico_j1, dico_j2, tour, rayon, banque1, color1, color2):
     """Paramètres :
     - x, y : position du clic et donc du potentiel futur emplacement d'un cercle ;
     - dico_j1, dico_j2 : dictionnaires des deux joueurs ;
@@ -32,7 +30,7 @@ def J1(x, y, dico_j1, dico_j2, compteur, tour, rayon, banque1, V_terminaison, co
     return dico_j1, dico_j2, tour, banque1
 
 
-def J2(x, y, dico_j2, dico_j1, compteur, tour, rayon, banque2, V_terminaison, color1, color2):
+def J2(x, y, dico_j2, dico_j1, tour, rayon, banque2, color1, color2):
     """Paramètres :
     - x, y : position du clic et donc du potentiel futur emplacement d'un cercle ;
     - dico_j2, dico_j1 : dictionnaires des deux joueurs ;

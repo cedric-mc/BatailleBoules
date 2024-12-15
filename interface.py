@@ -50,12 +50,14 @@ def update_Interface(variantes):
 
 
 def crayon(color, compteur, tour, pseudo):
-    """Paramètres :
-    - color : couleur du joueur, type : str ;
-    - compteur : le nombre de tour(s) écoulé, type : int ;
-    - tour : le nombre de tours pour la partie, type : int ;
-    - pseudo : le pseudo / surnom du joueur, type : str.
-    Cette fonction permet d'afficher le numéro (nombre) du tour et indique qui doit jouer."""
+    """Cette fonction permet d'afficher le numéro du tour et l'indication pour savoir qui doit jouer.
+
+    Args:
+        color (_type_): Couleur du texte.
+        compteur (int): Compteur du tour.
+        tour (int): Nombre de tours.
+        pseudo (str): Pseudo du joueur.
+    """
     txt = "Tour de " + pseudo
     txt_tour = 'Tour : ' + str(compteur) + '/' + str(tour)
     texte(largeur_Fenetre//2, hauteur_Fenetre//18, txt, color, police=game_font, ancrage='center', taille=20, tag="joueur")
