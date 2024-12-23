@@ -31,20 +31,20 @@ def boutons(variantes):
     while not V_menu:
         x, y, e = attente_clic_ou_touche()
         if (b_gauche_x1 < x < b_gauche_x2 and b1_y1 < y < b1_y2) or y == "1" or y == 'KP_1' or y == "ampersand":
-            variantes["sablier"] = buttons.f_boutons(variantes["sablier"], b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, largeur_Fenetre//2-550, hauteur_Fenetre//2-150, "Sablier", "sablier", "text_sablier")
+            variantes["sablier"] = buttons.f_boutons(variantes["sablier"], b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, largeur_Fenetre // 2 - 550, hauteur_Fenetre // 2 - 150, "Sablier", "sablier", "text_sablier")
         elif (b_gauche_x1 < x < b_gauche_x2 and b_milieu_y1 < y < b_milieu_y2) or y == "2" or y == 'KP_2' or y == "eacute":
-            variantes["scores"] = buttons.f_boutons(variantes["scores"], b_gauche_x1, b_gauche_x2, b_milieu_y1, b_milieu_y2, largeur_Fenetre//2-550, hauteur_Fenetre//2, "Scores", "scores", "text_scores")
+            variantes["scores"] = buttons.f_boutons(variantes["scores"], b_gauche_x1, b_gauche_x2, b_milieu_y1, b_milieu_y2, largeur_Fenetre // 2 - 550, hauteur_Fenetre // 2, "Scores", "scores", "text_scores")
         elif (b_gauche_x1 < x < b_gauche_x2 and b3_y1 < y < b3_y2) or y == "3" or y == "KP_3" or y == "quotedbl":
-            variantes["taille"] = buttons.f_boutons(variantes["taille"], b_gauche_x1, b_gauche_x2, b3_y1, b3_y2, largeur_Fenetre//2-550, hauteur_Fenetre//2+150, "Taille Des Boules", "taille_des_boules", "text_taille_des_boules")
+            variantes["taille"] = buttons.f_boutons(variantes["taille"], b_gauche_x1, b_gauche_x2, b3_y1, b3_y2, largeur_Fenetre // 2 - 550, hauteur_Fenetre // 2 + 150, "Taille Des Boules", "taille_des_boules", "text_taille_des_boules")
         elif (b_droit_x1 < x < b_droit_x2 and hauteur_Fenetre//2-200 < y < hauteur_Fenetre//2-100) or y == "4" or y == "KP_4" or y == "apostrophe":
-            variantes["dynamique"] = buttons.f_boutons(variantes["dynamique"], b_droit_x1, b_droit_x2, b4_y1, b4_y2, largeur_Fenetre//2+550, hauteur_Fenetre//2-150, "Version Dynamique", "dynamique", "text_dynamique")
+            variantes["dynamique"] = buttons.f_boutons(variantes["dynamique"], b_droit_x1, b_droit_x2, b4_y1, b4_y2, largeur_Fenetre // 2 + 550, hauteur_Fenetre // 2 - 150, "Version Dynamique", "dynamique", "text_dynamique")
         elif (b_droit_x1 < x < b_droit_x2 and b_milieu_y1 < y < b_milieu_y2) or y == "5" or y == "KP_5" or y == "parenleft":
-            variantes["terminaison"] = buttons.f_boutons(variantes["terminaison"], b_droit_x1, b_droit_x2, b_milieu_y1, b_milieu_y2, largeur_Fenetre//2+550, hauteur_Fenetre//2, "Terminaison", "terminaison", "text_terminaison")
+            variantes["terminaison"] = buttons.f_boutons(variantes["terminaison"], b_droit_x1, b_droit_x2, b_milieu_y1, b_milieu_y2, largeur_Fenetre // 2 + 550, hauteur_Fenetre // 2, "Terminaison", "terminaison", "text_terminaison")
         elif (b_droit_x1 < x < b_droit_x2 and b6_y1 < y < b6_y2) or y == "6" or y == "KP_6" or y == "minus":
-            variantes["obstacle"] = buttons.f_boutons(variantes["obstacle"], b_droit_x1, b_droit_x2, b6_y1, b6_y2, largeur_Fenetre//2+550, hauteur_Fenetre//2+150, "Obstacles", "obstacles", "text_obstacles")
+            variantes["obstacle"] = buttons.f_boutons(variantes["obstacle"], b_droit_x1, b_droit_x2, b6_y1, b6_y2, largeur_Fenetre // 2 + 550, hauteur_Fenetre // 2 + 150, "Obstacles", "obstacles", "text_obstacles")
         elif (largeur_Fenetre//2-150 < x < largeur_Fenetre//2+150 and b_milieu_y1 < y < b_milieu_y2) or y == "Return" or y == "KP_Return":
             V_menu = Start_bouton()
-        elif (largeur_Fenetre-75 < x < largeur_Fenetre-25 and 25 < y < 75) or y == "Escape" or y == "KP_Escape":
+        elif (largeur_Fenetre - 75 < x < largeur_Fenetre - 25 and 25 < y < 75) or y == "Escape" or y == "KP_Escape":
             return variantes, False
     return variantes, V_menu
 
@@ -74,6 +74,7 @@ def menu():
 def choose_colors():
     texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Choisissez une paire de couleurs\nqui représentera la couleur\nde chacun des joueurs", ancrage='center', police=game_font, taille=18, tag="question")
     isColors = False
+    color1, color2 = None, None
     while isColors is False:
         x, y, e = attente_clic_ou_touche()
         color1, color2, isColors = colors.choose_colors(x, y)

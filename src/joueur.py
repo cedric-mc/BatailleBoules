@@ -17,12 +17,12 @@ def J1(x, y, dico_j1, dico_j2, tour, rayon, banque1, color1, color2):
     diviser = False
     if dico_j2 != {}:  # Si le joueur 2 a jouer
         diviser, dico_j2 = in_cercle(dico_j2, x, y, color2)
-    if diviser == False:
+    if not diviser:
         if type(banque1) == int:
             banque1, rayon = taille_des_boules(banque1, color1)
         c = cercle(x, y, rayon, couleur=color1, remplissage=color1) # insère un cercle d'une certaine couleur dans la fenêtre
         dico_j1[c] = [x, y, rayon]
-        if intersection(dico_j2, x, y, rayon) == True:
+        if intersection(dico_j2, x, y, rayon):
             efface(c)
             dico_j1.pop(c)
     # if compteur % 2 == 0 and V_terminaison:
@@ -44,7 +44,7 @@ def J2(x, y, dico_j2, dico_j1, tour, rayon, banque2, color1, color2):
     diviser = False
     if dico_j1 != {}:
         diviser, dico_j1 = in_cercle(dico_j1, x, y, color1)
-    if diviser == False:
+    if not diviser:
         if type(banque2) == int:
             banque2, rayon = taille_des_boules(banque2, color2)
         c = cercle(x, y, rayon, couleur=color2, remplissage=color2)

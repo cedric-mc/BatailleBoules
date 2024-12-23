@@ -110,11 +110,11 @@ def game():
     pseudo1, pseudo2 = surname(lst_colors)
     if pseudo1 == "quit" or pseudo2 == "quit":
         return
-    tour = enter_numbers(melangeur_colors(lst_colors[0], lst_colors[2]))
+    tour = enter_numbers(melangeur_colors(lst_colors[0], lst_colors[1]))
     if tour == "quit":
         return
     efface("quit"), efface("croix1"), efface("croix2")
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(lst_colors[0], lst_colors[2]), police=game_font, ancrage="center", tag='jouer')
+    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(lst_colors[0], lst_colors[1]), police=game_font, ancrage="center", tag='jouer')
     attente_clic_ou_touche()
     efface('jouer')
     pause_button() # Dessine le bouton pause

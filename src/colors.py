@@ -17,7 +17,6 @@ def colors():
     #F33129 et #F7E360 (rouge et jaune)
     #552B24 et #F7777F (marron et rose)
     """
-    color1, color2 = None, None
     # ------------------------------ Choix des couleurs des joueurs première ligne
     rec1 = rectangle(largeur_Fenetre//2-700, 100, largeur_Fenetre//2-550, 250, remplissage="#FF7900", epaisseur=0)
     rec2 = rectangle(largeur_Fenetre//2-550, 100, largeur_Fenetre//2-400, 250, remplissage="#F7E360", epaisseur=0)
@@ -72,7 +71,7 @@ def colors():
     
     color1, color2 = menu.choose_colors()
     if color1 == "quit" or color2 == "quit":
-        return color1, color2
+        return [color1, color2]
     # Efface les rectangles de la première ligne
     efface(rec1), efface(rec2), efface(rec3), efface(rec4), efface(rec5), efface(rec6), efface(rec7), efface(rec8)
     efface(rec9), efface(rec10), efface(rec11), efface(rec12) # Efface les rectangles de la deuxième ligne
