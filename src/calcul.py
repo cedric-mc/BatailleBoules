@@ -17,7 +17,7 @@ def intersection(dico, x, y, rayon):
     Retourne vrai s'il y a une intersection, sinon faux"""
     if dico:
         for x_cercle, y_cercle, rayon_ennemie in dico.values():
-            distance = sqrt((x_cercle-x)**2 + (y_cercle-y)**2) # cette formule calcule la disatance entre les deux coordonnées des points
+            distance = sqrt((x_cercle-x)**2 + (y_cercle-y)**2) # cette formule calcule la distance entre les deux coordonnées des points
             if distance <= rayon + rayon_ennemie: # Le r*2 correspond au diamètre du cercle
                 return True
     return False

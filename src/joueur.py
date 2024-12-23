@@ -3,7 +3,7 @@
 from variantes import *
 
 
-def J1(x, y, dico_j1, dico_j2, tour, rayon, banque1, color1, color2):
+def J1(x, y, dico_j1, dico_j2, rayon, banque1, color1, color2):
     """Paramètres :
     - x, y : position du clic et donc du potentiel futur emplacement d'un cercle ;
     - dico_j1, dico_j2 : dictionnaires des deux joueurs ;
@@ -25,12 +25,10 @@ def J1(x, y, dico_j1, dico_j2, tour, rayon, banque1, color1, color2):
         if intersection(dico_j2, x, y, rayon):
             efface(c)
             dico_j1.pop(c)
-    # if compteur % 2 == 0 and V_terminaison:
-        # V_terminaison, tour = terminaison(V_terminaison, tour, compteur)
-    return dico_j1, dico_j2, tour, banque1
+    return dico_j1, dico_j2, banque1
 
 
-def J2(x, y, dico_j2, dico_j1, tour, rayon, banque2, color1, color2):
+def J2(x, y, dico_j2, dico_j1, rayon, banque2, color1, color2):
     """Paramètres :
     - x, y : position du clic et donc du potentiel futur emplacement d'un cercle ;
     - dico_j2, dico_j1 : dictionnaires des deux joueurs ;
@@ -52,6 +50,4 @@ def J2(x, y, dico_j2, dico_j1, tour, rayon, banque2, color1, color2):
         if intersection(dico_j1, x, y, rayon):
             efface(c)
             dico_j2.pop(c)
-    # if compteur%2 == 1 and V_terminaison:
-    #     V_terminaison, tour = terminaison(V_terminaison, tour, compteur)
-    return dico_j2, dico_j1, tour, banque2
+    return dico_j2, dico_j1, banque2

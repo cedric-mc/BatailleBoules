@@ -24,28 +24,48 @@ def Start_bouton():
 
 
 def boutons(variantes):
-    """Cette fonction prend en paramètre le dictionnaire des variables booléennes des six variantes (en False au départ).
-    Renvoie les 6 variables booléennes.
-    Cette fonction permet de changer les activations/désactivations des six variantes dans le menu, tout est stocker dans le dictionnaire (len(dict() = 6))."""
+    """Permet de changer les activations/désactivations des six variantes dans le menu, tout est stocker dans le dictionnaire (len(dict() = 6)).
+
+    Args:
+        variantes (dict): Dictionnaire de variantes qui permet de savoir si une variante est activée ou non.
+
+    Returns:
+        variantes (dict): Renvoie un dictionnaire de variantes avec les variantes activées ou désactivées.
+        V_menu (bool): Variable booléenne qui permet de savoir si le menu est activé ou non.
+    """
+    def verifyButton(variation, x, y, key, bouton):
+        """Vérifie si le bouton a été cliqué ou une touche a été pressée et change la valeur de la variante."""
+        if (bouton["x1"] < x < bouton["x2"] and bouton["y1"] < y < bouton["y2"]) or y in bouton["keys"]:
+            variantes[variation] = buttons.f_boutons(variantes[variation], bouton["x1"], bouton["x2"], bouton["y1"], bouton["y2"], bouton["text_x"], bouton["text_y"], bouton["label"], variation, bouton["text_tag"])
+            return True
+        return False
+
+
+    buttons_info = [
+        {"variation": "sablier", "x1": b_gauche_x1, "x2": b_gauche_x2, "y1": b1_y1, "y2": b1_y2, "text_x": largeur_Fenetre // 2 - 550, "text_y": hauteur_Fenetre // 2 - 150, "label": "Sablier", "text_tag": "text_sablier", "keys": ["1", "KP_1", "ampersand"]},
+        {"variation": "scores", "x1": b_gauche_x1, "x2": b_gauche_x2, "y1": b_milieu_y1, "y2": b_milieu_y2, "text_x": largeur_Fenetre // 2 - 550, "text_y": hauteur_Fenetre // 2, "label": "Scores", "text_tag": "text_scores", "keys": ["2", "KP_2", "eacute"]},
+        {"variation": "taille", "x1": b_gauche_x1, "x2": b_gauche_x2, "y1": b3_y1, "y2": b3_y2, "text_x": largeur_Fenetre // 2 - 550, "text_y": hauteur_Fenetre // 2 + 150, "label": "Taille Des Boules", "text_tag": "text_taille_des_boules", "keys": ["3", "KP_3", "quotedbl"]},
+        {"variation": "dynamique", "x1": b_droit_x1, "x2": b_droit_x2, "y1": b4_y1, "y2": b4_y2, "text_x": largeur_Fenetre // 2 + 550, "text_y": hauteur_Fenetre // 2 - 150, "label": "Version Dynamique", "text_tag": "text_dynamique", "keys": ["4", "KP_4", "apostrophe"]},
+        {"variation": "terminaison", "x1": b_droit_x1, "x2": b_droit_x2, "y1": b_milieu_y1, "y2": b_milieu_y2, "text_x": largeur_Fenetre // 2 + 550, "text_y": hauteur_Fenetre // 2, "label": "Terminaison", "text_tag": "text_terminaison", "keys": ["5", "KP_5", "parenleft"]},
+        {"variation": "obstacle", "x1": b_droit_x1, "x2": b_droit_x2, "y1": b6_y1, "y2": b6_y2, "text_x": largeur_Fenetre // 2 + 550, "text_y": hauteur_Fenetre // 2 + 150, "label": "Obstacles", "text_tag": "text_obstacles", "keys": ["6", "KP_6", "minus"]}
+    ]
+
     V_menu = False
     while not V_menu:
         x, y, e = attente_clic_ou_touche()
-        if (b_gauche_x1 < x < b_gauche_x2 and b1_y1 < y < b1_y2) or y == "1" or y == 'KP_1' or y == "ampersand":
-            variantes["sablier"] = buttons.f_boutons(variantes["sablier"], b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, largeur_Fenetre // 2 - 550, hauteur_Fenetre // 2 - 150, "Sablier", "sablier", "text_sablier")
-        elif (b_gauche_x1 < x < b_gauche_x2 and b_milieu_y1 < y < b_milieu_y2) or y == "2" or y == 'KP_2' or y == "eacute":
-            variantes["scores"] = buttons.f_boutons(variantes["scores"], b_gauche_x1, b_gauche_x2, b_milieu_y1, b_milieu_y2, largeur_Fenetre // 2 - 550, hauteur_Fenetre // 2, "Scores", "scores", "text_scores")
-        elif (b_gauche_x1 < x < b_gauche_x2 and b3_y1 < y < b3_y2) or y == "3" or y == "KP_3" or y == "quotedbl":
-            variantes["taille"] = buttons.f_boutons(variantes["taille"], b_gauche_x1, b_gauche_x2, b3_y1, b3_y2, largeur_Fenetre // 2 - 550, hauteur_Fenetre // 2 + 150, "Taille Des Boules", "taille_des_boules", "text_taille_des_boules")
-        elif (b_droit_x1 < x < b_droit_x2 and hauteur_Fenetre//2-200 < y < hauteur_Fenetre//2-100) or y == "4" or y == "KP_4" or y == "apostrophe":
-            variantes["dynamique"] = buttons.f_boutons(variantes["dynamique"], b_droit_x1, b_droit_x2, b4_y1, b4_y2, largeur_Fenetre // 2 + 550, hauteur_Fenetre // 2 - 150, "Version Dynamique", "dynamique", "text_dynamique")
-        elif (b_droit_x1 < x < b_droit_x2 and b_milieu_y1 < y < b_milieu_y2) or y == "5" or y == "KP_5" or y == "parenleft":
-            variantes["terminaison"] = buttons.f_boutons(variantes["terminaison"], b_droit_x1, b_droit_x2, b_milieu_y1, b_milieu_y2, largeur_Fenetre // 2 + 550, hauteur_Fenetre // 2, "Terminaison", "terminaison", "text_terminaison")
-        elif (b_droit_x1 < x < b_droit_x2 and b6_y1 < y < b6_y2) or y == "6" or y == "KP_6" or y == "minus":
-            variantes["obstacle"] = buttons.f_boutons(variantes["obstacle"], b_droit_x1, b_droit_x2, b6_y1, b6_y2, largeur_Fenetre // 2 + 550, hauteur_Fenetre // 2 + 150, "Obstacles", "obstacles", "text_obstacles")
-        elif (largeur_Fenetre//2-150 < x < largeur_Fenetre//2+150 and b_milieu_y1 < y < b_milieu_y2) or y == "Return" or y == "KP_Return":
+
+        # Vérification des boutons de variantes
+        for button in buttons_info:
+            if verifyButton(button["variation"], x, y, e, button):
+                break
+
+        # Bouton "Start"
+        if largeur_Fenetre//2-150 < x < largeur_Fenetre//2+150 and b_milieu_y1 < y < b_milieu_y2 or e == "Return" or e == "KP_Return":
             V_menu = Start_bouton()
-        elif (largeur_Fenetre - 75 < x < largeur_Fenetre - 25 and 25 < y < 75) or y == "Escape" or y == "KP_Escape":
+        # Bouton "Quitter"
+        elif largeur_Fenetre - 75 < x < largeur_Fenetre - 25 and 25 < y < 75 or e == "Escape" or e == "KP_Escape":
             return variantes, False
+        mise_a_jour()
     return variantes, V_menu
 
 

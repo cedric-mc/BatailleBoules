@@ -29,6 +29,8 @@ def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
     # Calcul d'aire des cercles, en comptant les pixels. Le calcul est effectué en se basant sur l'aire autour des cercles.
     S1, S2 = calcul_aire(dico_j1, dico_j2)
     rouge, bleu = len(S1), len(S2)
+    # Génération d'un pourcentage pour chaque joueur.
+    rouge, bleu = (rouge/(rouge+bleu))*100, (bleu/(rouge+bleu))*100
     sleep(0.5)
     mise_a_jour()
     efface('calcul')
@@ -43,7 +45,7 @@ def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
     mise_a_jour()
 
 
-def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_obs, number, color1, color2):
+def avant_jeu(dico_j1, dico_j2, rayon, variantes, banque, dico_obs, number, color1, color2):
     """Paramètres :
     - dico_j1, dico_j2 : dictionnaires des deux joueurs ;
     - rayon : rayon par défaut de 50 pixels ;
@@ -77,17 +79,17 @@ def avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque, dico_o
         if e == "Touche":
             x, y , e = attente_clic()
         if variantes["obstacle"] == True and intersection(dico_obs, x, y, rayon) == True:
-            return dico_j1, dico_j2, tour, banque
-        dico_j1, dico_j2, tour, banque = joueur(x, y, dico_j1, dico_j2, tour, rayon, banque, color1, color2, number)
-    return dico_j1, dico_j2, tour, banque
+            return dico_j1, dico_j2, banque
+        dico_j1, dico_j2, banque = joueur(x, y, dico_j1, dico_j2, rayon, banque, color1, color2, number)
+    return dico_j1, dico_j2, banque
 
 
-def joueur(x, y, dico_j1, dico_j2, tour, rayon, banque, color1, color2, number):
+def joueur(x, y, dico_j1, dico_j2, rayon, banque, color1, color2, number):
     if number == 1:
-            dico_j1, dico_j2, tour, banque = J1(x, y, dico_j1, dico_j2, tour, rayon, banque, color1, color2)
+            dico_j1, dico_j2, banque = J1(x, y, dico_j1, dico_j2, rayon, banque, color1, color2)
     elif number == 2:
-        dico_j2, dico_j1, tour, banque = J2(x, y, dico_j2, dico_j1, tour, rayon, banque, color1, color2)
-    return dico_j1, dico_j2, tour, banque
+        dico_j2, dico_j1, banque = J2(x, y, dico_j2, dico_j1, rayon, banque, color1, color2)
+    return dico_j1, dico_j2, banque
 
 
 def game():
@@ -125,10 +127,10 @@ def game():
         banque1, banque2 = 10000, 10000
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour
         crayon(lst_colors[0], compteur, tour, pseudo1)
-        dico_j1, dico_j2, tour, banque1 = avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque1, dico_obs, 1, lst_colors[0], lst_colors[1])
+        dico_j1, dico_j2, banque1 = avant_jeu(dico_j1, dico_j2, rayon, variantes, banque1, dico_obs, 1, lst_colors[0], lst_colors[1])
         gomme()
         crayon(lst_colors[1], compteur, tour, pseudo2)
-        dico_j1, dico_j2, tour, banque2 = avant_jeu(dico_j1, dico_j2, rayon, compteur, tour, variantes, banque2, dico_obs, 2, lst_colors[0], lst_colors[1])
+        dico_j1, dico_j2, banque2 = avant_jeu(dico_j1, dico_j2, rayon, variantes, banque2, dico_obs, 2, lst_colors[0], lst_colors[1])
         gomme()
         variantes["terminaison"], tour = terminaison(variantes["terminaison"], tour, compteur)
         mise_a_jour()
