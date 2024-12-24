@@ -30,7 +30,7 @@ def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
     S1, S2 = calcul_aire(dico_j1, dico_j2)
     rouge, bleu = len(S1), len(S2)
     # Génération d'un pourcentage pour chaque joueur.
-    rouge, bleu = (rouge/(rouge+bleu))*100, (bleu/(rouge+bleu))*100
+    rouge, bleu = (rouge/(rouge+bleu))*100, (bleu/(rouge+bleu))*100 # TODO: Ajouter le pourcentage de victoire.
     sleep(0.5)
     mise_a_jour()
     efface('calcul')
