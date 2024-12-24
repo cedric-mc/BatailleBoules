@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le dossier source
+# ------------------------------ Importation
 import upemtk
 from default import largeur_Fenetre, hauteur_Fenetre, game_font
 from game import game

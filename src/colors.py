@@ -1,6 +1,6 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le dossier source
-from upemtk import *
+# ------------------------------ Importation
+import upemtk
 from default import *
 import menu
 
@@ -18,70 +18,70 @@ def colors():
     #552B24 et #F7777F (marron et rose)
     """
     # ------------------------------ Choix des couleurs des joueurs première ligne
-    rec1 = rectangle(largeur_Fenetre//2-700, 100, largeur_Fenetre//2-550, 250, remplissage="#FF7900", epaisseur=0)
-    rec2 = rectangle(largeur_Fenetre//2-550, 100, largeur_Fenetre//2-400, 250, remplissage="#F7E360", epaisseur=0)
-    rec3 = rectangle(largeur_Fenetre//2-350, 100, largeur_Fenetre//2-200, 250, remplissage="#F33129", epaisseur=0)
-    rec4 = rectangle(largeur_Fenetre//2-200, 100, largeur_Fenetre//2-50, 250, remplissage="#0179C0", epaisseur=0)
-    rec5 = rectangle(largeur_Fenetre//2+50, 100, largeur_Fenetre//2+200, 250, remplissage="#2C6452", epaisseur=0)
-    rec6 = rectangle(largeur_Fenetre//2+200, 100, largeur_Fenetre//2+350, 250, remplissage="#F7777F", epaisseur=0)
-    rec7 = rectangle(largeur_Fenetre//2+400, 100, largeur_Fenetre//2+550, 250, remplissage="#552B24", epaisseur=0)
-    rec8 = rectangle(largeur_Fenetre//2+550, 100, largeur_Fenetre//2+700, 250, remplissage="#F33129", epaisseur=0)
+    rec1 = upemtk.rectangle(largeur_Fenetre//2-700, 100, largeur_Fenetre//2-550, 250, remplissage="#FF7900", epaisseur=0)
+    rec2 = upemtk.rectangle(largeur_Fenetre // 2 - 550, 100, largeur_Fenetre // 2 - 400, 250, remplissage="#F7E360", epaisseur=0)
+    rec3 = upemtk.rectangle(largeur_Fenetre // 2 - 350, 100, largeur_Fenetre // 2 - 200, 250, remplissage="#F33129", epaisseur=0)
+    rec4 = upemtk.rectangle(largeur_Fenetre//2-200, 100, largeur_Fenetre//2-50, 250, remplissage="#0179C0", epaisseur=0)
+    rec5 = upemtk.rectangle(largeur_Fenetre//2+50, 100, largeur_Fenetre//2+200, 250, remplissage="#2C6452", epaisseur=0)
+    rec6 = upemtk.rectangle(largeur_Fenetre//2+200, 100, largeur_Fenetre//2+350, 250, remplissage="#F7777F", epaisseur=0)
+    rec7 = upemtk.rectangle(largeur_Fenetre//2+400, 100, largeur_Fenetre//2+550, 250, remplissage="#552B24", epaisseur=0)
+    rec8 = upemtk.rectangle(largeur_Fenetre//2+550, 100, largeur_Fenetre//2+700, 250, remplissage="#F33129", epaisseur=0)
 
     # ------------------------------ Choix des couleurs des joueurs deuxième ligne
-    rec9 = rectangle(largeur_Fenetre//2-700, hauteur_Fenetre//2-75, largeur_Fenetre//2-550, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
-    rec10 = rectangle(largeur_Fenetre//2-550, hauteur_Fenetre//2-75, largeur_Fenetre//2-400, hauteur_Fenetre//2+75, remplissage="#65419C", epaisseur=0)
-    rec11 = rectangle(largeur_Fenetre//2+400, hauteur_Fenetre//2-75, largeur_Fenetre//2+550, hauteur_Fenetre//2+75, remplissage="#F7777F", epaisseur=0)
-    rec12 = rectangle(largeur_Fenetre//2+550, hauteur_Fenetre//2-75, largeur_Fenetre//2+700, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
+    rec9 = upemtk.rectangle(largeur_Fenetre//2-700, hauteur_Fenetre//2-75, largeur_Fenetre//2-550, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
+    rec10 = upemtk.rectangle(largeur_Fenetre//2-550, hauteur_Fenetre//2-75, largeur_Fenetre//2-400, hauteur_Fenetre//2+75, remplissage="#65419C", epaisseur=0)
+    rec11 = upemtk.rectangle(largeur_Fenetre//2+400, hauteur_Fenetre//2-75, largeur_Fenetre//2+550, hauteur_Fenetre//2+75, remplissage="#F7777F", epaisseur=0)
+    rec12 = upemtk.rectangle(largeur_Fenetre//2+550, hauteur_Fenetre//2-75, largeur_Fenetre//2+700, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
 
     # ------------------------------ Choix des couleurs des joueurs troisième ligne
-    rec13 = rectangle(largeur_Fenetre//2-700, hauteur_Fenetre-100, largeur_Fenetre//2-550, hauteur_Fenetre-250, remplissage="#65419C", epaisseur=0)
-    rec14 = rectangle(largeur_Fenetre//2-550, hauteur_Fenetre-100, largeur_Fenetre//2-400, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
-    rec15 = rectangle(largeur_Fenetre//2-350, hauteur_Fenetre-100, largeur_Fenetre//2-200, hauteur_Fenetre-250, remplissage="#2C6452", epaisseur=0)
-    rec16 = rectangle(largeur_Fenetre//2-200, hauteur_Fenetre-100, largeur_Fenetre//2-50, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
-    rec17 = rectangle(largeur_Fenetre//2+50, hauteur_Fenetre-100, largeur_Fenetre//2+200, hauteur_Fenetre-250, remplissage="#F33129", epaisseur=0)
-    rec18 = rectangle(largeur_Fenetre//2+200, hauteur_Fenetre-100, largeur_Fenetre//2+350, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
-    rec19 = rectangle(largeur_Fenetre//2+400, hauteur_Fenetre-100, largeur_Fenetre//2+550, hauteur_Fenetre-250, remplissage="#552B24", epaisseur=0)
-    rec20 = rectangle(largeur_Fenetre//2+550, hauteur_Fenetre-100, largeur_Fenetre//2+700, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
+    rec13 = upemtk.rectangle(largeur_Fenetre//2-700, hauteur_Fenetre-100, largeur_Fenetre//2-550, hauteur_Fenetre-250, remplissage="#65419C", epaisseur=0)
+    rec14 = upemtk.rectangle(largeur_Fenetre//2-550, hauteur_Fenetre-100, largeur_Fenetre//2-400, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
+    rec15 = upemtk.rectangle(largeur_Fenetre//2-350, hauteur_Fenetre-100, largeur_Fenetre//2-200, hauteur_Fenetre-250, remplissage="#2C6452", epaisseur=0)
+    rec16 = upemtk.rectangle(largeur_Fenetre//2-200, hauteur_Fenetre-100, largeur_Fenetre//2-50, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
+    rec17 = upemtk.rectangle(largeur_Fenetre//2+50, hauteur_Fenetre-100, largeur_Fenetre//2+200, hauteur_Fenetre-250, remplissage="#F33129", epaisseur=0)
+    rec18 = upemtk.rectangle(largeur_Fenetre//2+200, hauteur_Fenetre-100, largeur_Fenetre//2+350, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
+    rec19 = upemtk.rectangle(largeur_Fenetre//2+400, hauteur_Fenetre-100, largeur_Fenetre//2+550, hauteur_Fenetre-250, remplissage="#552B24", epaisseur=0)
+    rec20 = upemtk.rectangle(largeur_Fenetre//2+550, hauteur_Fenetre-100, largeur_Fenetre//2+700, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
 
     # ------------------------------ Texte des couleurs des joueurs première ligne
-    txt1 = texte(largeur_Fenetre//2-625, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt2 = texte(largeur_Fenetre//2-475, 175, "J2", taille=45, couleur="white", ancrage="center")
-    txt3 = texte(largeur_Fenetre//2-275, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt4 = texte(largeur_Fenetre//2-125, 175, "J2", taille=45, couleur="white", ancrage="center")
-    txt5 = texte(largeur_Fenetre//2+125, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt6 = texte(largeur_Fenetre//2+275, 175, "J2", taille=45, couleur="white", ancrage="center")
-    txt7 = texte(largeur_Fenetre//2+475, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt8 = texte(largeur_Fenetre//2+625, 175, "J2", taille=45, couleur="white", ancrage="center")
+    txt1 = upemtk.texte(largeur_Fenetre//2-625, 175, "J1", taille=45, couleur="white", ancrage="center")
+    txt2 = upemtk.texte(largeur_Fenetre//2-475, 175, "J2", taille=45, couleur="white", ancrage="center")
+    txt3 = upemtk.texte(largeur_Fenetre//2-275, 175, "J1", taille=45, couleur="white", ancrage="center")
+    txt4 = upemtk.texte(largeur_Fenetre//2-125, 175, "J2", taille=45, couleur="white", ancrage="center")
+    txt5 = upemtk.texte(largeur_Fenetre//2+125, 175, "J1", taille=45, couleur="white", ancrage="center")
+    txt6 = upemtk.texte(largeur_Fenetre//2+275, 175, "J2", taille=45, couleur="white", ancrage="center")
+    txt7 = upemtk.texte(largeur_Fenetre//2+475, 175, "J1", taille=45, couleur="white", ancrage="center")
+    txt8 = upemtk.texte(largeur_Fenetre//2+625, 175, "J2", taille=45, couleur="white", ancrage="center")
 
     # ------------------------------ Texte des couleurs des joueurs deuxième ligne
-    txt9 = texte(largeur_Fenetre//2-625, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
-    txt10 = texte(largeur_Fenetre//2-475, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
-    txt11 = texte(largeur_Fenetre//2+475, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
-    txt12 = texte(largeur_Fenetre//2+625, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
+    txt9 = upemtk.texte(largeur_Fenetre//2-625, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
+    txt10 = upemtk.texte(largeur_Fenetre//2-475, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
+    txt11 = upemtk.texte(largeur_Fenetre//2+475, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
+    txt12 = upemtk.texte(largeur_Fenetre//2+625, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
 
     # ------------------------------ Texte des couleurs des joueurs troisième ligne
-    txt13 = texte(largeur_Fenetre//2-625, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt14 = texte(largeur_Fenetre//2-475, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
-    txt15 = texte(largeur_Fenetre//2-275, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt16 = texte(largeur_Fenetre//2-125, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
-    txt17 = texte(largeur_Fenetre//2+125, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt18 = texte(largeur_Fenetre//2+275, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
-    txt19 = texte(largeur_Fenetre//2+475, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt20 = texte(largeur_Fenetre//2+625, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
+    txt13 = upemtk.texte(largeur_Fenetre//2-625, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
+    txt14 = upemtk.texte(largeur_Fenetre//2-475, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
+    txt15 = upemtk.texte(largeur_Fenetre//2-275, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
+    txt16 = upemtk.texte(largeur_Fenetre//2-125, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
+    txt17 = upemtk.texte(largeur_Fenetre//2+125, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
+    txt18 = upemtk.texte(largeur_Fenetre//2+275, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
+    txt19 = upemtk.texte(largeur_Fenetre//2+475, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
+    txt20 = upemtk.texte(largeur_Fenetre//2+625, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
     
     color1, color2 = menu.choose_colors()
     if color1 == "quit" or color2 == "quit":
         return [color1, color2]
     # Efface les rectangles de la première ligne
-    efface(rec1), efface(rec2), efface(rec3), efface(rec4), efface(rec5), efface(rec6), efface(rec7), efface(rec8)
-    efface(rec9), efface(rec10), efface(rec11), efface(rec12) # Efface les rectangles de la deuxième ligne
+    upemtk.efface(rec1), upemtk.efface(rec2), upemtk.efface(rec3), upemtk.efface(rec4), upemtk.efface(rec5), upemtk.efface(rec6), upemtk.efface(rec7), upemtk.efface(rec8)
+    upemtk.efface(rec9), upemtk.efface(rec10), upemtk.efface(rec11), upemtk.efface(rec12) # Efface les rectangles de la deuxième ligne
     # Efface les rectangles de la troisième ligne
-    efface(rec13), efface(rec14), efface(rec15), efface(rec16), efface(rec17), efface(rec18), efface(rec19), efface(rec20)
+    upemtk.efface(rec13), upemtk.efface(rec14), upemtk.efface(rec15), upemtk.efface(rec16), upemtk.efface(rec17), upemtk.efface(rec18), upemtk.efface(rec19), upemtk.efface(rec20)
     # Efface les textes de la première ligne
-    efface(txt1), efface(txt2), efface(txt3), efface(txt4), efface(txt5), efface(txt6), efface(txt7), efface(txt8)
-    efface(txt9), efface(txt10), efface(txt11), efface(txt12) # Efface les textes de la deuxième ligne
+    upemtk.efface(txt1), upemtk.efface(txt2), upemtk.efface(txt3), upemtk.efface(txt4), upemtk.efface(txt5), upemtk.efface(txt6), upemtk.efface(txt7), upemtk.efface(txt8)
+    upemtk.efface(txt9), upemtk.efface(txt10), upemtk.efface(txt11), upemtk.efface(txt12) # Efface les textes de la deuxième ligne
     # Efface les textes de la troisième ligne
-    efface(txt13), efface(txt14), efface(txt15), efface(txt16), efface(txt17), efface(txt18), efface(txt19), efface(txt20)
+    upemtk.efface(txt13), upemtk.efface(txt14), upemtk.efface(txt15), upemtk.efface(txt16), upemtk.efface(txt17), upemtk.efface(txt18), upemtk.efface(txt19), upemtk.efface(txt20)
     return [color1, color2]
 
 

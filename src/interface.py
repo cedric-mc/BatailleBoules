@@ -1,20 +1,18 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le dossier source
-from upemtk import *
+# ------------------------------ Importation
+import upemtk
 from default import *
-
-# ------------------------------ Importation depuis la bibliothèque Python
 
 
 def create_Interface(variantes):
-    rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre//10, couleur='black', remplissage='black', tag="interface1")
-    rectangle(0, hauteur_Fenetre-hauteur_Fenetre//10, largeur_Fenetre, hauteur_Fenetre, couleur='black', remplissage='black', tag="interface2")
-    rectangle(0, 0, largeur_Fenetre//7, hauteur_Fenetre, couleur='black', remplissage='black', tag="interface3")
+    upemtk.rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre//10, couleur='black', remplissage='black', tag="interface1")
+    upemtk.rectangle(0, hauteur_Fenetre-hauteur_Fenetre//10, largeur_Fenetre, hauteur_Fenetre, couleur='black', remplissage='black', tag="interface2")
+    upemtk.rectangle(0, 0, largeur_Fenetre//7, hauteur_Fenetre, couleur='black', remplissage='black', tag="interface3")
     # Je voudrais créer sur l'interface 6 carrés (vert ou rouge) qui indiquent si la variante est activée ou non.
     if variantes["sablier"]:
-        rectangle(10, hauteur_Fenetre//9, largeur_Fenetre//11, hauteur_Fenetre//10, couleur='green', remplissage='green', tag="sablier")
+        upemtk.rectangle(10, hauteur_Fenetre//9, largeur_Fenetre//11, hauteur_Fenetre//10, couleur='green', remplissage='green', tag="sablier")
     else:
-        rectangle(10, hauteur_Fenetre//10, largeur_Fenetre//11, hauteur_Fenetre//2, couleur='red', remplissage='red', tag="sablier")
+        upemtk.rectangle(10, hauteur_Fenetre//10, largeur_Fenetre//11, hauteur_Fenetre//2, couleur='red', remplissage='red', tag="sablier")
     # if variantes["scores"]:
     #     rectangle(0, hauteur_Fenetre-hauteur_Fenetre//10, largeur_Fenetre//7, hauteur_Fenetre, couleur='green', remplissage='green', tag="scores")
     # else:
@@ -38,9 +36,9 @@ def create_Interface(variantes):
     
 
 def delete_Interface():
-    efface("interface1")
-    efface("interface2")
-    efface("interface3")
+    upemtk.efface("interface1")
+    upemtk.efface("interface2")
+    upemtk.efface("interface3")
 
 
 def update_Interface(variantes):
@@ -60,11 +58,11 @@ def crayon(color, compteur, tour, pseudo):
     """
     txt = "Tour de " + pseudo
     txt_tour = 'Tour : ' + str(compteur) + '/' + str(tour)
-    texte(largeur_Fenetre//2, hauteur_Fenetre//18, txt, color, police=game_font, ancrage='center', taille=20, tag="joueur")
-    texte(largeur_Fenetre//2, hauteur_Fenetre-hauteur_Fenetre//18, txt_tour, color, police=game_font, ancrage='center', taille=20, tag="tour")
+    upemtk.texte(largeur_Fenetre // 2, hauteur_Fenetre // 18, txt, color, police=game_font, ancrage='center', taille=20, tag="joueur")
+    upemtk.texte(largeur_Fenetre // 2, hauteur_Fenetre - hauteur_Fenetre // 18, txt_tour, color, police=game_font, ancrage='center', taille=20, tag="tour")
 
 
 def gomme():
     """Cette fonction efface le numéro (nombre) de tour et l'indication pour savoir qui doit jouer."""
-    efface("joueur")
-    efface("tour")
+    upemtk.efface("joueur")
+    upemtk.efface("tour")

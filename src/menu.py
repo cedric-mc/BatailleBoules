@@ -1,5 +1,5 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le dossier source
+# ------------------------------ Importation
 import upemtk
 from default import b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, largeur_Fenetre, hauteur_Fenetre, b_milieu_y1, b_milieu_y2, b3_y1, b3_y2, b_droit_x1, b_droit_x2, b4_y1, b4_y2, b6_y1, b6_y2, txt_y2, game_font
 import colors

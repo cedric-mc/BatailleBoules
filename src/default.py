@@ -1,5 +1,5 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis la bibliothèque Python
+# ------------------------------ Importation
 import ctypes
 import platform
 

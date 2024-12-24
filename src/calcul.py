@@ -1,10 +1,7 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis la bibliothèque Python
+# ------------------------------ Importation
 from math import sqrt, dist, atan2, cos, sin
-
-
-# ------------------------------ Importation depuis le dossier source
-from upemtk import *
+import upemtk
 
 
 def intersection(dico, x, y, rayon):
@@ -47,7 +44,7 @@ def div_cercle(color, key, x1, y1, xc, yc, rc, dico):
     - dico : dictionnaire contenant le cercle.
     Renvoie le dictionnaire avec les deux nouveaux cercles et celui du clic supprimer.
     Cette fonction permet de diviser le cercle du clic en deux, selon l'intersection, le cosinus, le sinus et la tangente."""
-    efface(key)       #supprimer le cercle qui va être divisé en deux
+    upemtk.efface(key)       #supprimer le cercle qui va être divisé en deux
     dico.pop(key)
     dx, dy = x1 - xc, y1 - yc  #la distance entre le clic et le centre du cercle
     angle = atan2(dy, dx)  #la tangente entre les distances 
@@ -55,14 +52,14 @@ def div_cercle(color, key, x1, y1, xc, yc, rc, dico):
     distance = sqrt(dx**2 + dy**2)  #la distance entre deux cercle
     rp = rc - distance  #rayon du petit cercle
     rg = rc - rp       #rayon du grand cercle
-    c1 = cercle(x1, y1, rp, couleur=color, remplissage=color)  # représente le petit cercle
-    c2 = cercle(x2, y2, rg, couleur=color, remplissage=color) # le grand cercle
+    c1 = upemtk.cercle(x1, y1, rp, couleur=color, remplissage=color)  # représente le petit cercle
+    c2 = upemtk.cercle(x2, y2, rg, couleur=color, remplissage=color) # le grand cercle
     dico[c1] = [x1, y1, rp]
     dico[c2] = [x2, y2, rg]
     return dico
 
 
 def calcul_aire(dico_j1, dico_j2):
-    S1 = {(i, j) for x, y, r in dico_j1.values() for i in range(int(x-r), int(x+r)) for j in range(int(y-r), int(y+r)) if dist((i, j), (x, y)) <= r}
-    S2 = {(i, j) for x, y, r in dico_j2.values() for i in range(int(x-r), int(x+r)) for j in range(int(y-r), int(y+r)) if dist((i, j), (x, y)) <= r}
-    return S1, S2
+    def inter_calcul_aire(dico):
+        return {(i, j) for x, y, r in dico.values() for i in range(int(x-r), int(x+r)) for j in range(int(y-r), int(y+r)) if dist((i, j), (x, y)) <= r}
+    return inter_calcul_aire(dico_j1), inter_calcul_aire(dico_j2)

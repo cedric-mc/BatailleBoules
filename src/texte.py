@@ -1,10 +1,7 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis la bibliothèque Python
+# ------------------------------ Importation
 from string import ascii_letters
-
-
-# ------------------------------ Importation depuis le dossier source
-from upemtk import *
+import upemtk
 from default import *
 
 
@@ -47,8 +44,8 @@ def enter_surname(joueur, color):
     lst = list()
     x, y, e = None, None, None
     while y != 'Return' and y != 'KP_Enter':
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(lst), couleur=color, police=game_font, ancrage='center', taille=20, tag='pseudo')
-        x, y, e = attente_clic_ou_touche()
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(lst), couleur=color, police=game_font, ancrage='center', taille=20, tag='pseudo')
+        x, y, e = upemtk.attente_clic_ou_touche()
         if ((e == "ClicGauche" or e == "ClicDroit") and (largeur_Fenetre-75 <= x <= largeur_Fenetre-25) and (25 <= y <= 75)) or y == "Escape" or y == "KP_Escape":
             return "quit"
         elif e == "Touche":
@@ -78,9 +75,9 @@ def enter_surname(joueur, color):
                 lst.append('0')
             elif (y == 'BackSpace' or y == 'Delete') and lst != []:
                 lst.pop()
-        efface('pseudo')
-        mise_a_jour()
-    if not(lst):
+        upemtk.efface('pseudo')
+        upemtk.mise_a_jour()
+    if not lst:
         pseudo = str("Joueur " + str(joueur))
     else:
         pseudo = "".join(lst)
@@ -90,14 +87,14 @@ def enter_surname(joueur, color):
 def surname(lst_colors):
     """Fait appel à la fonction enter_surname pour entrer les noms des deux joueurs, c'est accompagné d'un texte pour indiqué pour qui doit être entrer le pseudo.
     Elle renvoie les deux pseudos, type : str"""
-    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du premier Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[0], police=game_font, ancrage='center', taille=20, tag='names')
+    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du premier Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[0], police=game_font, ancrage='center', taille=20, tag='names')
     pseudo1 = enter_surname(1, lst_colors[0])
-    efface('names')
+    upemtk.efface('names')
     if pseudo1 == "quit":
         return "quit", "quit"
-    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du deuxième Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[1], police=game_font, ancrage='center', taille=20, tag='names')
+    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du deuxième Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[1], police=game_font, ancrage='center', taille=20, tag='names')
     pseudo2 = enter_surname(2, lst_colors[1])
-    efface('names')
+    upemtk.efface('names')
     return pseudo1, pseudo2
 
 
@@ -105,11 +102,11 @@ def enter_numbers(color):
     """Renvoie le nombre de tours, type : int.
     Cette fonction demande aux joueurs le nombre de tours, le minimum est 5."""
     numbers = []
-    texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le nombre de tours en chiffre puis appuyez sur Entrée.\n(réfléchissez avant d'entrer, 5 tours minimum par joueur)", ancrage='center', police=game_font, taille=18, tag='tours', couleur=color)
+    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le nombre de tours en chiffre puis appuyez sur Entrée.\n(réfléchissez avant d'entrer, 5 tours minimum par joueur)", ancrage='center', police=game_font, taille=18, tag='tours', couleur=color)
     x, y, e = None, None, None
     while y != 'Return' and y != 'KP_Enter':
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(numbers),couleur=color, ancrage='center', police=game_font, taille=20, tag='liste')
-        x, y, e = attente_clic_ou_touche()
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(numbers),couleur=color, ancrage='center', police=game_font, taille=20, tag='liste')
+        x, y, e = upemtk.attente_clic_ou_touche()
         if ((e == "ClicGauche" or e == "ClicDroit") and (largeur_Fenetre-75 <= x <= largeur_Fenetre-25) and (25 <= y <= 75)) or y == "Escape" or y == "KP_Escape":
             return "quit"
         elif e == "Touche":
@@ -135,14 +132,14 @@ def enter_numbers(color):
                 numbers.append('0')
             elif (y == 'BackSpace' or y == 'Delete') and numbers != []:
                 numbers.pop()
-        efface('liste')
-        mise_a_jour()
+        upemtk.efface('liste')
+        upemtk.mise_a_jour()
     if not numbers:
-        efface('tours')
+        upemtk.efface('tours')
         return 5
     else:
         nb_tours = int("".join(numbers))
         if nb_tours < 5:
             nb_tours = 5
-    efface('tours')
+    upemtk.efface('tours')
     return nb_tours

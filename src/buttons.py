@@ -1,6 +1,6 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le dossier source
-from upemtk import efface, rectangle, texte, ligne, mise_a_jour
+# ------------------------------ Importation
+import upemtk
 from default import largeur_Fenetre, game_font, b_gauche_x1, b_gauche_x2, b1_y1, b1_y2, txt_gauche_x, txt_y1, b_milieu_y1, b_milieu_y2, txt_y2, b3_y1, b3_y2, txt_y3, b_droit_x1, b_droit_x2, b4_y1, b4_y2, txt_droite_x, b6_y1, b6_y2
 
 
@@ -52,10 +52,10 @@ def f_boutons(variante, rec_x1, rec_x2, rec_y1, rec_y2, txt_x, txt_y, txt_in, ta
         
     Returns:
         variante (bool): Renvoie la variante."""
-    efface(tag1), efface(tag2)
+    upemtk.efface(tag1), upemtk.efface(tag2)
     variante = not variante
-    rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage=button_background(variante), epaisseur=3, tag=tag1)
-    texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18, tag=tag2)
+    upemtk.rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage=button_background(variante), epaisseur=3, tag=tag1)
+    upemtk.texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18, tag=tag2)
     return variante
 
 
@@ -64,7 +64,7 @@ def pause_button():
     # rectangle(largeur_Fenetre//2-150, b_milieu_y1, largeur_Fenetre//2+150, b_milieu_y2, couleur='black', remplissage='black', epaisseur=3, tag='pause')
     # texte(largeur_Fenetre//2, txt_y2, "Pause", couleur='white', police=game_font, ancrage='center', tag='text_pause')
     # Dessine le bouton pause
-    rectangle(75, 25, 25, 75, remplissage='green', epaisseur=3, tag='pause')
+    upemtk.rectangle(75, 25, 25, 75, remplissage='green', epaisseur=3, tag='pause')
     # Coordonnées x et y des 2 traits verticaux
     x1 = 40 # Coordonnée x du premier point du premier trait vertical
     y1 = 35 # Coordonnée y du premier point du premier trait vertical
@@ -72,15 +72,15 @@ def pause_button():
     x2 = 60 # Coordonnée x du deuxième point du deuxième trait vertical
 
     # Trace les 2 traits verticaux
-    ligne(x1, y1, x1, y2, epaisseur=4, tag="trait1") # Premier trait vertical
-    ligne(x2, y1, x2, y2, epaisseur=4, tag="trait2") # Deuxième trait vertical
-    mise_a_jour()
+    upemtk.ligne(x1, y1, x1, y2, epaisseur=4, tag="trait1") # Premier trait vertical
+    upemtk.ligne(x2, y1, x2, y2, epaisseur=4, tag="trait2") # Deuxième trait vertical
+    upemtk.mise_a_jour()
 
 
 def quit_button():
     """Cette fonction permet de dessiner un bouton quitter en haut à droite de l'écran de jeu."""
     # Dessine le bouton quitter
-    rectangle(largeur_Fenetre-75, 25, largeur_Fenetre-25, 75, remplissage='red', epaisseur=3, tag='quit')
+    upemtk.rectangle(largeur_Fenetre-75, 25, largeur_Fenetre-25, 75, remplissage='red', epaisseur=3, tag='quit')
     # Coordonnées x et y des 2 traits diagonaux
     x1 = largeur_Fenetre-65 # Coordonnée x du premier point du premier trait diagonal
     y1 = 35 # Coordonnée y du premier point du premier trait diagonal
@@ -88,12 +88,12 @@ def quit_button():
     y2 = 65 # Coordonnée y du deuxième point du premier trait diagonal
 
     # Trace les deux traits diagonaux
-    ligne(x1, y1, x2, y2, epaisseur=4, tag="croix1") # Premier trait diagonal
-    ligne(x1, y2, x2, y1, epaisseur=4, tag="croix2") # Deuxième trait diagonal
-    mise_a_jour()
+    upemtk.ligne(x1, y1, x2, y2, epaisseur=4, tag="croix1") # Premier trait diagonal
+    upemtk.ligne(x1, y2, x2, y1, epaisseur=4, tag="croix2") # Deuxième trait diagonal
+    upemtk.mise_a_jour()
 
 
 def clear_quit_button():
     """Cette fonction permet de supprimer le bouton quitter."""
-    efface("quit"), efface("croix1"), efface("croix2")
-    mise_a_jour()
+    upemtk.efface("quit"), upemtk.efface("croix1"), upemtk.efface("croix2")
+    upemtk.mise_a_jour()

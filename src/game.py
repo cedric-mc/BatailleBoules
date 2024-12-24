@@ -1,5 +1,5 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le dossier source
+# ------------------------------ Importation
 from buttons import pause_button, clear_quit_button
 from colors import colors, melangeur_colors
 from interface import *
@@ -7,6 +7,7 @@ from joueur import *
 from menu import menu
 from restart import restart
 from texte import *
+import upemtk
 
 
 def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
@@ -17,32 +18,31 @@ def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
         dico_j2 (dict): Dictionnaire du Joueur 2 (clé : identifiant du cercle ; valeur : [x, y, r]).
         pseudo1 (str): Pseudo du Joueur 1.
         pseudo2 (str): Pseudo du Joueur 2.
-        color1 (str): Couleur du Joueur 1.
-        color2 (str): Couleur du Joueur 2.
+        lst_colors (list): Liste des couleurs des joueurs (lst_colors[0] : couleur du Joueur 1, lst_colors[1] : couleur du Joueur 2).
 
     Returns:
         None: Rien n'est retourné.
     """
-    rectangle(0, hauteur_Fenetre//2-50, largeur_Fenetre, hauteur_Fenetre//2+50, remplissage='white')
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Calcul en cours...", ancrage='center', police=game_font, taille=35, tag='calcul')
-    mise_a_jour()
+    upemtk.rectangle(0, hauteur_Fenetre//2-50, largeur_Fenetre, hauteur_Fenetre//2+50, remplissage='white')
+    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Calcul en cours...", ancrage='center', police=game_font, taille=35, tag='calcul')
+    upemtk.mise_a_jour()
     # Calcul d'aire des cercles, en comptant les pixels. Le calcul est effectué en se basant sur l'aire autour des cercles.
     S1, S2 = calcul_aire(dico_j1, dico_j2)
     rouge, bleu = len(S1), len(S2)
     # Génération d'un pourcentage pour chaque joueur.
     rouge, bleu = (rouge/(rouge+bleu))*100, (bleu/(rouge+bleu))*100 # TODO: Ajouter le pourcentage de victoire.
     sleep(0.5)
-    mise_a_jour()
-    efface('calcul')
+    upemtk.mise_a_jour()
+    upemtk.efface('calcul')
     if rouge == 0 and bleu == 0:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Vous êtes pas doué pour jouer !", ancrage='center', taille=25, police=game_font)
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Vous êtes pas doué pour jouer !", ancrage='center', taille=25, police=game_font)
     elif rouge > bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo1 + " !", ancrage="center", police=game_font, taille=25, couleur=lst_colors[0])
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo1 + " !", ancrage="center", police=game_font, taille=25, couleur=lst_colors[0])
     elif rouge < bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo2 + " !", ancrage="center", police=game_font, taille=25, couleur=lst_colors[1])
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo2 + " !", ancrage="center", police=game_font, taille=25, couleur=lst_colors[1])
     elif rouge == bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Égalité !", ancrage="center", police=game_font, taille=25, couleur=melangeur_colors(lst_colors[0], lst_colors[1]))
-    mise_a_jour()
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Égalité !", ancrage="center", police=game_font, taille=25, couleur=melangeur_colors(lst_colors[0], lst_colors[1]))
+    upemtk.mise_a_jour()
 
 
 def avant_jeu(dico_j1, dico_j2, rayon, variantes, banque, dico_obs, number, color1, color2):
@@ -70,14 +70,14 @@ def avant_jeu(dico_j1, dico_j2, rayon, variantes, banque, dico_obs, number, colo
         if variantes["scores"]:
             e = 'Touche'
             while e == 'Touche':
-                x, y, e = attente_clic_ou_touche()
+                x, y, e = upemtk.attente_clic_ou_touche()
                 if e == 'Touche' and y == 's':
                     scores(dico_j1, dico_j2, color1, color2)
         else:
-            x, y, e = attente_clic()
+            x, y, e = upemtk.attente_clic()
     if not timing:
         if e == "Touche":
-            x, y , e = attente_clic()
+            x, y , e = upemtk.attente_clic()
         if variantes["obstacle"] == True and intersection(dico_obs, x, y, rayon) == True:
             return dico_j1, dico_j2, banque
         dico_j1, dico_j2, banque = joueur(x, y, dico_j1, dico_j2, rayon, banque, color1, color2, number)
@@ -116,9 +116,9 @@ def game():
     if tour == "quit":
         return
     clear_quit_button()
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(lst_colors[0], lst_colors[1]), police=game_font, ancrage="center", tag='jouer')
-    attente_clic_ou_touche()
-    efface('jouer')
+    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(lst_colors[0], lst_colors[1]), police=game_font, ancrage="center", tag='jouer')
+    upemtk.attente_clic_ou_touche()
+    upemtk.efface('jouer')
     pause_button() # Dessine le bouton pause
     dico_obs = obstacles(variantes["obstacle"], dico_obs)
     banque1, banque2 = None, None
@@ -133,15 +133,15 @@ def game():
         dico_j1, dico_j2, banque2 = avant_jeu(dico_j1, dico_j2, rayon, variantes, banque2, dico_obs, 2, lst_colors[0], lst_colors[1])
         gomme()
         variantes["terminaison"], tour = terminaison(variantes["terminaison"], tour, compteur)
-        mise_a_jour()
+        upemtk.mise_a_jour()
         compteur += 1
         if variantes["dynamique"]:
             dico_j1 = version_dynamique(dico_j1, dico_j2, dico_obs, lst_colors[0])
             dico_j2 = version_dynamique(dico_j2, dico_j1, dico_obs, lst_colors[1])
-            mise_a_jour()
-    attente_clic_ou_touche()
+            upemtk.mise_a_jour()
+    upemtk.attente_clic_ou_touche()
     vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors)
-    attente_clic_ou_touche()
+    upemtk.attente_clic_ou_touche()
     if restart():
         game()
     return

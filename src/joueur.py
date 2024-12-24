@@ -1,6 +1,7 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
-# ------------------------------ Importation depuis le doissier source
+# ------------------------------ Importation
 from variantes import *
+import upemtk
 
 
 def J1(x, y, dico_j1, dico_j2, rayon, banque1, color1, color2):
@@ -20,10 +21,10 @@ def J1(x, y, dico_j1, dico_j2, rayon, banque1, color1, color2):
     if not diviser:
         if type(banque1) == int:
             banque1, rayon = taille_des_boules(banque1, color1)
-        c = cercle(x, y, rayon, couleur=color1, remplissage=color1) # insère un cercle d'une certaine couleur dans la fenêtre
+        c = upemtk.cercle(x, y, rayon, couleur=color1, remplissage=color1) # insère un cercle d'une certaine couleur dans la fenêtre
         dico_j1[c] = [x, y, rayon]
         if intersection(dico_j2, x, y, rayon):
-            efface(c)
+            upemtk.efface(c)
             dico_j1.pop(c)
     return dico_j1, dico_j2, banque1
 
@@ -45,9 +46,9 @@ def J2(x, y, dico_j2, dico_j1, rayon, banque2, color1, color2):
     if not diviser:
         if type(banque2) == int:
             banque2, rayon = taille_des_boules(banque2, color2)
-        c = cercle(x, y, rayon, couleur=color2, remplissage=color2)
+        c = upemtk.cercle(x, y, rayon, couleur=color2, remplissage=color2)
         dico_j2[c] = [x, y, rayon]
         if intersection(dico_j1, x, y, rayon):
-            efface(c)
+            upemtk.efface(c)
             dico_j2.pop(c)
     return dico_j2, dico_j1, banque2
