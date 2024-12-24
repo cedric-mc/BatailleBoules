@@ -24,7 +24,7 @@ def sablier(minuteur, V_scores):
         type_ev = upemtk.type_evenement(ev)
         if "Clic" in type_ev:
             return upemtk.clic_x(ev), upemtk.clic_y(ev), type_ev
-        elif V_scores == True and type_ev == "Touche" and touche(ev) == "s":
+        elif V_scores == True and type_ev == "Touche" and upemtk.touche(ev) == "s":
             return -1, upemtk.touche(ev), type_ev
         upemtk.texte(largeur_Fenetre-500, hauteur_Fenetre-100, "Temps restant : " + str(int(t1 - time() + 1)) + " s", police=game_font, tag="sablier")
         upemtk.mise_a_jour()
@@ -39,7 +39,7 @@ def scores(dico_j1, dico_j2, color1, color2):
     # Calcul identique de la fonction VAINQUEUR.
     S1, S2 = calcul_aire(dico_j1, dico_j2)
     j1, j2 = len(S1), len(S2)
-    r1 = rectangle(0, 0, 300, 100, remplissage='white', epaisseur=3)
+    r1 = upemtk.rectangle(0, 0, 300, 100, remplissage='white', epaisseur=3)
     txt1 = upemtk.texte(150, 50, "Score : " + str(j1), couleur=color1, police=game_font, ancrage="center")
     r2 = upemtk.rectangle(largeur_Fenetre-300, 0, largeur_Fenetre, 100, remplissage='white', epaisseur=3)
     txt2 = upemtk.texte(largeur_Fenetre-150, 50, "Score : " + str(j2), couleur=color2, police=game_font, ancrage="center")
@@ -115,7 +115,7 @@ def version_dynamique(dico1, dico2, dico_obs, color):
             new_dico[id] = [x, y, r]
         else:
             upemtk.efface(id)
-            c = cercle(x, y, r+5, couleur=color, remplissage=color)
+            c = upemtk.cercle(x, y, r+5, couleur=color, remplissage=color)
             new_dico[c] = [x, y, r+5]
     return new_dico
 
