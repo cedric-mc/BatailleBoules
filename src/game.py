@@ -1,6 +1,6 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
 # ------------------------------ Importation depuis le dossier source
-from buttons import pause_button
+from buttons import pause_button, clear_quit_button
 from colors import colors, melangeur_colors
 from interface import *
 from joueur import *
@@ -115,7 +115,7 @@ def game():
     tour = enter_numbers(melangeur_colors(lst_colors[0], lst_colors[1]))
     if tour == "quit":
         return
-    efface("quit"), efface("croix1"), efface("croix2")
+    clear_quit_button()
     texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(lst_colors[0], lst_colors[1]), police=game_font, ancrage="center", tag='jouer')
     attente_clic_ou_touche()
     efface('jouer')

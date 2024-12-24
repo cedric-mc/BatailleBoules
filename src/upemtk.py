@@ -34,11 +34,9 @@ class CustomCanvas:
         # width and height of the canvas
         self.width = width
         self.height = height
-        
+
         # root Tk object
         self.root = Tk()
-        self.root.protocol("WM_DELETE_WINDOW", self.root.destroy)
-        self.root.title("BATAILLE DES BOULES")
 
         # canvas attached to the root object
         self.canvas = Canvas(self.root, width=width,

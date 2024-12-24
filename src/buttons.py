@@ -91,3 +91,9 @@ def quit_button():
     ligne(x1, y1, x2, y2, epaisseur=4, tag="croix1") # Premier trait diagonal
     ligne(x1, y2, x2, y1, epaisseur=4, tag="croix2") # Deuxième trait diagonal
     mise_a_jour()
+
+
+def clear_quit_button():
+    """Cette fonction permet de supprimer le bouton quitter."""
+    efface("quit"), efface("croix1"), efface("croix2")
+    mise_a_jour()
