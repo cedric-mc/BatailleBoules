@@ -59,7 +59,7 @@ def avant_jeu(dico_j1, dico_j2, rayon, variantes, banque, dico_obs, number, colo
     La fonction vérifie d'abord le temps de réaction si la variante Sablier est activée.
     Si la variante Scores est activée et enfin faire jouer le joueur (poser le cercle)."""
     timing = False
-    x, e = None, None
+    x, y, e = None, None, None
     if variantes["sablier"]:
         x, y, e = sablier(10, variantes["scores"])
         if x is None and y is None and e is None:
