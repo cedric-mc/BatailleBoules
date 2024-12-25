@@ -8,13 +8,17 @@ import upemtk
 
 
 def sablier(minuteur, V_scores):
-    """Paramètres : 
-    - minuteur : temps en secondes (10 secondes ici), type : int ;
-    - V_scores : indique si la variante Scores est activée, type : bool.
-    Renvoie :
-    - Si clic, les coordonnées x et y ainsi que le clic soit Clic Droit ou Gauche ;
-    - Si touche, -1, l'identité de la touche et son type soit Touche.
-    sablier permet d'afficher et calculer si le bouton est cliqué avant le temps imparti (minuteur)."""
+    """Cette fonction représente la variante du Sablier et permet d'afficher et calculer si le bouton est cliqué avant le temps imparti (minuteur).
+    Cette fonction est une reprise de la fonction de la attente_touche_jusqua() de upemtk.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/Python_Game/.
+
+    Args:
+        minuteur (int): Temps en secondes (10 secondes ici).
+        V_scores (bool): Indique si la variante Scores est activée.
+
+    Returns:
+        tuple: Si clic, les coordonnées x et y ainsi que le clic soit Clic Droit ou Gauche. Si touche, -1, l'identité de la touche et son type soit Touche.
+    """
     upemtk.texte(largeur_Fenetre-500, hauteur_Fenetre-100, "Temps restant : " + str(minuteur) + "s", police=game_font, tag="sablier")
     # t1 correspond au temps actuel du programme (fonction time()) et le temps en secondes du minuteur.
     t1 = time() + minuteur
@@ -32,10 +36,16 @@ def sablier(minuteur, V_scores):
 
 
 def scores(dico_j1, dico_j2, color1, color2):
-    """Paramètres : 
-    - dico_j1 : dictionnaire du Joueur 1 ;*
-    - dico_j2 : dictionnaire du Joueur 2.
-    Cette fonction d'utilisée la variante et permettant de calculer le score de chaque joueur et de l'afficher dans le coin supérieur gauche et droit."""
+    """Cette fonction représente la variante Scores et permet de calculer le score de chaque joueur et de l'afficher
+    dans le coin supérieur gauche et droit. La description de la variante est disponible dans le README.md ou au lien
+    suivant : https://cedric-mc.github.io/Python_Game/.
+
+    Args:
+        dico_j1 (dict): Dictionnaire du Joueur 1.
+        dico_j2 (dict): Dictionnaire du Joueur 2.
+        color1 (str): Couleur du Joueur 1.
+        color2 (str): Couleur du Joueur 2.
+    """
     # Calcul identique de la fonction VAINQUEUR.
     S1, S2 = calcul_aire(dico_j1, dico_j2)
     j1, j2 = len(S1), len(S2)
@@ -50,11 +60,17 @@ def scores(dico_j1, dico_j2, color1, color2):
 
 
 def taille_des_boules(banque, color):
-    """Paramètres : 
-    - banque : type : int, indique le budget restant du joueur ;
-    - color : type : str, indiquant la couleur du joueur.
-    Renvoie le budget du joueur (modifié) et le rayon du cercle à poser.
-    Cette fonction permet de demander au joueur le rayon du cercle du joueur."""
+    """Cette fonction représente la variante Taille des Boules et permet de demander au joueur le rayon du cercle à poser.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/Python_Game/.
+
+    Args:
+        banque (int): Budget restant du joueur.
+        color (str): Couleur du joueur.
+
+    Returns:
+          banque (int): Budget du joueur (modifié).
+          rayon (int): Rayon du cercle à poser.
+    """
     upemtk.rectangle(0, hauteur_Fenetre//3-50, largeur_Fenetre, hauteur_Fenetre//3+50, remplissage='white', tag='fond1')
     upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrer le nombre de pixels pour déterminer \nle rayon du cercle à poser (rayon par défaut 50) :", taille=20, couleur=color, police=game_font, ancrage='center', tag='demande')
     upemtk.rectangle(0, hauteur_Fenetre//2-50, largeur_Fenetre, hauteur_Fenetre//2+50, remplissage='white', tag='fond2')
@@ -101,12 +117,18 @@ def taille_des_boules(banque, color):
 
 
 def version_dynamique(dico1, dico2, dico_obs, color):
-    """Paramètres :
-    - dico1, dico2 : dictionnaire des joueurs, le premier représente celui dont on vérifie qu'il peut y avoir un agrandissement et le deuxième vérifier la correspondance avec celle du premier.
-    - dico_obs : dictionnaire ayant la même fonction que dico2.
-    - color : indique la couleur du joueur, type : str.
-    Renvoie le nouveau dico1 (new_dico), type : dict.
-    Cette fonction permet de "dynamiser" les cercles du joueur en y incrémentant 5 pixels pour son rayon soit rayon + 5."""
+    """Cette fonction représente la variante Dynamique et permet d'agrandir les cercles des joueurs et de vérifier les intersections avec les obstacles et les cercles adverses.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/Python_Game/.
+
+    Args:
+        dico1 (dict): Dictionnaire du Joueur 1.
+        dico2 (dict): Dictionnaire du Joueur 2.
+        dico_obs (dict): Dictionnaire des obstacles.
+        color (str): Couleur du joueur.
+
+    Returns:
+        new_dico (dict): Dictionnaire des cercles du joueur 1 (modifié).
+    """
     # Vérification d'intersection avec les cercles du joueurs adverse et les obstacles.
     new_dico = dict()
     for id, coordonnees in dico1.items():
@@ -121,9 +143,17 @@ def version_dynamique(dico1, dico2, dico_obs, color):
 
 
 def terminaison(V_terminaison, tour, compteur):
-    """La fonction prend en paramètres la variable booléenne V_terminaison, le nombre de tour initialisé en début de partie et le compteur du tour actuel.
-    La fonction renvoie la variable booléenne V_terminaison et le nombre tour qui peut avoir été modifié.
-    La fonction permet d'utiliser la variante Terminaison qui demande aux joueurs une fois par tour et alternativement s'ils veulent terminer dans 5 tours (par rapport au compteur)."""
+    """Cette fonction représente la variante Terminaison et permet de demander aux joueurs s'ils veulent terminer la partie dans 5 tours.
+
+    Args:
+        V_terminaison (bool): Variable booléenne de la variante.
+        tour (int): Nombre de tours.
+        compteur (int): Compteur de tours.
+
+    Returns:
+        V_terminaison (bool): Variable booléenne de la variante (modifiée).
+        tour (int): Nombre de tours (modifié).
+    """
     # Attente que le joueur appuie sur 'Y' ou sur 'N'.
     if V_terminaison:
         if tour > 5 and compteur < tour-5:
@@ -144,9 +174,15 @@ def terminaison(V_terminaison, tour, compteur):
 
 
 def obstacles(V_obstacle, dico_obs):
-    """La fonction prend en paramètre la variable booléenne V_obstacle et le dictionnaire dico_obs sous forme {identifiant du cercle: [position x du cercle, position y du cercle, rayon du cerlce].
-    La fonction renvoie le dictionnaire dico_obs.
-    La fonction permet de placer et d'enregistrer les cercles des obstacles, sous forme de cercle de la variante Obstacles."""
+    """Cette fonction prend en paramètre la variable booléenne V_obstacle et le dictionnaire dico_obs sous forme {identifiant du cercle: [position x du cercle, position y du cercle, rayon du cercle].
+
+    Args:
+        V_obstacle (bool): Variable booléenne de la variante.
+        dico_obs (dict): Dictionnaire des obstacles.
+
+    Returns:
+        dico_obs (dict): Dictionnaire des obstacles (modifié).
+    """
     if V_obstacle:
         for i in range(randint(1, 15)):
             x = randint(0, largeur_Fenetre)

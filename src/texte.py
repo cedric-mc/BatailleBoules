@@ -6,9 +6,15 @@ from default import *
 
 
 def f_caracteres_speciaux(key):
-    """Cette fonction prend en paramètre la chaîne de caractères de la touche appuyée.
-    Elle renvoie la chaîne correspondant à la touche de clavier (exemple : la touche "eacute" équivaut au caractère 'é'.
-    Les touches prises en compte dans la fonction sont uniquement celles présentes entre la touche du carré et celle de suppression."""
+    """Cette fonction permet de convertir les touches spéciales du clavier en caractères spéciaux.
+    Les touches prises en compte dans la fonction sont uniquement celles des caractères spéciaux (du 1 au +).
+
+    Args:
+        key (str): La touche appuyée.
+
+    Returns:
+        str: La chaîne correspondant à la touche de clavier (exemple : la touche "eacute" équivaut au caractère 'é').
+    """
     # Vérification de la correspondance de la touche avec celles des caractères spéciaux (du 1 au +).
     if key == 'ampersand':
         return "&"
@@ -38,8 +44,14 @@ def f_caracteres_speciaux(key):
 
 def enter_surname(joueur, color):
     """Cette fonction permet d'entrer un pseudo pour le joueur.
-    Elle prend comme paramètre le numéro du joueur 1 ou 2, c'est un entier.
-    Elle renvoie le pseudo du joueur entré ou celui par défaut, type : str."""
+
+    Args:
+        joueur (int): Le numéro du joueur 1 ou 2.
+        color (str): Couleur du texte.
+
+    Returns:
+        str: Le pseudo du joueur entré ou celui par défaut.
+    """
     # Incrémentation des touches du clavier dans une liste s'ils correspondent aux critères.
     lst = list()
     x, y, e = None, None, None
@@ -85,8 +97,15 @@ def enter_surname(joueur, color):
 
 
 def surname(lst_colors):
-    """Fait appel à la fonction enter_surname pour entrer les noms des deux joueurs, c'est accompagné d'un texte pour indiqué pour qui doit être entrer le pseudo.
-    Elle renvoie les deux pseudos, type : str"""
+    """Cette fonction permet d'entrer les pseudos des deux joueurs.
+
+    Args:
+        lst_colors (list): Liste des couleurs des joueurs.
+
+    Returns:
+        pseudo1 (str): Pseudo du joueur 1.
+        pseudo2 (str): Pseudo du joueur 2.
+    """
     upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le pseudo du premier Joueur, (pseudo 'quit' interdit)", couleur=lst_colors[0], police=game_font, ancrage='center', taille=20, tag='names')
     pseudo1 = enter_surname(1, lst_colors[0])
     upemtk.efface('names')
@@ -99,8 +118,14 @@ def surname(lst_colors):
 
 
 def enter_numbers(color):
-    """Renvoie le nombre de tours, type : int.
-    Cette fonction demande aux joueurs le nombre de tours, le minimum est 5."""
+    """Cette fonction permet d'entrer le nombre de tours.
+
+    Args:
+        color (str): Couleur du texte.
+
+    Returns:
+        nb_tours (int): Nombre de tours.
+    """
     numbers = []
     upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrez le nombre de tours en chiffre puis appuyez sur Entrée.\n(réfléchissez avant d'entrer, 5 tours minimum par joueur)", ancrage='center', police=game_font, taille=18, tag='tours', couleur=color)
     x, y, e = None, None, None
