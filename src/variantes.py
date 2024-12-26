@@ -10,7 +10,7 @@ import upemtk
 def sablier(minuteur, V_scores):
     """Cette fonction représente la variante du Sablier et permet d'afficher et calculer si le bouton est cliqué avant le temps imparti (minuteur).
     Cette fonction est une reprise de la fonction de la attente_touche_jusqua() de upemtk.
-    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/Python_Game/.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         minuteur (int): Temps en secondes (10 secondes ici).
@@ -36,9 +36,8 @@ def sablier(minuteur, V_scores):
 
 
 def scores(dico_j1, dico_j2, color1, color2):
-    """Cette fonction représente la variante Scores et permet de calculer le score de chaque joueur et de l'afficher
-    dans le coin supérieur gauche et droit. La description de la variante est disponible dans le README.md ou au lien
-    suivant : https://cedric-mc.github.io/Python_Game/.
+    """Cette fonction représente la variante Scores et permet de calculer le score de chaque joueur et de l'afficher dans le coin supérieur gauche et droit.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         dico_j1 (dict): Dictionnaire du Joueur 1.
@@ -61,7 +60,7 @@ def scores(dico_j1, dico_j2, color1, color2):
 
 def taille_des_boules(banque, color):
     """Cette fonction représente la variante Taille des Boules et permet de demander au joueur le rayon du cercle à poser.
-    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/Python_Game/.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         banque (int): Budget restant du joueur.
@@ -118,7 +117,7 @@ def taille_des_boules(banque, color):
 
 def version_dynamique(dico1, dico2, dico_obs, color):
     """Cette fonction représente la variante Dynamique et permet d'agrandir les cercles des joueurs et de vérifier les intersections avec les obstacles et les cercles adverses.
-    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/Python_Game/.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         dico1 (dict): Dictionnaire du Joueur 1.
@@ -144,6 +143,7 @@ def version_dynamique(dico1, dico2, dico_obs, color):
 
 def terminaison(V_terminaison, tour, compteur):
     """Cette fonction représente la variante Terminaison et permet de demander aux joueurs s'ils veulent terminer la partie dans 5 tours.
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         V_terminaison (bool): Variable booléenne de la variante.
@@ -174,7 +174,9 @@ def terminaison(V_terminaison, tour, compteur):
 
 
 def obstacles(V_obstacle, dico_obs):
-    """Cette fonction prend en paramètre la variable booléenne V_obstacle et le dictionnaire dico_obs sous forme {identifiant du cercle: [position x du cercle, position y du cercle, rayon du cercle].
+    """Cette fonction prend en paramètre la variable booléenne V_obstacle et le dictionnaire dico_obs sous forme
+    {identifiant du cercle: [position x du cercle, position y du cercle, rayon du cercle].
+    La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         V_obstacle (bool): Variable booléenne de la variante.
