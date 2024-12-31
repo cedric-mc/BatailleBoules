@@ -129,15 +129,20 @@ def version_dynamique(dico1, dico2, dico_obs, color):
         new_dico (dict): Dictionnaire des cercles du joueur 1 (modifié).
     """
     # Vérification d'intersection avec les cercles du joueurs adverse et les obstacles.
-    new_dico = dict()
-    for id, coordonnees in dico1.items():
-        x, y, r = coordonnees[0], coordonnees[1], coordonnees[2]
-        if intersection(dico2, x, y, r+5) or intersection(dico_obs, x, y, r+5):
-            new_dico[id] = [x, y, r]
+    new_dico = {}
+
+    for id, (x, y, r) in dico1.items():
+        new_radius = r + 5
+
+        # Vérification des intersections avec les obstacles et les cercles adverses.
+        if any(intersection(d, x, y, new_radius) for d in (dico2, dico_obs)):
+            new_dico[id] = [x, y, r] # Pas de changement si une intersection est détectée.
         else:
+            # Suppression et recréation du cercle avec le nouveau rayon.
             upemtk.efface(id)
-            c = upemtk.cercle(x, y, r+5, couleur=color, remplissage=color)
-            new_dico[c] = [x, y, r+5]
+            new_id = upemtk.cercle(x, y, new_radius, couleur=color, remplissage=color)
+            new_dico[new_id] = [x, y, new_radius]
+
     return new_dico
 
 

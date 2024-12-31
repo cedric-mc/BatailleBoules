@@ -121,7 +121,7 @@ def game():
     if variantes["taille"]:
         banque1, banque2 = 10000, 10000
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour
-        pause_button(), quit_button()
+        # pause_button(), quit_button()
         crayon(player_colors[0], compteur, tour, pseudo1)
         dico_j1, dico_j2, banque1 = avant_jeu(dico_j1, dico_j2, rayon, variantes, banque1, dico_obs, 1, player_colors[0], player_colors[1])
         gomme()
@@ -135,7 +135,7 @@ def game():
             dico_j1 = version_dynamique(dico_j1, dico_j2, dico_obs, player_colors[0])
             dico_j2 = version_dynamique(dico_j2, dico_j1, dico_obs, player_colors[1])
             upemtk.mise_a_jour()
-        clear_pause_button(), clear_quit_button()
+        # clear_pause_button(), clear_quit_button()
     upemtk.attente_clic_ou_touche()
     vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, player_colors)
     upemtk.attente_clic_ou_touche()
