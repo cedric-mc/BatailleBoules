@@ -60,10 +60,10 @@ def MENU():
         'terminaison': True,
         'obstacle': True
     }
-    texte(largeur_Fenetre//2, 50, "Choisissez vos variantes !", taille=36, police="Monocraft", ancrage="center", tag='variantes')
+    texte(largeur_Fenetre//2, 50, "Choisissez vos variantes !", taille=36, police=game_font, ancrage="center", tag='variantes')
     variantes = buttons.default_buttons(variantes)
     rectangle(largeur_Fenetre//2-150, b_milieu_y1, largeur_Fenetre//2+150, b_milieu_y2, couleur='white', remplissage='black', epaisseur=3, tag='play')
-    texte(largeur_Fenetre//2, txt_y2, "Start", couleur='white', police="Monocraft", ancrage='center', tag='text_play')
+    texte(largeur_Fenetre//2, txt_y2, "Start", couleur='white', police=game_font, ancrage='center', tag='text_play')
     buttons.quit_button()
     mise_a_jour()
     # Initialisation des coordonnées de chaque coins des rectangles / boutons en fonction de la largeur et de la hauteur de la fenêtre, la première ligne d’initialisation correspond au quatre point y.
@@ -72,7 +72,7 @@ def MENU():
 
 
 def choose_colors():
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Choisissez une paire de couleurs\nqui représentera la couleur\nde chacun des joueurs", ancrage='center', police="Monocraft", taille=18, tag="question")
+    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Choisissez une paire de couleurs\nqui représentera la couleur\nde chacun des joueurs", ancrage='center', police=game_font, taille=18, tag="question")
     isColors = False
     while isColors is False:
         x, y, e = attente_clic_ou_touche()

@@ -18,7 +18,7 @@ def VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2, color1, color2):
     dico_j1 et dico_j2 sont des dictionnaires sous la forme (identifiant du cercle: [x, y, r] ;
     x et y représente le centre du cercle)."""
     rectangle(0, hauteur_Fenetre//2-50, largeur_Fenetre, hauteur_Fenetre//2+50, remplissage='white')
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Calcul en cours...", ancrage='center', police="Monocraft", taille=35, tag='calcul')
+    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Calcul en cours...", ancrage='center', police=game_font, taille=35, tag='calcul')
     mise_a_jour()
     # Calcul d'aire des cercles, en comptant les pixels. Le calcul est effectué en se basant sur l'aire autour des cercles.
     S1, S2 = calcul_aire(dico_j1, dico_j2)
@@ -27,13 +27,13 @@ def VAINQUEUR(dico_j1, dico_j2, pseudo1, pseudo2, color1, color2):
     mise_a_jour()
     efface('calcul')
     if rouge == 0 and bleu == 0:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Vous êtes pas doué pour jouer !", ancrage='center', taille=25, police="Monocraft")
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Vous êtes pas doué pour jouer !", ancrage='center', taille=25, police=game_font)
     elif rouge > bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo1 + " !", ancrage="center", police="Monocraft", taille=25, couleur=color1)
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo1 + " !", ancrage="center", police=game_font, taille=25, couleur=color1)
     elif rouge < bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo2 + " !", ancrage="center", police="Monocraft", taille=25, couleur=color2)
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Félicitation ! Tu as gagné " + pseudo2 + " !", ancrage="center", police=game_font, taille=25, couleur=color2)
     elif rouge == bleu:
-        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Égalité !", ancrage="center", police="Monocraft", taille=25, couleur=melangeur_colors(color1, color2))
+        texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Égalité !", ancrage="center", police=game_font, taille=25, couleur=melangeur_colors(color1, color2))
     mise_a_jour()
 
 
@@ -109,12 +109,11 @@ def GAME():
     if tour == "quit":
         return
     efface("quit"), efface("croix1"), efface("croix2")
-    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(color1, color2), police="Monocraft", ancrage="center", tag='jouer')
+    texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Bonne chance à vous " + pseudo1 + " et " + pseudo2 + " !", couleur=melangeur_colors(color1, color2), police=game_font, ancrage="center", tag='jouer')
     attente_clic_ou_touche()
     efface('jouer')
     dico_obs = obstacles(variantes["obstacle"], dico_obs)
     banque1, banque2 = None, None
-    # create_Interface(variantes)
     if variantes["taille"]:
         banque1, banque2 = 10000, 10000
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour

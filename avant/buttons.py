@@ -30,17 +30,17 @@ def f_boutons(variante, rec_x1, rec_x2, rec_y1, rec_y2, txt_x, txt_y, txt_in, ta
     if not variante:
         variante = True
         rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage='#00FF00', epaisseur=3, tag=tag1)
-        texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police="Monocraft", taille=18, tag=tag2)
+        texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18, tag=tag2)
     else:
         variante = False
         rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage='#FF0000', epaisseur=3, tag=tag1)
-        texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police="Monocraft", taille=18, tag=tag2)
+        texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18, tag=tag2)
     return variante
 
 
 def pause_button():
     rectangle(largeur_Fenetre//2-150, b_milieu_y1, largeur_Fenetre//2+150, b_milieu_y2, couleur='black', remplissage='black', epaisseur=3, tag='pause')
-    texte(largeur_Fenetre//2, txt_y2, "Pause", couleur='white', police="Monocraft", ancrage='center', tag='text_pause')
+    texte(largeur_Fenetre//2, txt_y2, "Pause", couleur='white', police=game_font, ancrage='center', tag='text_pause')
     mise_a_jour()
 
 
