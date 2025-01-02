@@ -28,7 +28,7 @@ def sablier(minuteur, V_scores):
         type_ev = upemtk.type_evenement(ev)
         if "Clic" in type_ev:
             return upemtk.clic_x(ev), upemtk.clic_y(ev), type_ev
-        elif V_scores == True and type_ev == "Touche" and upemtk.touche(ev) == "s":
+        elif V_scores and "Touche" in type_ev and upemtk.touche(ev) is "s":
             return -1, upemtk.touche(ev), type_ev
         upemtk.texte(largeur_Fenetre-500, hauteur_Fenetre-100, "Temps restant : " + str(int(t1 - time() + 1)) + " s", police=game_font, tag="sablier")
         upemtk.mise_a_jour()
@@ -45,16 +45,28 @@ def scores(dico_j1, dico_j2, color1, color2):
         color1 (str): Couleur du Joueur 1.
         color2 (str): Couleur du Joueur 2.
     """
-    # Calcul identique de la fonction VAINQUEUR.
+    # Calcul des scores des joueurs.
     S1, S2 = calcul_aire(dico_j1, dico_j2)
     j1, j2 = len(S1), len(S2)
-    r1 = upemtk.rectangle(0, 0, 300, 100, remplissage='white', epaisseur=3)
-    txt1 = upemtk.texte(150, 50, "Score : " + str(j1), couleur=color1, police=game_font, ancrage="center")
-    r2 = upemtk.rectangle(largeur_Fenetre-300, 0, largeur_Fenetre, 100, remplissage='white', epaisseur=3)
-    txt2 = upemtk.texte(largeur_Fenetre-150, 50, "Score : " + str(j2), couleur=color2, police=game_font, ancrage="center")
-    upemtk.mise_a_jour()
-    sleep(2)
-    upemtk.efface(r1), upemtk.efface(txt1), upemtk.efface(r2), upemtk.efface(txt2)
+
+    # Position et dimensions de l'affichage des scores.
+    zones = [
+        (0, 0, 300, 100, 150, 50, f"Score : {j1}", color1), # Joueur 1.
+        (largeur_Fenetre - 300, 0, largeur_Fenetre, 100, largeur_Fenetre - 150, 50, f"Score : {j2}", color2) # Joueur 2.
+    ]
+
+    elements = [] # Liste des éléments à afficher.
+    for x1, y1, x2, y2, tx, ty, text, color in zones:
+        r = upemtk.rectangle(x1, y1, x2, y2, remplissage='white', epaisseur=3)
+        txt = upemtk.texte(tx, ty, text, couleur=color, police=game_font, ancrage="center")
+        elements.append((r, txt))
+
+    upemtk.mise_a_jour() # Mise à jour de l'affichage.
+    sleep(2) # Attente de 2 secondes.
+
+    # Effacement des éléments.
+    for r, txt in elements:
+        upemtk.efface(r), upemtk.efface(txt)
     upemtk.mise_a_jour()
 
 
@@ -70,48 +82,58 @@ def taille_des_boules(banque, color):
           banque (int): Budget du joueur (modifié).
           rayon (int): Rayon du cercle à poser.
     """
-    upemtk.rectangle(0, hauteur_Fenetre//3-50, largeur_Fenetre, hauteur_Fenetre//3+50, remplissage='white', tag='fond1')
-    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//3, "Entrer le nombre de pixels pour déterminer \nle rayon du cercle à poser (rayon par défaut 50) :", taille=20, couleur=color, police=game_font, ancrage='center', tag='demande')
-    upemtk.rectangle(0, hauteur_Fenetre//2-50, largeur_Fenetre, hauteur_Fenetre//2+50, remplissage='white', tag='fond2')
+    # Affichage des instructions et de la demande de la taille du cercle.
+    upemtk.rectangle(0, hauteur_Fenetre // 3 - 50, largeur_Fenetre, hauteur_Fenetre // 3 + 50, remplissage='white', tag='fond1')
+    upemtk.texte(largeur_Fenetre // 2, hauteur_Fenetre // 3, "Entrer le nombre de pixels pour déterminer \nle rayon du cercle à poser (rayon par défaut 50) :", taille=20, couleur=color, police=game_font, ancrage='center', tag='demande')
+    upemtk.rectangle(0, hauteur_Fenetre // 2 - 50, largeur_Fenetre, hauteur_Fenetre // 2 + 50, remplissage='white', tag='fond2')
+
+    # Initialisation de la liste des chiffres entrés par le joueur.
     carte_credit = []
     key = None
-    # boucle while basée sur celle de enter_numbers() (identique).
-    while key != 'Return' and key != 'KP_Enter':
-        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(carte_credit), taille=20, couleur=color, police=game_font, ancrage='center', tag='liste')
+    touche_to_chiffre = {
+        '1': '1', 'ampersand': '1', 'KP_1': '1',
+        '2': '2', 'eacute': '2', 'KP_2': '2',
+        '3': '3', 'quotedbl': '3', 'KP_3': '3',
+        '4': '4', 'apostrophe': '4', 'KP_4': '4',
+        '5': '5', 'parenleft': '5', 'KP_5': '5',
+        '6': '6', 'minus': '6', 'KP_6': '6',
+        '7': '7', 'egrave': '7', 'KP_7': '7',
+        '8': '8', 'underscore': '8', 'KP_8': '8',
+        '9': '9', 'ccedilla': '9', 'KP_9': '9',
+        '0': '0', 'agrave': '0', 'KP_0': '0'
+    }
+
+    # Récupération de l'entrée du joueur
+    while key not in {'Return', 'KP_Enter'}:
+        # Affichage de la liste des chiffres entrés par le joueur.
+        upemtk.texte(largeur_Fenetre // 2, hauteur_Fenetre // 2, "".join(carte_credit), taille=20, couleur=color, police=game_font, ancrage='center', tag='liste')
         key = upemtk.attente_touche()
-        if key == '1' or key == 'ampersand' or key == 'KP_1':
-            carte_credit.append('1')
-        elif key == '2' or key == 'eacute' or key == 'KP_2':
-            carte_credit.append('2')
-        elif key == '3' or key == 'quotedbl' or key == 'KP_3':
-            carte_credit.append('3')
-        elif key == '4' or key == 'apostrophe' or key == 'KP_4':
-            carte_credit.append('4')
-        elif key == '5' or key == 'parenleft' or key == 'KP_5':
-            carte_credit.append('5')
-        elif key == '6' or key == 'minus' or key == 'KP_6':
-            carte_credit.append('6')
-        elif key == '7' or key == 'egrave' or key == 'KP_7':
-            carte_credit.append('7')
-        elif key == '8' or key == 'underscore' or key == 'KP_8':
-            carte_credit.append('8')
-        elif key == '9' or key == 'ccedilla' or key == 'KP_9':
-            carte_credit.append('9')
-        elif key == '0' or key == 'agrave' or key == 'KP_0':
-            carte_credit.append('0')
+
+        # Ajout du chiffre à la liste si la touche est un chiffre.
+        if key in touche_to_chiffre:
+            carte_credit.append(touche_to_chiffre[key])
+        # Suppression du dernier chiffre si la touche est 'BackSpace'.
         elif key == 'BackSpace' and carte_credit != []:
             carte_credit.pop()
+
+        # Mettre à jour l'affichage de la liste des chiffres.
         upemtk.efface('liste')
+
+    # Validation et calcul du rayon.
     if not carte_credit:
         rayon = 50
-        banque -= 50
     else:
-        virement = int("".join(carte_credit))
-        rayon = virement
-        banque -= virement
+        rayon = int("".join(carte_credit))
+
+    if rayon > banque:
+        rayon = banque # Si le joueur n'a pas assez d'argent, le rayon est égal à la banque.
+    banque -= rayon # Déduction du budget du joueur.
+
+    # Effacement des éléments.
     upemtk.efface('fond1')
     upemtk.efface('demande')
     upemtk.efface('fond2')
+
     return banque, rayon
 
 
@@ -131,15 +153,15 @@ def version_dynamique(dico1, dico2, dico_obs, color):
     # Vérification d'intersection avec les cercles du joueurs adverse et les obstacles.
     new_dico = {}
 
-    for id, (x, y, r) in dico1.items():
+    for circle_id, (x, y, r) in dico1.items():
         new_radius = r + 5
 
         # Vérification des intersections avec les obstacles et les cercles adverses.
         if any(intersection(d, x, y, new_radius) for d in (dico2, dico_obs)):
-            new_dico[id] = [x, y, r] # Pas de changement si une intersection est détectée.
+            new_dico[circle_id] = [x, y, r] # Pas de changement si une intersection est détectée.
         else:
             # Suppression et recréation du cercle avec le nouveau rayon.
-            upemtk.efface(id)
+            upemtk.efface(circle_id)
             new_id = upemtk.cercle(x, y, new_radius, couleur=color, remplissage=color)
             new_dico[new_id] = [x, y, new_radius]
 
@@ -159,23 +181,21 @@ def terminaison(V_terminaison, tour, compteur):
         V_terminaison (bool): Variable booléenne de la variante (modifiée).
         tour (int): Nombre de tours (modifié).
     """
-    # Attente que le joueur appuie sur 'Y' ou sur 'N'.
-    if V_terminaison:
-        if tour > 5 and compteur < tour-5:
-            upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//7, "Taper 'Y' pour arrêter la partie dans 5 tours ou 'N' pour continuer.", couleur='black', police=game_font, ancrage='center', tag='terminaison')
-            key = upemtk.attente_touche()
-            upemtk.efface('terminaison')
-            if key == 'y':
-                tour = compteur + 5
-                return False, tour
-            elif key == 'n':
-                return True, tour
-            else:
-                return True, tour
-        else:
-            return V_terminaison, tour
-    else:
-        return V_terminaison, tour
+    # Vérifie si la variante Terminaison est active
+    if V_terminaison and tour > 5 and compteur < tour - 5:
+        # Affichage du choix
+        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//7, "Taper 'Y' pour arrêter la partie dans 5 tours ou 'N' pour continuer.", couleur='black', police=game_font, ancrage='center', tag='terminaison')
+        key = upemtk.attente_touche()
+
+        # Attente de la réponse du joueur
+        key = upemtk.attente_touche()
+        upemtk.efface('terminaison')
+
+        if key == 'y': # Si le joueur choisit d'arrêter dans 5 tours
+            return False, compteur + 5
+        elif key == 'n': # Si le joueur choisit de continuer
+            return True, tour
+    return V_terminaison, tour # Aucun changement, on retourne donc les valeurs initiales
 
 
 def obstacles(V_obstacle, dico_obs):
