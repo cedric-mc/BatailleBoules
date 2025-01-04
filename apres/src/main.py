@@ -12,7 +12,7 @@ def main():
     upemtk.rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, remplissage="white", couleur="black")
     upemtk.texte(largeur_Fenetre // 2, hauteur_Fenetre // 2, "Bienvenue !", taille=40, police=game_font, ancrage="center", tag='jouer')
     upemtk.clic()
-    upemtk.efface('jouer')
+    upemtk.efface_tout()
     game()
     upemtk.ferme_fenetre()
 

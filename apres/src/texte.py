@@ -53,7 +53,7 @@ def enter_surname(joueur, color):
         str: Le pseudo du joueur entré ou celui par défaut.
     """
     # Incrémentation des touches du clavier dans une liste s'ils correspondent aux critères.
-    lst = list()
+    lst = []
     x, y, e = None, None, None
     while y != 'Return' and y != 'KP_Enter':
         upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "".join(lst), couleur=color, police=game_font, ancrage='center', taille=20, tag='pseudo')

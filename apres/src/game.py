@@ -1,13 +1,12 @@
 # Programmeurs : Cédric Mariya Constantine et Wilson Groevius
 # ------------------------------ Importation
 from boutons import clear_quit_button
+from calcul import calcul_aire, in_cercle, intersection
 from couleurs import colors, melangeur_colors
 from menu import menu
 from restart import restart
 from texte import *
-from calcul import calcul_aire, in_cercle, intersection
 from variantes import sablier, scores, terminaison, obstacles, taille_des_boules, version_dynamique
-from time import sleep
 
 
 def crayon(color, compteur, tour, pseudo):
@@ -30,17 +29,26 @@ def gomme():
     upemtk.efface("joueur"), upemtk.efface("tour")
 
 
-def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
+def vainqueur(dico_j1, dico_j2, pseudo_j1, pseudo_j2, lst_colors):
     """
     Détermine et affiche le vainqueur de la partie en fonction des aires occupées par chaque joueur.
 
     Args:
         dico_j1 (dict): Dictionnaire du Joueur 1 (clé : identifiant du cercle ; valeur : [x, y, r]).
         dico_j2 (dict): Dictionnaire du Joueur 2 (clé : identifiant du cercle ; valeur : [x, y, r]).
-        pseudo1 (str): Pseudo du Joueur 1.
-        pseudo2 (str): Pseudo du Joueur 2.
+        pseudo_j1 (str): Pseudo du Joueur 1.
+        pseudo_j2 (str): Pseudo du Joueur 2.
         lst_colors (list): Liste des couleurs des joueurs ([couleur Joueur 1, couleur Joueur 2]).
     """
+    def victory_message_color(pourcentage_j1, pourcentage_j2, pseudo1, pseudo2, lst_colors):
+        """Cette fonction permet de déterminer le message de victoire en fonction des pourcentages de chaque joueur mais aussi de la couleur du texte."""
+        if pourcentage_j1 > pourcentage_j2:
+            return f"Félicitations ! {pseudo1} a gagné avec {pourcentage_j1:.2f}% !", lst_colors[0]
+        elif pourcentage_j1 < pourcentage_j2:
+            return f"Félicitations ! {pseudo2} a gagné avec {pourcentage_j2:.2f}% !", lst_colors[1]
+        else:
+            return "C'est une égalité parfaite !", melangeur_colors(lst_colors[0], lst_colors[1])
+
     # Affiche une fenêtre de calcul en cours
     upemtk.rectangle(0, hauteur_Fenetre//2 - 50, largeur_Fenetre, hauteur_Fenetre//2 + 50, remplissage='white')
     upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, "Calcul en cours...", ancrage='center', police=game_font, taille=35, tag='calcul')
@@ -63,22 +71,14 @@ def vainqueur(dico_j1, dico_j2, pseudo1, pseudo2, lst_colors):
     pourcentage_j2 = (aire_j2 / total_aire) * 100
 
     # Détermine le résultat et affiche le message approprié
-    if pourcentage_j1 > pourcentage_j2:
-        message = f"Félicitations ! {pseudo1} a gagné avec {pourcentage_j1:.2f}% !"
-        couleur = lst_colors[0]
-    elif pourcentage_j1 < pourcentage_j2:
-        message = f"Félicitations ! {pseudo2} a gagné avec {pourcentage_j2:.2f}% !"
-        couleur = lst_colors[1]
-    else:
-        message = "C'est une égalité parfaite !"
-        couleur = melangeur_colors(lst_colors[0], lst_colors[1])  # Mélange des couleurs des deux joueurs
+    message, couleur = victory_message_color(pourcentage_j1, pourcentage_j2, pseudo_j1, pseudo_j2, lst_colors)
 
     # Affiche le résultat final
     upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, message, ancrage="center", police=game_font, taille=25, couleur=couleur)
     upemtk.mise_a_jour()
 
 
-def joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adverse, number):
+def joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adverse):
     """Cette fonction permet de gérer les actions du joueur actif après un clic.
 
     Args:
@@ -90,7 +90,6 @@ def joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adv
         banque (int): Budget du joueur.
         color_actif (str): Couleur du Joueur actif.
         color_adverse (str): Couleur du Joueur adverse.
-        number (int): Numéro du joueur.
 
     Returns:
         dico_actif (dict): Dictionnaire du Joueur actif (clé : identifiant du cercle ; valeur : [x, y, r]).
@@ -105,7 +104,7 @@ def joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adv
 
     # Si aucun cercle adverse n'est touché, le joueur va poser un cercle.
     if not diviser:
-        if isinstance(banque, int):
+        if isinstance(banque, int): # La banque est un nombre entier (variante taille des boules activée).
             banque, rayon = taille_des_boules(banque, color_actif)
 
         # Crée un cercle pour le joueur actif.
@@ -120,7 +119,7 @@ def joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adv
     return dico_actif, dico_adverse, banque
 
 
-def process_player_actions(dico_actif, dico_adverse, rayon, variantes, banque, dico_obs, number, color_actif, color_adverse):
+def process_player_actions(dico_actif, dico_adverse, rayon, variantes, banque, dico_obs, color_actif, color_adverse):
     """Cette fonction permet de gérer les actions avant le jeu, comme le temps de réaction, les scores, les obstacles et les variantes.
 
     Args:
@@ -130,7 +129,6 @@ def process_player_actions(dico_actif, dico_adverse, rayon, variantes, banque, d
         variantes (dict): Dictionnaire des variantes.
         banque (int): Budget du joueur.
         dico_obs (dict): Dictionnaire des obstacles.
-        number (int): Numéro du joueur.
         color_actif (str): Couleur du joueur actif.
         color_adverse (str): Couleur du joueur adverse.
 
@@ -139,35 +137,49 @@ def process_player_actions(dico_actif, dico_adverse, rayon, variantes, banque, d
         dico_adverse (dict): Dictionnaire du joueur adverse (clé : identifiant du cercle ; valeur : [x, y, r]).
         banque (int): Budget du joueur.
     """
+    def handle_scores():
+        """Cette fonction permet d'afficher les scores des joueurs."""
+        scores(dico_actif, dico_adverse, color_actif, color_adverse)
+
+    def handle_input():
+        """Gère les clics ou touches selon les variantes."""
+        if variantes["scores"]:
+            while True:
+                x, y, e = upemtk.attente_clic_ou_touche()
+                if e == "Touche" and y == 's':
+                    handle_scores()
+                else:
+                    return x, y, e
+        else:
+            return upemtk.attente_clic()
+
     timing = False
-    x, y, e = None, None, None
+    # Gestion du sablier
     if variantes["sablier"]:
         x, y, e = sablier(10, variantes["scores"])
         if x is None and y is None and e is None:
             timing = True
-        if variantes["scores"] and y == 's':
-            scores(dico_actif, dico_adverse, color_actif, color_adverse)
+        elif variantes["scores"] and y == 's':
+            handle_scores()
     else:
-        if variantes["scores"]:
-            e = 'Touche'
-            while e == 'Touche':
-                x, y, e = upemtk.attente_clic_ou_touche()
-                if e == 'Touche' and y == 's':
-                    scores(dico_actif, dico_adverse, color_actif, color_adverse)
-        else:
-            x, y, e = upemtk.attente_clic()
+        x, y, e = handle_input()
+
     if not timing:
         if e == "Touche":
-            x, y , e = upemtk.attente_clic()
-        if variantes["obstacle"] == True and intersection(dico_obs, x, y, rayon) == True:
+            x, y, e = upemtk.attente_clic()
+
+        # Vérification des obstacles
+        if variantes["obstacle"] and intersection(dico_obs, x, y, rayon):
             return dico_actif, dico_adverse, banque
-        dico_actif, dico_adverse, banque = joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adverse, number)
+        # Mise à jour des joueurs
+        dico_actif, dico_adverse, banque = joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adverse)
     return dico_actif, dico_adverse, banque
 
 
 def game():
     """Cette fonction permet de jouer une partie de jeu.
     Elle permet de gérer les actions avant le jeu comme le choix des variantes, des pseudos et des couleurs."""
+    upemtk.rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, remplissage="white", couleur="black") # Fond de la fenêtre
     dico_j1, dico_j2 = dict(), dict() # Forme du dictionnaire : clé : identifiant du cercle ; valeur : [x, y, r].
     dict()
     rayon = 50
@@ -189,16 +201,19 @@ def game():
     upemtk.attente_clic_ou_touche()
     upemtk.efface('jouer')
     dico_obs = obstacles(variantes["obstacle"])
-    banque1, banque2 = None, None
-    if variantes["taille"]:
-        banque1, banque2 = 10000, 10000
+
+    # Initialisation des banques des joueurs si la variante taille des boules est activée
+    banque_j1, banque_j2 = 10000 if variantes["taille"] else None, 10000 if variantes["taille"] else None
+
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour
         # pause_button(), quit_button()
         crayon(player_colors[0], compteur, tour, pseudo_j1)
-        dico_j1, dico_j2, banque1 = process_player_actions(dico_j1, dico_j2, rayon, variantes, banque1, dico_obs, 1, player_colors[0], player_colors[1])
+        dico_j1, dico_j2, banque_j1 = process_player_actions(dico_j1, dico_j2, rayon, variantes, banque_j1, dico_obs,
+                                                             player_colors[0], player_colors[1])
         gomme()
         crayon(player_colors[1], compteur, tour, pseudo_j2)
-        dico_j1, dico_j2, banque2 = process_player_actions(dico_j2, dico_j1, rayon, variantes, banque2, dico_obs, 2, player_colors[1], player_colors[0])
+        dico_j1, dico_j2, banque_j2 = process_player_actions(dico_j2, dico_j1, rayon, variantes, banque_j2, dico_obs,
+                                                             player_colors[1], player_colors[0])
         gomme()
         variantes["terminaison"], tour = terminaison(variantes["terminaison"], tour, compteur)
         upemtk.mise_a_jour()

@@ -17,11 +17,9 @@ def intersection(dico, x, y, rayon):
     Returns:
         bool: Retourne vrai s'il y a une intersection, sinon faux.
     """
-    if dico:
-        for x_cercle, y_cercle, rayon_ennemie in dico.values():
-            distance = sqrt((x_cercle-x)**2 + (y_cercle-y)**2) # cette formule calcule la distance entre les deux coordonnées des points
-            if distance <= rayon + rayon_ennemie: # Le r*2 correspond au diamètre du cercle
-                return True
+    for _, (dx, dy, dr) in dico.items():
+        if ((x - dx) ** 2 + (y - dy) ** 2) ** 0.5 < rayon + dr:
+            return True
     return False
 
 
@@ -40,7 +38,7 @@ def in_cercle(dico, x, y, color):
         dict: Retourne le dictionnaire avec les deux nouveaux cercles et celui du clic supprimé.
     """
     for circle_id, circle_data in dico.items():
-            distance = sqrt((circle_data[0]-x)**2 + (circle_data[1]-y)**2)
+            distance = sqrt((circle_data[0] - x)**2 + (circle_data[1] - y)**2)
             if distance <= circle_data[2]:
                 dico = div_cercle(color, circle_id, x, y, circle_data[0], circle_data[1], circle_data[2], dico)
                 return True, dico

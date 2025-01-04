@@ -2,8 +2,8 @@
 # ------------------------------ Importation
 from time import time, sleep
 from random import randint
-from default import *
-from calcul import *
+from default import largeur_Fenetre, hauteur_Fenetre, game_font
+from calcul import calcul_aire, intersection
 import upemtk
 
 
@@ -136,27 +136,27 @@ def taille_des_boules(banque, color):
     return banque, rayon
 
 
-def version_dynamique(dico1, dico2, dico_obs, color):
+def version_dynamique(dico_actif, dico_adverse, dico_obs, color):
     """Cette fonction représente la variante Dynamique et permet d'agrandir les cercles des joueurs et de vérifier les intersections avec les obstacles et les cercles adverses.
     La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
-        dico1 (dict): Dictionnaire du Joueur 1.
-        dico2 (dict): Dictionnaire du Joueur 2.
+        dico_actif (dict): Dictionnaire du joueur actif.
+        dico_adverse (dict): Dictionnaire du joueur adverse.
         dico_obs (dict): Dictionnaire des obstacles.
         color (str): Couleur du joueur.
 
     Returns:
-        new_dico (dict): Dictionnaire des cercles du joueur 1 (modifié).
+        new_dico (dict): Dictionnaire des cercles du joueur actif (modifié).
     """
     # Vérification d'intersection avec les cercles du joueurs adverse et les obstacles.
     new_dico = {}
 
-    for circle_id, (x, y, r) in dico1.items():
+    for circle_id, (x, y, r) in dico_actif.items():
         new_radius = r + 5
 
         # Vérification des intersections avec les obstacles et les cercles adverses.
-        if any(intersection(d, x, y, new_radius) for d in (dico2, dico_obs)):
+        if intersection(dico_adverse, x, y, new_radius) or intersection(dico_obs, x, y, new_radius):
             new_dico[circle_id] = [x, y, r] # Pas de changement si une intersection est détectée.
         else:
             # Suppression et recréation du cercle avec le nouveau rayon.
@@ -183,7 +183,7 @@ def terminaison(V_terminaison, tour, compteur):
     # Vérifie si la variante Terminaison est active
     if V_terminaison and tour > 5 and compteur < tour - 5:
         # Affichage du choix
-        upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//7, "Taper 'Y' pour arrêter la partie dans 5 tours ou 'N' pour continuer.", couleur='black', police=game_font, ancrage='center', tag='terminaison')
+        upemtk.texte(largeur_Fenetre // 2, hauteur_Fenetre // 7, "Taper 'Y' pour arrêter la partie dans 5 tours ou 'N' pour continuer.", couleur='black', police=game_font, ancrage='center', tag='terminaison')
 
         # Attente de la réponse du joueur
         key = upemtk.attente_touche()
