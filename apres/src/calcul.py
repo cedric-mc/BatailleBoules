@@ -86,9 +86,10 @@ def calcul_aire(dico_j1, dico_j2):
         dico_j2 (dict): Dictionnaire des cercles du joueur 2.
 
     Returns:
-        _type_ (set): Retourne un ensemble de coordonnées du joueur 1.
-        _type_ (set): Retourne un ensemble de coordonnées du joueur 2.
+        _type_ (int): Retourne le nombre de pixels de l'aire des cercles du joueur 1.
+        _type_ (int): Retourne le nombre de pixels de l'aire des cercles du joueur 2.
     """
+    # Fonction interne qui permet de récupérer l'ensemble des coordonnées des cercles d'un joueur.
     def inter_calcul_aire(dico):
         return {(i, j) for x, y, r in dico.values() for i in range(int(x-r), int(x+r)) for j in range(int(y-r), int(y+r)) if dist((i, j), (x, y)) <= r}
-    return inter_calcul_aire(dico_j1), inter_calcul_aire(dico_j2)
+    return len(inter_calcul_aire(dico_j1)), len(inter_calcul_aire(dico_j2))

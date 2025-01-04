@@ -28,7 +28,7 @@ def sablier(minuteur, V_scores):
         type_ev = upemtk.type_evenement(ev)
         if "Clic" in type_ev:
             return upemtk.clic_x(ev), upemtk.clic_y(ev), type_ev
-        elif V_scores and "Touche" in type_ev and upemtk.touche(ev) is "s":
+        elif V_scores and "Touche" in type_ev and upemtk.touche(ev) == "s":
             return -1, upemtk.touche(ev), type_ev
         upemtk.texte(largeur_Fenetre-500, hauteur_Fenetre-100, "Temps restant : " + str(int(t1 - time() + 1)) + " s", police=game_font, tag="sablier")
         upemtk.mise_a_jour()
@@ -46,8 +46,7 @@ def scores(dico_j1, dico_j2, color1, color2):
         color2 (str): Couleur du Joueur 2.
     """
     # Calcul des scores des joueurs.
-    S1, S2 = calcul_aire(dico_j1, dico_j2)
-    j1, j2 = len(S1), len(S2)
+    j1, j2 = calcul_aire(dico_j1, dico_j2)
 
     # Position et dimensions de l'affichage des scores.
     zones = [
@@ -185,7 +184,6 @@ def terminaison(V_terminaison, tour, compteur):
     if V_terminaison and tour > 5 and compteur < tour - 5:
         # Affichage du choix
         upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//7, "Taper 'Y' pour arrêter la partie dans 5 tours ou 'N' pour continuer.", couleur='black', police=game_font, ancrage='center', tag='terminaison')
-        key = upemtk.attente_touche()
 
         # Attente de la réponse du joueur
         key = upemtk.attente_touche()
@@ -198,18 +196,18 @@ def terminaison(V_terminaison, tour, compteur):
     return V_terminaison, tour # Aucun changement, on retourne donc les valeurs initiales
 
 
-def obstacles(V_obstacle, dico_obs):
+def obstacles(V_obstacle):
     """Cette fonction prend en paramètre la variable booléenne V_obstacle et le dictionnaire dico_obs sous forme
     {identifiant du cercle: [position x du cercle, position y du cercle, rayon du cercle].
     La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
     Args:
         V_obstacle (bool): Variable booléenne de la variante.
-        dico_obs (dict): Dictionnaire des obstacles.
 
     Returns:
         dico_obs (dict): Dictionnaire des obstacles (modifié).
     """
+    dico_obs = {}
     if V_obstacle:
         for i in range(randint(1, 15)):
             x = randint(0, largeur_Fenetre)
@@ -217,4 +215,4 @@ def obstacles(V_obstacle, dico_obs):
             r = randint(25, 60)
             cercle_obs = upemtk.cercle(x, y, r, couleur="grey", remplissage="grey")
             dico_obs[cercle_obs] = [x, y, r]
-        return dico_obs
+    return dico_obs
