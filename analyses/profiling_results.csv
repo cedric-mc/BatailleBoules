@@ -1,0 +1,504 @@
+Fonction;ncalls
+~:0:<built-in method math.dist>;100000
+~:0:<built-in method builtins.len>;78519
+~:0:<method 'call' of '_tkinter.tkapp' objects>;77183
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:570:type_evenement;76709
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:556:donne_evenement;76709
+/usr/lib/python3.12/tkinter/__init__.py:1370:update;76703
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:74:update;76702
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:158:mise_a_jour;76702
+~:0:<method 'getint' of '_tkinter.tkapp' objects>;6747
+/usr/lib/python3.12/tkinter/__init__.py:1628:getint_event;5566
+~:0:<built-in method builtins.isinstance>;1639
+~:0:<method 'getboolean' of '_tkinter.tkapp' objects>;1012
+~:0:<method 'append' of 'list' objects>;1009
+~:0:<method 'rstrip' of 'str' objects>;718
+~:0:<built-in method builtins.hasattr>;597
+~:0:<method 'pop' of 'list' objects>;549
+/usr/lib/python3.12/enum.py:1129:__new__;513
+/usr/lib/python3.12/enum.py:726:__call__;513
+~:0:<method 'split' of 'str' objects>;509
+/usr/lib/python3.12/tkinter/__init__.py:1612:_root;507
+/usr/lib/python3.12/tkinter/__init__.py:1622:_substitute;506
+/usr/lib/python3.12/tkinter/__init__.py:1569:nametowidget;506
+/usr/lib/python3.12/tkinter/__init__.py:1962:__call__;506
+~:0:<built-in method builtins.callable>;490
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:87:event_handler_motion;486
+~:0:<built-in method builtins.getattr>;416
+~:0:<method 'join' of 'str' objects>;395
+/usr/lib/python3.12/re/_parser.py:240:__next;388
+<frozen importlib._bootstrap>:491:_verbose_message;364
+~:0:<method 'startswith' of 'str' objects>;356
+<frozen importlib._bootstrap_external>:126:_path_join;334
+/usr/lib/python3.12/re/_parser.py:261:get;326
+~:0:<method 'update' of 'dict' objects>;218
+~:0:<built-in method _tkinter._flatten>;213
+~:0:<method 'rpartition' of 'str' objects>;188
+~:0:<built-in method _imp.acquire_lock>;174
+~:0:<built-in method _imp.release_lock>;174
+~:0:<method 'items' of 'dict' objects>;129
+~:0:<built-in method posix.stat>;129
+~:0:<method 'get' of 'dict' objects>;128
+~:0:<built-in method __new__ of type object at 0xa43b40>;128
+<frozen importlib._bootstrap_external>:140:_path_stat;125
+/usr/lib/python3.12/tkinter/__init__.py:2895:delete;110
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:443:efface;109
+/usr/lib/python3.12/tkinter/__init__.py:102:_cnfmerge;109
+/usr/lib/python3.12/tkinter/__init__.py:1543:_options;108
+~:0:<method 'pop' of 'dict' objects>;106
+/usr/lib/python3.12/tkinter/__init__.py:2842:_create;106
+<frozen importlib._bootstrap_external>:134:<genexpr>;100
+~:0:<method 'get' of 'mappingproxy' objects>;97
+~:0:<built-in method builtins.__build_class__>;97
+<frozen importlib._bootstrap>:1226:__exit__;96
+<frozen importlib._bootstrap>:1222:__enter__;96
+~:0:<built-in method builtins.setattr>;94
+/usr/lib/python3.12/enum.py:850:__setattr__;89
+/usr/lib/python3.12/enum.py:48:_is_dunder;88
+~:0:<built-in method posix.fspath>;83
+~:0:<built-in method _thread.get_ident>;80
+~:0:<method '__exit__' of '_thread.RLock' objects>;80
+/usr/lib/python3.12/enum.py:59:_is_sunder;80
+/usr/lib/python3.12/enum.py:38:_is_descriptor;80
+/usr/lib/python3.12/enum.py:241:__set_name__;80
+/usr/lib/python3.12/types.py:192:__init__;80
+/usr/lib/python3.12/enum.py:79:_is_private;80
+/usr/lib/python3.12/signal.py:21:<lambda>;79
+/usr/lib/python3.12/signal.py:16:<lambda>;78
+~:0:<method 'isupper' of 'str' objects>;77
+<frozen importlib._bootstrap_external>:1469:_path_importer_cache;77
+/usr/lib/python3.12/signal.py:9:<lambda>;77
+~:0:<built-in method from_bytes>;75
+<frozen importlib._bootstrap_external>:84:_unpack_uint32;75
+/usr/lib/python3.12/enum.py:1185:__init__;75
+/usr/lib/python3.12/re/_parser.py:168:__getitem__;65
+~:0:<built-in method builtins.next>;63
+<frozen importlib._bootstrap_external>:1593:find_spec;63
+<frozen importlib._bootstrap_external>:71:_relax_case;63
+/usr/lib/python3.12/tkinter/font.py:69:__init__;63
+/usr/lib/python3.12/tkinter/font.py:163:metrics;63
+/usr/lib/python3.12/tkinter/font.py:57:_get;63
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:70:set_font;63
+/usr/lib/python3.12/tkinter/font.py:118:__del__;63
+/usr/lib/python3.12/re/_parser.py:256:match;63
+~:0:<method 'splitlist' of '_tkinter.tkapp' objects>;63
+/usr/lib/python3.12/tkinter/__init__.py:2882:create_text;62
+/usr/lib/python3.12/tkinter/font.py:100:__str__;62
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:385:texte;62
+~:0:<built-in method builtins.max>;54
+~:0:<method 'rfind' of 'str' objects>;53
+<frozen importlib._bootstrap>:632:cached;52
+~:0:<built-in method math.sqrt>;51
+<frozen importlib._bootstrap_external>:482:cache_from_source;50
+<frozen importlib._bootstrap_external>:132:_path_split;50
+/usr/lib/python3.12/enum.py:942:<lambda>;41
+~:0:<method 'remove' of 'list' objects>;40
+~:0:<built-in method _weakref._remove_dead_weakref>;40
+<frozen importlib._bootstrap>:426:_get_module_lock;40
+<frozen importlib._bootstrap>:372:release;40
+<frozen importlib._bootstrap>:304:acquire;40
+<frozen importlib._bootstrap>:173:__exit__;40
+<frozen importlib._bootstrap>:162:__enter__;40
+<frozen importlib._bootstrap>:158:__init__;40
+<frozen importlib._bootstrap>:124:setdefault;40
+<frozen importlib._bootstrap>:82:remove;40
+<frozen importlib._bootstrap>:79:__init__;40
+<frozen importlib._bootstrap>:74:__new__;40
+~:0:<built-in method builtins.min>;38
+~:0:<built-in method _imp.is_builtin>;38
+~:0:<built-in method _thread.allocate_lock>;38
+<frozen importlib._bootstrap>:1240:_find_spec;38
+<frozen importlib._bootstrap>:982:find_spec;38
+<frozen importlib._bootstrap>:599:__init__;38
+<frozen importlib._bootstrap>:445:cb;38
+<frozen importlib._bootstrap>:420:__exit__;38
+<frozen importlib._bootstrap>:416:__enter__;38
+<frozen importlib._bootstrap>:412:__init__;38
+<frozen importlib._bootstrap>:232:__init__;38
+~:0:<built-in method _ctypes.sizeof>;38
+<frozen importlib._bootstrap>:806:module_from_spec;36
+<frozen importlib._bootstrap>:733:_init_module_attrs;36
+<frozen importlib._bootstrap>:653:has_location;36
+<frozen importlib._bootstrap>:645:parent;36
+<frozen importlib._bootstrap_external>:150:_path_is_mode_type;35
+~:0:<method 'endswith' of 'str' objects>;33
+<frozen importlib._bootstrap_external>:159:_path_isfile;33
+~:0:<method 'find' of 'bytearray' objects>;32
+/usr/lib/python3.12/tkinter/__init__.py:2878:create_rectangle;32
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:243:rectangle;32
+/usr/lib/python3.12/re/_parser.py:293:tell;30
+~:0:<built-in method _imp.find_frozen>;29
+<frozen importlib._bootstrap_external>:1520:find_spec;29
+<frozen importlib._bootstrap_external>:1491:_get_spec;29
+<frozen importlib._bootstrap_external>:185:_path_abspath;29
+<frozen importlib._bootstrap_external>:180:_path_isabs;29
+<frozen importlib._bootstrap>:1128:find_spec;29
+<frozen importlib._bootstrap_external>:1588:_get_spec;27
+<frozen importlib._bootstrap_external>:802:spec_from_file_location;27
+<frozen importlib._bootstrap_external>:611:_get_cached;27
+~:0:<built-in method posix.getcwd>;26
+~:0:<built-in method _imp._fix_co_filename>;25
+~:0:<built-in method marshal.loads>;25
+~:0:<built-in method _io.open_code>;25
+~:0:<method '__exit__' of '_io._IOBase' objects>;25
+~:0:<method 'read' of '_io.BufferedReader' objects>;25
+<frozen importlib._bootstrap_external>:1202:path_stats;25
+<frozen importlib._bootstrap_external>:1183:get_data;25
+<frozen importlib._bootstrap_external>:1178:get_filename;25
+<frozen importlib._bootstrap_external>:1153:__init__;25
+<frozen importlib._bootstrap_external>:1062:get_code;25
+<frozen importlib._bootstrap_external>:986:create_module;25
+<frozen importlib._bootstrap_external>:751:_compile_bytecode;25
+<frozen importlib._bootstrap_external>:699:_validate_timestamp_pyc;25
+<frozen importlib._bootstrap_external>:666:_classify_pyc;25
+<frozen importlib._bootstrap_external>:643:_check_name_wrapper;25
+<frozen importlib._bootstrap>:48:_new_module;25
+/usr/lib/python3.12/re/_parser.py:164:__len__;25
+~:0:<built-in method builtins.ord>;22
+~:0:<method 'isidentifier' of 'str' objects>;21
+/usr/lib/python3.12/enum.py:1544:_get_value;21
+/usr/lib/python3.12/re/_parser.py:176:append;20
+~:0:<built-in method _struct.calcsize>;18
+/usr/lib/python3.12/re/_parser.py:83:groups;18
+/usr/lib/python3.12/re/_parser.py:113:__init__;18
+~:0:<method '__contains__' of 'frozenset' objects>;17
+~:0:<built-in method sys.intern>;17
+/usr/lib/python3.12/collections/__init__.py:429:<genexpr>;17
+<frozen importlib._bootstrap_external>:1573:<genexpr>;16
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:84:event_handler_button1;16
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:579:clic_x;16
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:591:clic_y;16
+~:0:<method 'extend' of 'list' objects>;14
+~:0:<method 'add' of 'set' objects>;14
+/usr/lib/python3.12/ctypes/__init__.py:145:_check_size;14
+~:0:<method 'values' of 'dict' objects>;13
+/usr/lib/python3.12/re/_compiler.py:31:_combine_flags;12
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:468:attente_clic;11
+/home/cedric-mc/public_html/BatailleBoules/avant/game.py:40:avant_jeu;10
+/home/cedric-mc/public_html/BatailleBoules/avant/interface.py:65:gomme;10
+/home/cedric-mc/public_html/BatailleBoules/avant/game.py:79:JOUEUR;10
+/home/cedric-mc/public_html/BatailleBoules/avant/calcul.py:10:intersection;10
+/usr/lib/python3.12/tkinter/__init__.py:2870:create_oval;10
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:268:cercle;10
+/home/cedric-mc/public_html/BatailleBoules/avant/interface.py:52:crayon;10
+~:0:<built-in method _imp.create_builtin>;9
+~:0:<built-in method _imp.exec_builtin>;9
+<frozen importlib._bootstrap>:1014:is_package;9
+<frozen importlib._bootstrap>:997:exec_module;9
+<frozen importlib._bootstrap>:989:create_module;9
+<frozen importlib._bootstrap>:662:spec_from_loader;9
+<frozen importlib._bootstrap>:501:_requires_builtin_wrapper;9
+/usr/lib/python3.12/re/_parser.py:178:getwidth;9
+/home/cedric-mc/public_html/BatailleBoules/avant/calcul.py:26:in_cercle;9
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:510:attente_clic_ou_touche;9
+~:0:<method 'createcommand' of '_tkinter.tkapp' objects>;9
+~:0:<method 'deletecommand' of '_tkinter.tkapp' objects>;9
+~:0:<built-in method builtins.issubclass>;8
+/usr/lib/python3.12/re/_compiler.py:216:_compile_charset;8
+/usr/lib/python3.12/re/_compiler.py:243:_optimize_charset;8
+~:0:<built-in method builtins.id>;7
+~:0:<built-in method builtins.repr>;7
+~:0:<built-in method _abc._abc_init>;7
+<frozen abc>:105:__new__;7
+/usr/lib/python3.12/tkinter/__init__.py:1588:_register;7
+/usr/lib/python3.12/tkinter/__init__.py:1956:__init__;7
+/usr/lib/python3.12/re/_compiler.py:428:_get_iscased;7
+~:0:<built-in method fromkeys>;6
+<frozen importlib._bootstrap>:1390:_handle_fromlist;6
+<frozen importlib._bootstrap>:480:_call_with_frames_removed;6
+/usr/lib/python3.12/signal.py:51:decorator;6
+/usr/lib/python3.12/signal.py:50:_wraps;6
+/home/cedric-mc/public_html/BatailleBoules/avant/buttons.py:17:f_boutons;6
+/usr/lib/python3.12/re/_compiler.py:570:isstring;6
+/usr/lib/python3.12/re/_parser.py:98:closegroup;6
+/usr/lib/python3.12/re/_parser.py:449:_uniq;6
+/usr/lib/python3.12/re/_parser.py:86:opengroup;6
+/usr/lib/python3.12/enum.py:1562:__and__;6
+~:0:<built-in method builtins.any>;5
+~:0:<built-in method _sre.unicode_iscased>;5
+<frozen posixpath>:41:_get_sep;5
+/home/cedric-mc/public_html/BatailleBoules/avant/joueur.py:35:J2;5
+/home/cedric-mc/public_html/BatailleBoules/avant/variantes.py:126:terminaison;5
+/usr/lib/python3.12/platform.py:836:_unknown_as_blank;5
+/home/cedric-mc/public_html/BatailleBoules/avant/joueur.py:8:J1;5
+~:0:<method 'translate' of 'bytearray' objects>;4
+~:0:<method 'items' of 'mappingproxy' objects>;4
+~:0:<built-in method _sre.ascii_iscased>;4
+~:0:<built-in method _sre.ascii_tolower>;4
+<frozen posixpath>:71:join;4
+<frozen genericpath>:27:isfile;4
+<frozen abc>:7:abstractmethod;4
+/usr/lib/python3.12/tkinter/__init__.py:1393:_bind;4
+/usr/lib/python3.12/enum.py:528:__new__;4
+/usr/lib/python3.12/enum.py:1708:convert_class;4
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:78:event_handler_key;4
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:603:touche;4
+/usr/lib/python3.12/re/_compiler.py:386:_mk_bitmap;4
+/usr/lib/python3.12/enum.py:1692:_simple_enum;4
+/usr/lib/python3.12/re/_parser.py:274:getuntil;4
+/usr/lib/python3.12/re/_parser.py:304:checkgroupname;4
+~:0:<method 'setter' of 'property' objects>;3
+~:0:<method 'sort' of 'list' objects>;3
+~:0:<method 'clear' of 'dict' objects>;3
+~:0:<built-in method builtins.eval>;3
+~:0:<built-in method sys._getframemodulename>;3
+~:0:<built-in method _sre.compile>;3
+<frozen importlib._bootstrap_external>:989:exec_module;3
+<frozen importlib._bootstrap>:1349:_find_and_load;3
+<frozen importlib._bootstrap>:1304:_find_and_load_unlocked;3
+<frozen importlib._bootstrap>:911:_load_unlocked;3
+/usr/lib/python3.12/enum.py:919:_convert_;3
+/usr/lib/python3.12/re/_compiler.py:436:_get_literal_prefix;3
+/usr/lib/python3.12/collections/__init__.py:355:namedtuple;3
+/usr/lib/python3.12/re/__init__.py:280:_compile;3
+/usr/lib/python3.12/re/_parser.py:452:_parse_sub;3
+/usr/lib/python3.12/re/_parser.py:969:parse;3
+/usr/lib/python3.12/re/_compiler.py:37:_compile;3
+/usr/lib/python3.12/re/_compiler.py:511:_compile_info;3
+/usr/lib/python3.12/re/_compiler.py:740:compile;3
+/usr/lib/python3.12/re/_parser.py:512:_parse;3
+/usr/lib/python3.12/ctypes/__init__.py:510:CFunctionType;3
+/usr/lib/python3.12/ctypes/__init__.py:509:PYFUNCTYPE;3
+/usr/lib/python3.12/tkinter/__init__.py:2264:wm_protocol;3
+/usr/lib/python3.12/tkinter/__init__.py:1411:bind;3
+/home/cedric-mc/public_html/BatailleBoules/avant/colors.py:84:melangeur_colors;3
+/usr/lib/python3.12/re/__init__.py:226:compile;3
+/usr/lib/python3.12/enum.py:1394:_iter_member_by_value_;3
+/usr/lib/python3.12/re/_compiler.py:573:_code;3
+/usr/lib/python3.12/re/_parser.py:77:__init__;3
+/usr/lib/python3.12/enum.py:828:__members__;3
+/usr/lib/python3.12/re/_parser.py:172:__setitem__;3
+/usr/lib/python3.12/enum.py:1404:_iter_member_by_def_;3
+/usr/lib/python3.12/re/_parser.py:953:fix_flags;3
+/usr/lib/python3.12/enum.py:117:_iter_bits_lsb;3
+/usr/lib/python3.12/re/_parser.py:231:__init__;3
+~:0:<method 'decode' of 'bytes' objects>;2
+~:0:<method 'encode' of 'str' objects>;2
+~:0:<built-in method builtins.globals>;2
+~:0:<built-in method _imp.create_dynamic>;2
+~:0:<built-in method _imp.exec_dynamic>;2
+~:0:<built-in method math.log>;2
+~:0:<built-in method posix.listdir>;2
+<frozen os>:766:decode;2
+<frozen os>:762:encode;2
+<frozen os>:680:__getitem__;2
+<frozen zipimport>:64:__init__;2
+<frozen importlib._bootstrap_external>:1685:path_hook_for_FileFinder;2
+<frozen importlib._bootstrap_external>:1644:_fill_cache;2
+<frozen importlib._bootstrap_external>:1567:__init__;2
+<frozen importlib._bootstrap_external>:1456:_path_hooks;2
+<frozen importlib._bootstrap_external>:1295:exec_module;2
+<frozen importlib._bootstrap_external>:1287:create_module;2
+<frozen importlib._bootstrap_external>:1276:__init__;2
+<frozen importlib._bootstrap_external>:164:_path_isdir;2
+<frozen importlib._bootstrap>:463:_lock_unlock_module;2
+/usr/lib/python3.12/re/_compiler.py:467:_get_charset_prefix;2
+/usr/lib/python3.12/enum.py:202:__get__;2
+/usr/lib/python3.12/re/_parser.py:312:_class_escape;2
+/usr/lib/python3.12/re/_parser.py:372:_escape;2
+/usr/lib/python3.12/re/_parser.py:893:_parse_flags;2
+/usr/lib/python3.12/platform.py:889:uname;2
+/home/cedric-mc/public_html/BatailleBoules/avant/texte.py:42:enter_surname;2
+~:0:<built-in method _ctypes.POINTER>;2
+/usr/lib/python3.12/platform.py:978:system;2
+/usr/lib/python3.12/tkinter/__init__.py:679:destroy;2
+/usr/lib/python3.12/tkinter/__init__.py:2866:create_line;2
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:177:ligne;2
+/usr/lib/python3.12/selectors.py:588:_can_use;2
+/usr/lib/python3.12/ctypes/__init__.py:73:CFUNCTYPE;2
+/usr/lib/python3.12/ctypes/__init__.py:102:CFunctionType;2
+/usr/lib/python3.12/ctypes/__init__.py:443:__init__;2
+/usr/lib/python3.12/re/_compiler.py:398:_simple;2
+/usr/lib/python3.12/enum.py:1292:value;2
+/usr/lib/python3.12/enum.py:1411:<lambda>;2
+~:0:<method 'getvar' of '_tkinter.tkapp' objects>;2
+~:0:<method 'setdefault' of 'dict' objects>;1
+~:0:<method '__init_subclass__' of 'object' objects>;1
+~:0:<method 'replace' of 'str' objects>;1
+~:0:<method 'lower' of 'str' objects>;1
+~:0:<method 'translate' of 'str' objects>;1
+~:0:<built-in method builtins.__import__>;1
+~:0:<built-in method builtins.exec>;1
+~:0:<built-in method builtins.sorted>;1
+~:0:<function Random.seed at 0x731a9d0e0360>;1
+~:0:<built-in method math.exp>;1
+~:0:<method 'close' of 'select.epoll' objects>;1
+~:0:<built-in method posix.uname>;1
+~:0:<built-in method posix.register_at_fork>;1
+~:0:<built-in method posix.confstr>;1
+~:0:<built-in method time.sleep>;1
+<frozen posixpath>:169:basename;1
+<frozen posixpath>:117:splitext;1
+<frozen genericpath>:133:_splitext;1
+<frozen _collections_abc>:811:__contains__;1
+/home/cedric-mc/public_html/BatailleBoules/avant/calcul.py:65:calcul_aire;1
+/home/cedric-mc/public_html/BatailleBoules/avant/menu.py:9:Start_bouton;1
+/usr/lib/python3.12/enum.py:1414:_missing_;1
+/usr/lib/python3.12/tkinter/__init__.py:668:Misc;1
+/usr/lib/python3.12/tkinter/__init__.py:2606:_setup;1
+/usr/lib/python3.12/tkinter/__init__.py:2653:destroy;1
+/usr/lib/python3.12/tkinter/__init__.py:2751:Canvas;1
+/usr/lib/python3.12/tkinter/__init__.py:2016:Wm;1
+/usr/lib/python3.12/tkinter/__init__.py:2357:_loadtk;1
+/usr/lib/python3.12/tkinter/__init__.py:2393:readprofile;1
+/usr/lib/python3.12/tkinter/__init__.py:3621:Text;1
+/usr/lib/python3.12/tkinter/__init__.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/default.py:1:<module>;1
+/usr/lib/python3.12/tkinter/__init__.py:2636:__init__;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:1:<module>;1
+/usr/lib/python3.12/signal.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:33:__init__;1
+/usr/lib/python3.12/tkinter/__init__.py:2325:__init__;1
+/usr/lib/python3.12/ctypes/__init__.py:265:_reset_cache;1
+/usr/lib/python3.12/ctypes/_endian.py:1:<module>;1
+/usr/lib/python3.12/tkinter/font.py:1:<module>;1
+/usr/lib/python3.12/selectors.py:1:<module>;1
+/usr/lib/python3.12/ctypes/__init__.py:343:__init__;1
+/usr/lib/python3.12/ctypes/__init__.py:1:<module>;1
+/usr/lib/python3.12/subprocess.py:695:_use_posix_spawn;1
+/usr/lib/python3.12/subprocess.py:749:Popen;1
+/usr/lib/python3.12/subprocess.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/game.py:15:VAINQUEUR;1
+/home/cedric-mc/public_html/BatailleBoules/avant/buttons.py:7:default_buttons;1
+/usr/lib/python3.12/random.py:135:seed;1
+/home/cedric-mc/public_html/BatailleBoules/avant/game.py:87:GAME;1
+/home/cedric-mc/public_html/BatailleBoules/avant/menu.py:52:MENU;1
+/usr/lib/python3.12/random.py:1:<module>;1
+/usr/lib/python3.12/platform.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/menu.py:26:boutons;1
+/usr/lib/python3.12/string.py:69:__init_subclass__;1
+/home/cedric-mc/public_html/BatailleBoules/avant/texte.py:104:enter_numbers;1
+/home/cedric-mc/public_html/BatailleBoules/avant/colors.py:7:colors;1
+/home/cedric-mc/public_html/BatailleBoules/avant/colors.py:120:choose_colors;1
+/home/cedric-mc/public_html/BatailleBoules/avant/restart.py:7:RESTART;1
+/home/cedric-mc/public_html/BatailleBoules/avant/restart.py:1:<module>;1
+~:0:<built-in method _ctypes.dlopen>;1
+/usr/lib/python3.12/random.py:126:__init__;1
+/usr/lib/python3.12/random.py:876:SystemRandom;1
+/home/cedric-mc/public_html/BatailleBoules/avant/menu.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/colors.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/texte.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/interface.py:1:<module>;1
+/usr/lib/python3.12/tkinter/__init__.py:4081:Image;1
+/usr/lib/python3.12/selectors.py:341:_PollLikeSelector;1
+/usr/lib/python3.12/selectors.py:433:PollSelector;1
+/usr/lib/python3.12/tkinter/__init__.py:4042:OptionMenu;1
+/usr/lib/python3.12/selectors.py:60:_SelectorMapping;1
+/usr/lib/python3.12/ctypes/__init__.py:157:py_object;1
+/usr/lib/python3.12/ctypes/__init__.py:373:_FuncPtr;1
+/usr/lib/python3.12/struct.py:1:<module>;1
+<string>:1:<lambda>;1
+/usr/lib/python3.12/platform.py:794:_Processor;1
+/home/cedric-mc/public_html/BatailleBoules/avant/joueur.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/buttons.py:1:<module>;1
+/usr/lib/python3.12/subprocess.py:470:CompletedProcess;1
+/usr/lib/python3.12/subprocess.py:123:SubprocessError;1
+<string>:1:<module>;1
+/usr/lib/python3.12/ctypes/__init__.py:166:c_short;1
+/usr/lib/python3.12/ctypes/__init__.py:170:c_ushort;1
+/usr/lib/python3.12/ctypes/__init__.py:174:c_long;1
+/usr/lib/python3.12/ctypes/__init__.py:178:c_ulong;1
+/usr/lib/python3.12/ctypes/__init__.py:187:c_int;1
+/usr/lib/python3.12/ctypes/__init__.py:191:c_uint;1
+/usr/lib/python3.12/ctypes/__init__.py:195:c_float;1
+/usr/lib/python3.12/ctypes/__init__.py:199:c_double;1
+/usr/lib/python3.12/ctypes/__init__.py:203:c_longdouble;1
+/usr/lib/python3.12/ctypes/__init__.py:224:c_ubyte;1
+/usr/lib/python3.12/ctypes/__init__.py:231:c_byte;1
+/usr/lib/python3.12/ctypes/__init__.py:236:c_char;1
+/usr/lib/python3.12/ctypes/__init__.py:247:c_void_p;1
+/usr/lib/python3.12/ctypes/__init__.py:252:c_bool;1
+/usr/lib/python3.12/ctypes/__init__.py:262:c_wchar;1
+/home/cedric-mc/public_html/BatailleBoules/avant/game.py:1:<module>;1
+/usr/lib/python3.12/random.py:110:Random;1
+/home/cedric-mc/public_html/BatailleBoules/avant/texte.py:90:surname;1
+/usr/lib/python3.12/selectors.py:206:_BaseSelectorImpl;1
+/usr/lib/python3.12/ctypes/__init__.py:322:CDLL;1
+/usr/lib/python3.12/ctypes/__init__.py:442:LibraryLoader;1
+/home/cedric-mc/public_html/BatailleBoules/avant/calcul.py:1:<module>;1
+/usr/lib/python3.12/string.py:188:Formatter;1
+/home/cedric-mc/public_html/BatailleBoules/avant/variantes.py:149:obstacles;1
+/usr/lib/python3.12/random.py:222:__init_subclass__;1
+/home/cedric-mc/public_html/BatailleBoules/avant/buttons.py:47:quit_button;1
+/usr/lib/python3.12/string.py:1:<module>;1
+/usr/lib/python3.12/ctypes/_endian.py:34:_swapped_struct_meta;1
+/usr/lib/python3.12/ctypes/_endian.py:35:_swapped_union_meta;1
+/usr/lib/python3.12/bisect.py:1:<module>;1
+/usr/lib/python3.12/string.py:57:Template;1
+main.py:9:INTERFACE;1
+/usr/lib/python3.12/tkinter/__init__.py:367:Variable;1
+/usr/lib/python3.12/tkinter/__init__.py:2456:pack_configure;1
+/usr/lib/python3.12/tkinter/__init__.py:2451:Pack;1
+/usr/lib/python3.12/tkinter/__init__.py:213:Event;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:102:TypeEvenementNonValide;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:106:FenetreNonCree;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:110:FenetreDejaCree;1
+/usr/lib/python3.12/tkinter/__init__.py:2666:Widget;1
+/usr/lib/python3.12/tkinter/__init__.py:548:StringVar;1
+/usr/lib/python3.12/tkinter/__init__.py:572:IntVar;1
+/usr/lib/python3.12/tkinter/__init__.py:597:DoubleVar;1
+/usr/lib/python3.12/tkinter/__init__.py:618:BooleanVar;1
+/usr/lib/python3.12/tkinter/__init__.py:1974:XView;1
+/usr/lib/python3.12/tkinter/__init__.py:1995:YView;1
+/usr/lib/python3.12/tkinter/__init__.py:2704:Button;1
+/usr/lib/python3.12/tkinter/font.py:26:Font;1
+/usr/lib/python3.12/tkinter/__init__.py:4247:Spinbox;1
+main.py:1:<module>;1
+/usr/lib/python3.12/tkinter/__init__.py:1476:bind_all;1
+/usr/lib/python3.12/subprocess.py:126:CalledProcessError;1
+/usr/lib/python3.12/subprocess.py:163:TimeoutExpired;1
+/usr/lib/python3.12/tkinter/__init__.py:2299:wm_title;1
+/usr/lib/python3.12/tkinter/__init__.py:2497:Place;1
+/usr/lib/python3.12/tkinter/__init__.py:170:EventType;1
+/usr/lib/python3.12/tkinter/__init__.py:3240:Listbox;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:433:efface_tout;1
+/usr/lib/python3.12/tkinter/__init__.py:4143:PhotoImage;1
+/usr/lib/python3.12/platform.py:842:uname_result;1
+/home/cedric-mc/public_html/BatailleBoules/avant/variantes.py:1:<module>;1
+/usr/lib/python3.12/tkinter/constants.py:1:<module>;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:27:CustomCanvas;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:135:cree_fenetre;1
+/usr/lib/python3.12/tkinter/__init__.py:2603:BaseWidget;1
+/usr/lib/python3.12/tkinter/__init__.py:2754:__init__;1
+/usr/lib/python3.12/tkinter/__init__.py:3499:Radiobutton;1
+/usr/lib/python3.12/tkinter/__init__.py:3532:Scale;1
+/usr/lib/python3.12/tkinter/__init__.py:1952:CallWrapper;1
+/usr/lib/python3.12/tkinter/__init__.py:2674:Toplevel;1
+/usr/lib/python3.12/tkinter/__init__.py:3196:Frame;1
+/usr/lib/python3.12/tkinter/__init__.py:3216:Label;1
+/usr/lib/python3.12/tkinter/__init__.py:3485:Menubutton;1
+/usr/lib/python3.12/tkinter/__init__.py:3492:Message;1
+/usr/lib/python3.12/tkinter/__init__.py:4028:_setit;1
+/usr/lib/python3.12/tkinter/__init__.py:4227:BitmapImage;1
+/usr/lib/python3.12/tkinter/__init__.py:4425:LabelFrame;1
+/usr/lib/python3.12/ctypes/__init__.py:257:c_wchar_p;1
+/usr/lib/python3.12/ctypes/__init__.py:241:c_char_p;1
+/usr/lib/python3.12/ctypes/__init__.py:402:PyDLL;1
+/usr/lib/python3.12/ctypes/_endian.py:23:_swapped_meta;1
+/usr/lib/python3.12/ctypes/_endian.py:48:BigEndianStructure;1
+/usr/lib/python3.12/ctypes/_endian.py:55:BigEndianUnion;1
+/usr/lib/python3.12/tkinter/__init__.py:3110:Entry;1
+/usr/lib/python3.12/tkinter/__init__.py:2320:Tk;1
+/usr/lib/python3.12/tkinter/__init__.py:3061:Checkbutton;1
+/usr/lib/python3.12/tkinter/__init__.py:3571:Scrollbar;1
+/usr/lib/python3.12/tkinter/__init__.py:4449:PanedWindow;1
+/usr/lib/python3.12/selectors.py:80:BaseSelector;1
+/usr/lib/python3.12/selectors.py:290:SelectSelector;1
+/usr/lib/python3.12/selectors.py:442:EpollSelector;1
+/usr/lib/python3.12/contextlib.py:272:contextmanager;1
+/home/cedric-mc/public_html/BatailleBoules/avant/upemtk.py:146:ferme_fenetre;1
+/usr/lib/python3.12/tkinter/__init__.py:3356:Menu;1
+/home/cedric-mc/public_html/BatailleBoules/avant/menu.py:74:choose_colors;1
+/usr/lib/python3.12/tkinter/__init__.py:147:_VersionInfoType;1
+/usr/lib/python3.12/functools.py:35:update_wrapper;1
+/usr/lib/python3.12/re/__init__.py:255:escape;1
+/usr/lib/python3.12/re/_compiler.py:407:_generate_overlap_table;1
+/usr/lib/python3.12/re/_parser.py:295:seek;1
+/usr/lib/python3.12/tkinter/__init__.py:2383:destroy;1
+/usr/lib/python3.12/tkinter/__init__.py:2548:Grid;1
+~:0:<built-in method _tkinter.create>;1
+~:0:<method 'disable' of '_lsprof.Profiler' objects>;1
+/usr/lib/python3.12/enum.py:1551:__or__;1
+/usr/lib/python3.12/functools.py:65:wraps;1
+/usr/lib/python3.12/functools.py:965:__init__;1
+/usr/lib/python3.12/functools.py:970:__set_name__;1
