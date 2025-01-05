@@ -1,0 +1,533 @@
+Fonction;ncalls
+<method 'extend' of 'bytearray' objects>;4
+<method 'find' of 'bytearray' objects>;32
+<method 'translate' of 'bytearray' objects>;4
+<method 'decode' of 'bytes' objects>;2
+<method 'setter' of 'property' objects>;3
+<method 'get' of 'mappingproxy' objects>;97
+<method 'items' of 'mappingproxy' objects>;4
+<method 'append' of 'list' objects>;2249
+<method 'extend' of 'list' objects>;17
+<method 'pop' of 'list' objects>;730
+<method 'remove' of 'list' objects>;37
+<method 'sort' of 'list' objects>;3
+<method 'bit_length' of 'int' objects>;25
+<method 'to_bytes' of 'int' objects>;3
+<built-in method from_bytes>;65
+<method 'get' of 'dict' objects>;119
+<method 'setdefault' of 'dict' objects>;1
+<method 'pop' of 'dict' objects>;1146
+<method 'items' of 'dict' objects>;1327
+<method 'values' of 'dict' objects>;4
+<method 'update' of 'dict' objects>;2436
+<built-in method fromkeys>;6
+<method 'clear' of 'dict' objects>;5
+<method '__contains__' of 'frozenset' objects>;17
+<method 'add' of 'set' objects>;14
+<built-in method __new__ of type object at 0xa43b40>;125
+<method '__init_subclass__' of 'object' objects>;1
+<method 'encode' of 'str' objects>;2
+<method 'replace' of 'str' objects>;1
+<method 'split' of 'str' objects>;693
+<method 'join' of 'str' objects>;392
+<method 'lower' of 'str' objects>;1
+<method 'rfind' of 'str' objects>;48
+<method 'rstrip' of 'str' objects>;698
+<method 'rpartition' of 'str' objects>;175
+<method 'translate' of 'str' objects>;1
+<method 'startswith' of 'str' objects>;359
+<method 'endswith' of 'str' objects>;30
+<method 'removeprefix' of 'str' objects>;1
+<method 'isupper' of 'str' objects>;77
+<method 'isidentifier' of 'str' objects>;21
+<method 'format' of 'str' objects>;32
+<built-in method builtins.__build_class__>;97
+<built-in method builtins.__import__>;1
+<built-in method builtins.any>;5
+<built-in method builtins.callable>;5968
+<built-in method builtins.compile>;1
+<built-in method builtins.eval>;3
+<built-in method builtins.exec>;1
+<built-in method builtins.getattr>;1473
+<built-in method builtins.globals>;2
+<built-in method builtins.hasattr>;591
+<built-in method builtins.id>;7
+<built-in method builtins.isinstance>;10449
+<built-in method builtins.issubclass>;8
+<built-in method builtins.len>;95256
+<built-in method builtins.locals>;32
+<built-in method builtins.max>;49
+<built-in method builtins.min>;38
+<built-in method builtins.next>;1106
+<built-in method builtins.ord>;22
+<built-in method builtins.repr>;6
+<built-in method builtins.setattr>;94
+<built-in method builtins.sorted>;1
+<built-in method _imp.acquire_lock>;194
+<built-in method _imp.release_lock>;194
+<built-in method _imp.find_frozen>;26
+<built-in method _imp.create_builtin>;9
+<built-in method _imp.is_builtin>;35
+<built-in method _imp.create_dynamic>;2
+<built-in method _imp.exec_dynamic>;2
+<built-in method _imp.exec_builtin>;9
+<built-in method _imp._fix_co_filename>;21
+<built-in method marshal.dumps>;1
+<built-in method marshal.loads>;21
+<built-in method sys._getframemodulename>;3
+<built-in method sys.intern>;17
+<function Random.seed at 0x7449fa1df2e0>;1
+<method 'getrandbits' of '_random.Random' objects>;32
+<built-in method _struct.calcsize>;18
+<built-in method math.dist>;171000
+<built-in method math.exp>;1
+<built-in method math.log>;2
+<built-in method math.sqrt>;481
+<method 'close' of 'select.epoll' objects>;1
+<built-in method posix.stat>;126
+<built-in method posix.getcwd>;1
+<built-in method posix.listdir>;3
+<built-in method posix.replace>;1
+<built-in method posix.uname>;1
+<built-in method posix.register_at_fork>;1
+<built-in method posix.open>;1
+<built-in method posix.confstr>;1
+<built-in method posix.fspath>;74
+<built-in method _io.open_code>;23
+<method '__exit__' of '_io._IOBase' objects>;24
+<method 'write' of '_io.FileIO' objects>;1
+<method 'read' of '_io.BufferedReader' objects>;23
+<built-in method _sre.compile>;3
+<built-in method _sre.ascii_iscased>;4
+<built-in method _sre.unicode_iscased>;5
+<built-in method _sre.ascii_tolower>;4
+<built-in method _thread.allocate_lock>;35
+<built-in method _thread.get_ident>;74
+<method '__exit__' of '_thread.RLock' objects>;74
+<built-in method time.time>;2034
+<built-in method _weakref._remove_dead_weakref>;37
+<built-in method _abc._abc_init>;7
+<built-in method _operator.index>;75
+<built-in method _operator.index>;2
+<built-in method _operator.index>;2
+<built-in method _operator.index>;2
+<built-in method _operator.index>;1
+<built-in method _operator.index>;1
+<built-in method _operator.index>;4
+<built-in method _operator.index>;5
+<built-in method _operator.index>;1
+<built-in method _operator.index>;4
+<built-in method _operator.index>;1
+<built-in method _operator.index>;7
+<built-in method _operator.index>;4
+<built-in method _operator.index>;3
+<built-in method _operator.index>;3
+<built-in method _operator.index>;3
+<built-in method _operator.index>;62
+<built-in method _operator.index>;24
+<built-in method _operator.index>;3
+<genexpr>;24
+<genexpr>;26
+<genexpr>;26
+<genexpr>;76
+<genexpr>;3
+<genexpr>;2
+<genexpr>;2
+<genexpr>;2
+<genexpr>;1
+<genexpr>;1
+<genexpr>;22
+<genexpr>;23
+<genexpr>;22
+<genexpr>;22
+<genexpr>;22
+<genexpr>;1
+<genexpr>;3
+<genexpr>;22
+<genexpr>;24
+<genexpr>;1
+<genexpr>;21
+<genexpr>;22
+<genexpr>;22
+<genexpr>;22
+<genexpr>;1
+<genexpr>;24
+<genexpr>;44
+<genexpr>;1
+<genexpr>;27
+<genexpr>;27
+<genexpr>;4
+<genexpr>;30
+<genexpr>;34
+<genexpr>;122
+<genexpr>;45
+<genexpr>;90
+<genexpr>;327
+<genexpr>;65
+<genexpr>;3
+<genexpr>;62
+<genexpr>;6
+<genexpr>;3
+<genexpr>;3
+<genexpr>;35
+<genexpr>;122
+<genexpr>;122
+<genexpr>;26
+<genexpr>;9
+<genexpr>;9
+<genexpr>;9
+<genexpr>;35
+<genexpr>;3
+<genexpr>;33
+<genexpr>;33
+<genexpr>;9
+<genexpr>;33
+<genexpr>;33
+<genexpr>;46
+<genexpr>;35
+<genexpr>;9
+<genexpr>;354
+<genexpr>;7
+<genexpr>;2
+<genexpr>;37
+<genexpr>;35
+<genexpr>;35
+<genexpr>;35
+<genexpr>;35
+<genexpr>;37
+<genexpr>;37
+<genexpr>;35
+<genexpr>;37
+<genexpr>;37
+<genexpr>;37
+<genexpr>;37
+<genexpr>;37
+<genexpr>;37
+<genexpr>;37
+<genexpr>;22
+enum.py (_convert_);3
+_parser.py (parse);3
+_compiler.py (_get_literal_prefix);3
+__init__.py (namedtuple);3
+__init__.py (_compile);3
+_compiler.py (_get_charset_prefix);2
+enum.py (__new__);4
+enum.py (_missing_);1
+enum.py (__new__);697
+enum.py (__get__);2
+__init__.py (_bind);4
+random.py (seed);1
+_parser.py (getwidth);9
+_parser.py (_parse_sub);3
+_parser.py (_class_escape);2
+_parser.py (_escape);2
+_parser.py (_parse_flags);2
+_compiler.py (_compile);3
+_compiler.py (_compile_charset);8
+_compiler.py (_compile_info);3
+_compiler.py (_optimize_charset);8
+_compiler.py (compile);3
+enum.py (convert_class);4
+font.py (__init__);1106
+__init__.py (Canvas);1
+__init__.py (Text);1
+__init__.py (<module>);2
+_parser.py (_parse);3
+default.py (<module>);1
+__init__.py (__init__);1
+upemtk.py (<module>);1
+signal.py (<module>);1
+upemtk.py (__init__);1
+main.py (main);1
+__init__.py (_substitute);690
+__init__.py (Misc);1
+__init__.py (Wm);1
+__init__.py (_options);1217
+__init__.py (_register);6
+__init__.py (_loadtk);1
+__init__.py (readprofile);1
+__init__.py (_setup);1
+__init__.py (destroy);1
+__init__.py (__init__);1
+font.py (metrics);1106
+__init__.py (_reset_cache);1
+_endian.py (<module>);1
+font.py (<module>);1
+random.py (randrange);25
+selectors.py (<module>);1
+__init__.py (__init__);1
+game.py (process_player_actions);10
+subprocess.py (_use_posix_spawn);1
+subprocess.py (Popen);1
+subprocess.py (<module>);1
+platform.py (uname);2
+platform.py (<module>);1
+menu.py (init_boutons);1
+texte.py (enter_surname);2
+couleurs.py (colors);1
+couleurs.py (choose_colors);1
+menu.py (menu);1
+menu.py (clear_menu);1
+game.py (game);1
+variantes.py (sablier);10
+texte.py (enter_numbers);1
+texte.py (surname);1
+random.py (<module>);1
+variantes.py (taille_des_boules);10
+game.py (vainqueur);1
+string.py (__init_subclass__);1
+game.py (restart);1
+boutons.py (default_buttons);1
+<built-in method _ctypes.POINTER>;2
+<built-in method _ctypes.dlopen>;1
+<built-in method _ctypes.sizeof>;38
+subprocess.py (SubprocessError);1
+signal.py (<lambda>);78
+signal.py (<lambda>);79
+<module>;1
+__init__.py (c_short);1
+__init__.py (c_ushort);1
+__init__.py (c_long);1
+__init__.py (c_ulong);1
+__init__.py (c_int);1
+__init__.py (c_uint);1
+__init__.py (c_float);1
+__init__.py (c_double);1
+__init__.py (c_longdouble);1
+__init__.py (c_ubyte);1
+__init__.py (c_byte);1
+__init__.py (c_char);1
+__init__.py (c_void_p);1
+__init__.py (c_bool);1
+__init__.py (c_wchar);1
+__init__.py (Radiobutton);1
+__init__.py (Scale);1
+boutons.py (<module>);1
+calcul.py (<module>);1
+couleurs.py (<module>);1
+menu.py (<module>);1
+texte.py (<module>);1
+random.py (__init__);1
+random.py (SystemRandom);1
+__init__.py (Image);1
+selectors.py (_PollLikeSelector);1
+selectors.py (PollSelector);1
+__init__.py (OptionMenu);1
+signal.py (decorator);6
+selectors.py (_SelectorMapping);1
+__init__.py (py_object);1
+__init__.py (_FuncPtr);1
+__init__.py (CFunctionType);3
+__init__.py (PYFUNCTYPE);3
+struct.py (<module>);1
+<lambda>;1
+platform.py (_Processor);1
+platform.py (system);2
+random.py (randint);25
+subprocess.py (CompletedProcess);1
+calcul.py (intersection);80
+random.py (Random);1
+selectors.py (_BaseSelectorImpl);1
+__init__.py (CDLL);1
+__init__.py (LibraryLoader);1
+calcul.py (calcul_aire);1
+couleurs.py (background);2
+string.py (Formatter);1
+menu.py (verifyButton);27
+variantes.py (obstacles);1
+_endian.py (_swapped_meta);1
+_endian.py (BigEndianStructure);1
+_endian.py (BigEndianUnion);1
+platform.py (_unknown_as_blank);5
+random.py (__init_subclass__);1
+string.py (<module>);1
+_endian.py (_swapped_struct_meta);1
+_endian.py (_swapped_union_meta);1
+game.py (<module>);1
+game.py (gomme);10
+platform.py (uname_result);1
+bisect.py (<module>);1
+variantes.py (<module>);1
+boutons.py (button_background_variantes);12
+variantes.py (terminaison);5
+upemtk.py (update);93106
+upemtk.py (attente_clic);2
+__init__.py (destroy);2
+__init__.py (Variable);1
+__init__.py (pack_configure);1
+__init__.py (Pack);1
+__init__.py (StringVar);1
+__init__.py (IntVar);1
+__init__.py (DoubleVar);1
+__init__.py (BooleanVar);1
+__init__.py (__init__);6
+__init__.py (XView);1
+__init__.py (YView);1
+__init__.py (Button);1
+__init__.py (create_line);2
+__init__.py (create_oval);48
+__init__.py (create_rectangle);60
+__init__.py (create_text);1105
+upemtk.py (TypeEvenementNonValide);1
+upemtk.py (FenetreNonCree);1
+upemtk.py (FenetreDejaCree);1
+upemtk.py (type_evenement);93099
+__init__.py (Widget);1
+upemtk.py (efface);1203
+upemtk.py (clic_x);15
+upemtk.py (clic_y);15
+font.py (_get);1106
+subprocess.py (CalledProcessError);1
+__init__.py (_root);691
+subprocess.py (TimeoutExpired);1
+__init__.py (Place);1
+main.py (<module>);1
+upemtk.py (mise_a_jour);93106
+upemtk.py (ligne);2
+upemtk.py (rectangle);60
+upemtk.py (touche);21
+__init__.py (bind);3
+__init__.py (bind_all);1
+__init__.py (getint_event);7590
+upemtk.py (attente_clic_ou_touche);14
+upemtk.py (donne_evenement);93099
+font.py (Font);1
+__init__.py (wm_protocol);2
+__init__.py (Spinbox);1
+signal.py (<lambda>);77
+upemtk.py (cercle);48
+upemtk.py (efface_tout);3
+upemtk.py (attente_touche);10
+__init__.py (PhotoImage);1
+boutons.py (quit_button);1
+upemtk.py (set_font);1106
+__init__.py (EventType);1
+__init__.py (nametowidget);690
+__init__.py (__call__);690
+__init__.py (Listbox);1
+selectors.py (_can_use);2
+boutons.py (clear_quit_button);1
+calcul.py (in_cercle);9
+__init__.py (_VersionInfoType);1
+upemtk.py (clic);1
+__init__.py (Event);1
+__init__.py (CallWrapper);1
+font.py (__str__);1105
+__init__.py (Toplevel);1
+__init__.py (Frame);1
+__init__.py (Label);1
+__init__.py (Menubutton);1
+__init__.py (Message);1
+__init__.py (_setit);1
+__init__.py (BitmapImage);1
+__init__.py (LabelFrame);1
+signal.py (_wraps);6
+__init__.py (CFunctionType);2
+__init__.py (c_wchar_p);1
+__init__.py (c_char_p);1
+__init__.py (PyDLL);1
+__init__.py (__init__);2
+__init__.py (_cnfmerge);1218
+constants.py (<module>);1
+__init__.py (CFUNCTYPE);2
+calcul.py (inter_calcul_aire);2
+upemtk.py (event_handler_key);21
+upemtk.py (event_handler_button1);15
+upemtk.py (event_handler_motion);654
+upemtk.py (CustomCanvas);1
+upemtk.py (cree_fenetre);1
+__init__.py (update);93107
+__init__.py (BaseWidget);1
+__init__.py (__init__);1
+__init__.py (Entry);1
+game.py (joueur);10
+menu.py (choose_colors);1
+variantes.py (version_dynamique);10
+__init__.py (Tk);1
+__init__.py (Checkbutton);1
+__init__.py (Scrollbar);1
+__init__.py (delete);1206
+__init__.py (PanedWindow);1
+font.py (__del__);1106
+selectors.py (BaseSelector);1
+selectors.py (SelectSelector);1
+selectors.py (EpollSelector);1
+__init__.py (_check_size);14
+game.py (victory_message_color);1
+string.py (Template);1
+random.py (_randbelow_with_getrandbits);25
+contextlib.py (contextmanager);1
+upemtk.py (texte);1105
+upemtk.py (ferme_fenetre);1
+__init__.py (Menu);1
+game.py (crayon);10
+couleurs.py (melangeur_colors);3
+boutons.py (f_boutons);12
+functools.py (update_wrapper);1
+__init__.py (compile);3
+enum.py (_is_dunder);88
+enum.py (_is_sunder);80
+enum.py (_iter_member_by_value_);3
+_compiler.py (_simple);2
+__init__.py (escape);1
+_compiler.py (_code);3
+enum.py (_get_value);21
+_compiler.py (_mk_bitmap);4
+_parser.py (__init__);3
+_parser.py (match);63
+_parser.py (tell);30
+enum.py (<lambda>);41
+enum.py (value);2
+enum.py (<lambda>);2
+enum.py (_simple_enum);4
+enum.py (_is_descriptor);80
+enum.py (_iter_member_by_def_);3
+enum.py (__members__);3
+_compiler.py (_combine_flags);12
+_parser.py (groups);18
+_compiler.py (isstring);6
+_parser.py (__len__);25
+_parser.py (__setitem__);3
+enum.py (__init__);75
+enum.py (__call__);697
+_compiler.py (_generate_overlap_table);1
+enum.py (__set_name__);80
+_parser.py (closegroup);6
+_parser.py (__init__);18
+_parser.py (append);20
+_parser.py (get);326
+_parser.py (seek);1
+_parser.py (_uniq);6
+_parser.py (__getitem__);65
+enum.py (__setattr__);89
+_parser.py (fix_flags);3
+__init__.py (destroy);1
+__init__.py (Grid);1
+__init__.py (_create);1215
+_parser.py (__next);388
+_parser.py (opengroup);6
+enum.py (__or__);1
+enum.py (__and__);6
+types.py (__init__);80
+enum.py (_is_private);80
+enum.py (_iter_bits_lsb);3
+functools.py (wraps);1
+__init__.py (<genexpr>);17
+functools.py (__init__);1
+__init__.py (find_spec);35
+functools.py (__set_name__);1
+_parser.py (__init__);3
+_parser.py (getuntil);4
+_compiler.py (_get_iscased);7
+_parser.py (checkgroupname);4
+__init__.py (<lambda>);32
+<built-in method _tkinter._flatten>;2431
+<built-in method _tkinter.create>;1
+<method 'call' of '_tkinter.tkapp' objects>;99962
+<method 'getvar' of '_tkinter.tkapp' objects>;2
+<method 'getint' of '_tkinter.tkapp' objects>;11291
+<method 'getboolean' of '_tkinter.tkapp' objects>;1380
+<method 'splitlist' of '_tkinter.tkapp' objects>;1106
+<method 'createcommand' of '_tkinter.tkapp' objects>;8
+<method 'deletecommand' of '_tkinter.tkapp' objects>;8
+<method 'disable' of '_lsprof.Profiler' objects>;1

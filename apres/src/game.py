@@ -205,7 +205,6 @@ def process_player_actions(dico_actif, dico_adverse, rayon, variantes, banque, d
 def game():
     """Cette fonction permet de jouer une partie de jeu.
     Elle permet de gérer les actions avant le jeu comme le choix des variantes, des pseudos et des couleurs."""
-    upemtk.rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, remplissage="white", couleur="black") # Fond de la fenêtre
     dico_j1, dico_j2 = dict(), dict() # Forme du dictionnaire : clé : identifiant du cercle ; valeur : [x, y, r].
     rayon = 50
     compteur = 1
@@ -239,12 +238,13 @@ def game():
         dico_j1, dico_j2, banque_j2 = process_player_actions(dico_j2, dico_j1, rayon, variantes, banque_j2, dico_obs, player_colors[1], player_colors[0])
         gomme()
         variantes["terminaison"], tour = terminaison(variantes["terminaison"], tour, compteur)
-        upemtk.mise_a_jour()
         compteur += 1
         if variantes["dynamique"]:
+            # Pour une raison inconnue, la couleur des cercles des joueurs s'inverse à chaque tour, sachant que ce problème n'apparaît qu'avec la variante dynamique.
+            # Si vous avez une idée de pourquoi cela se produit, n'hésitez pas à nous le dire.
             dico_j1 = version_dynamique(dico_j1, dico_j2, dico_obs, player_colors[0])
             dico_j2 = version_dynamique(dico_j2, dico_j1, dico_obs, player_colors[1])
-            upemtk.mise_a_jour()
+        upemtk.mise_a_jour()
         # clear_pause_button(), clear_quit_button()
     upemtk.attente_clic_ou_touche()
     vainqueur(dico_j1, dico_j2, pseudo_j1, pseudo_j2, player_colors)

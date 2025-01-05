@@ -1,7 +1,7 @@
 # Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
-import couleurs
 import boutons
+import couleurs
 import upemtk
 from default import *
 
@@ -13,8 +13,7 @@ def clear_menu():
     Returns:
         V_menu (bool): Renvoie la variable booléenne V_menu en la mettant à True pour quitter le menu.
     """
-    upemtk.efface('fond')
-    upemtk.efface('game')
+    upemtk.efface('variantes')
     upemtk.efface('sablier'), upemtk.efface('text_sablier')
     upemtk.efface('scores'), upemtk.efface('text_scores')
     upemtk.efface('taille_des_boules'), upemtk.efface('text_taille_des_boules')
@@ -22,8 +21,7 @@ def clear_menu():
     upemtk.efface('terminaison'), upemtk.efface('text_terminaison')
     upemtk.efface('obstacles'), upemtk.efface('text_obstacles')
     upemtk.efface('play'), upemtk.efface('text_play')
-    upemtk.efface('variantes')
-    upemtk.mise_a_jour()
+    upemtk.efface_tout()
     return True
 
 
@@ -97,11 +95,13 @@ def menu():
         'terminaison': True,
         'obstacle': True
     }
+    couleurs.background()
     upemtk.texte(largeur_Fenetre // 2, 50, "Choisissez vos variantes !", taille=36, police=game_font, ancrage="center", tag='variantes')
     variantes = boutons.default_buttons(variantes)
     upemtk.rectangle(largeur_Fenetre // 2 - 150, b_milieu_y1, largeur_Fenetre // 2 + 150, b_milieu_y2, couleur='white', remplissage='black', epaisseur=3, tag='play')
     upemtk.texte(largeur_Fenetre // 2, txt_y2, "Start", couleur='white', police=game_font, ancrage='center', tag='text_play')
     boutons.quit_button()
+    upemtk.mise_a_jour()
     # Initialisation des coordonnées de chaque coins des rectangles / boutons en fonction de la largeur et de la hauteur de la fenêtre, la première ligne d’initialisation correspond au quatre point y.
     variantes, V_menu = init_boutons(variantes)
     return variantes, V_menu

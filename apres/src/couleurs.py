@@ -4,6 +4,11 @@ import upemtk
 from default import *
 import menu
 
+def background():
+    """Cette fonction permet de dessiner le fond de la fenêtre."""
+    upemtk.rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, remplissage="white", couleur="black", tag='background')  # Fond de la fenêtre
+
+
 def colors():
     """Cette fonction permet de choisir les couleurs des joueurs.
     Elle affiche des rectangles de couleurs différentes pour que les joueurs puissent choisir.
@@ -52,7 +57,7 @@ def colors():
             (550, 700, 625, "#F7777F", "J2")
         ]
     }
-
+    background()
     # Affichage des rectangles de couleurs et des textes.
     for (x1, x2, x3, color, text) in coords[1]:
         rec = upemtk.rectangle(largeur_Fenetre // 2 + x1, 100, largeur_Fenetre // 2 + x2, 250, remplissage=color, epaisseur=0)

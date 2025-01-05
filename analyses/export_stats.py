@@ -1,36 +1,37 @@
-# Ce programme permet d'exporter en format csv, les noms de fonctions et nombre d'appels d'un fichier .stats généré par cProfile
-import pstats
+# Ce programme permet d'exporter en format csv, les données d'un fichier .stats généré par cProfile.
 import csv
+import pstats
 import sys
 
 
 def main(fileName):
-	# Charger le profil
-	p = pstats.Stats(fileName)
+	# Exporter les statistiques
+	with open(f"{fileName}_results.csv", "w") as f:
+		writer = csv.writer(f, delimiter=";")
+		writer.writerow(["Fonction", "ncalls"])
 
-	# Trier les statistiques
-	p.sort_stats("ncalls")
+		# Charger le profil
+		ps = pstats.Stats(fileName)
+		ps.strip_dirs()
+		ps.sort_stats('ncalls')
 
-	# Extraire les données pour le CSV
-	stats_data = []
-	header = ["Fonction", "ncalls"]
-	for data in p.stats.items():
-		# Extraire le nom de la fonction et le nombre d'appels
-		func_name = f"{data[0][0]}:{data[0][1]}:{data[0][2]}"  # Module:Ligne:Nom de fonction
-		ncalls = data[1][0]
-		stats_data.append([func_name, ncalls])
+		for func, stats in ps.stats.items():
+			ncalls = stats[0]
+			# func_name = f"{func[2]} ({func[0]}:{func[1]})"
+			# refaire car pour le nom je veux juste : exemples :
+			# {method ’getint’ of ’_tkinter.tkapp’ objects}
+			# {built-in method builtins.callable}
+			# __init__.py(_cnfmerge)
 
-	# Trier les données du plus grand au plus petit nombre d'appels
-	stats_data.sort(key=lambda x: x[1], reverse=True)
+			if "{" in func[2]:
+				func_name = func[2]
+			elif ".py" in func[0]:
+				func_name = f"{func[0]} ({func[2]})"
+			elif "<" in func[2]:
+				func_name = func[2]
+			writer.writerow([func_name, ncalls])
 
-	# Exporter vers un fichier CSV
-	with open("profiling_results.csv", "w", newline="") as csvfile:
-		# Séparer les valeurs par des points-virgules
-		writer = csv.writer(csvfile, delimiter=";")
-		writer.writerow(header)  # Écrire l'en-tête
-		writer.writerows(stats_data)  # Écrire les données
-
-	print("Les statistiques ont été exportées dans le fichier profiling_results.csv")
+	print(f"Les statistiques ont été exportées dans {fileName}_results.csv.")
 
 if __name__ == '__main__':
 	if len(sys.argv) > 1:

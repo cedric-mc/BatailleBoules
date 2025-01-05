@@ -136,7 +136,7 @@ def taille_des_boules(banque, color):
     return banque, rayon
 
 
-def version_dynamique(dico_actif, dico_adverse, dico_obs, color):
+def version_dynamique(dico_actif, dico_adverse, dico_obs, couleur):
     """Cette fonction représente la variante Dynamique et permet d'agrandir les cercles des joueurs et de vérifier les intersections avec les obstacles et les cercles adverses.
     La description de la variante est disponible dans le README.md ou au lien suivant : https://cedric-mc.github.io/BatailleBoules/.
 
@@ -144,7 +144,7 @@ def version_dynamique(dico_actif, dico_adverse, dico_obs, color):
         dico_actif (dict): Dictionnaire du joueur actif.
         dico_adverse (dict): Dictionnaire du joueur adverse.
         dico_obs (dict): Dictionnaire des obstacles.
-        color (str): Couleur du joueur.
+        couleur (str): Couleur du joueur.
 
     Returns:
         new_dico (dict): Dictionnaire des cercles du joueur actif (modifié).
@@ -161,9 +161,9 @@ def version_dynamique(dico_actif, dico_adverse, dico_obs, color):
         else:
             # Suppression et recréation du cercle avec le nouveau rayon.
             upemtk.efface(circle_id)
-            new_id = upemtk.cercle(x, y, new_radius, couleur=color, remplissage=color)
+            new_id = upemtk.cercle(x, y, new_radius, couleur=couleur, remplissage=couleur)
             new_dico[new_id] = [x, y, new_radius]
-
+            upemtk.mise_a_jour()
     return new_dico
 
 
