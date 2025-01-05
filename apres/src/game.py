@@ -1,10 +1,9 @@
-# Programmeurs : Cédric Mariya Constantine et Wilson Groevius
+# Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
 from boutons import clear_quit_button
 from calcul import calcul_aire, in_cercle, intersection
 from couleurs import colors, melangeur_colors
 from menu import menu
-from restart import restart
 from texte import *
 from variantes import sablier, scores, terminaison, obstacles, taille_des_boules, version_dynamique
 
@@ -76,6 +75,33 @@ def vainqueur(dico_j1, dico_j2, pseudo_j1, pseudo_j2, lst_colors):
     # Affiche le résultat final
     upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2, message, ancrage="center", police=game_font, taille=25, couleur=couleur)
     upemtk.mise_a_jour()
+
+
+def restart():
+    """Cette fonction permet de demander au joueur s'il veut rejouer ou non.
+
+    Returns:
+        bool: Renvoie vrai si le joueur veut rejouer, sinon faux.
+    """
+    upemtk.efface_tout()
+    upemtk.texte(largeur_Fenetre//2, hauteur_Fenetre//2-150, "Voulez-vous rejouer ?", ancrage='center', police=game_font, taille=35, couleur='black', tag='restart-text')
+    upemtk.rectangle(largeur_Fenetre//2-400, hauteur_Fenetre//2-50, largeur_Fenetre//2-200, hauteur_Fenetre//2+50, couleur='black', remplissage='white', epaisseur=4, tag='restart-yes')
+    upemtk.texte(largeur_Fenetre//2-300, hauteur_Fenetre//2, "Oui", ancrage='center', police=game_font, taille=25, couleur='black', tag='restart-yes-text')
+    upemtk.rectangle(largeur_Fenetre//2+200, hauteur_Fenetre//2-50, largeur_Fenetre//2+400, hauteur_Fenetre//2+50, couleur='black', remplissage='white', epaisseur=4, tag='restart-no')
+    upemtk.texte(largeur_Fenetre//2+300, hauteur_Fenetre//2, "Non", ancrage='center', police=game_font, taille=25, couleur='black', tag='restart-no-text')
+    isRestart = None
+    while isRestart is None:
+        x, y, e = upemtk.attente_clic()
+        if largeur_Fenetre//2-400 < x < largeur_Fenetre//2-200 and hauteur_Fenetre//2-50 < y < hauteur_Fenetre//2+50:
+            isRestart = True
+        elif largeur_Fenetre//2+200 < x < largeur_Fenetre//2+400 and hauteur_Fenetre//2-50 < y < hauteur_Fenetre//2+50:
+            isRestart = False
+    upemtk.efface('restart-text')
+    upemtk.efface('restart-yes')
+    upemtk.efface('restart-yes-text')
+    upemtk.efface('restart-no')
+    upemtk.efface('restart-no-text')
+    return isRestart
 
 
 def joueur(x, y, dico_actif, dico_adverse, rayon, banque, color_actif, color_adverse):
@@ -181,13 +207,12 @@ def game():
     Elle permet de gérer les actions avant le jeu comme le choix des variantes, des pseudos et des couleurs."""
     upemtk.rectangle(0, 0, largeur_Fenetre, hauteur_Fenetre, remplissage="white", couleur="black") # Fond de la fenêtre
     dico_j1, dico_j2 = dict(), dict() # Forme du dictionnaire : clé : identifiant du cercle ; valeur : [x, y, r].
-    dict()
     rayon = 50
     compteur = 1
     variantes, V_menu = menu()
     if not V_menu:
         return
-    player_colors = colors()
+    player_colors = colors() # Récupération des couleurs des joueurs dans une liste
     if 'quit' in player_colors:
         return
     pseudo_j1, pseudo_j2 = surname(player_colors)
@@ -208,12 +233,10 @@ def game():
     while compteur <= tour: # permet de répéter la fonction le nombre de fois souhaiter pour définir le nombre de tour
         # pause_button(), quit_button()
         crayon(player_colors[0], compteur, tour, pseudo_j1)
-        dico_j1, dico_j2, banque_j1 = process_player_actions(dico_j1, dico_j2, rayon, variantes, banque_j1, dico_obs,
-                                                             player_colors[0], player_colors[1])
+        dico_j1, dico_j2, banque_j1 = process_player_actions(dico_j1, dico_j2, rayon, variantes, banque_j1, dico_obs, player_colors[0], player_colors[1])
         gomme()
         crayon(player_colors[1], compteur, tour, pseudo_j2)
-        dico_j1, dico_j2, banque_j2 = process_player_actions(dico_j2, dico_j1, rayon, variantes, banque_j2, dico_obs,
-                                                             player_colors[1], player_colors[0])
+        dico_j1, dico_j2, banque_j2 = process_player_actions(dico_j2, dico_j1, rayon, variantes, banque_j2, dico_obs, player_colors[1], player_colors[0])
         gomme()
         variantes["terminaison"], tour = terminaison(variantes["terminaison"], tour, compteur)
         upemtk.mise_a_jour()
@@ -227,6 +250,5 @@ def game():
     vainqueur(dico_j1, dico_j2, pseudo_j1, pseudo_j2, player_colors)
     upemtk.attente_clic_ou_touche()
     if restart():
-        upemtk.efface_tout()
         game()
     return

@@ -1,4 +1,4 @@
-# Programmeurs : Cédric Mariya Constantine et Wilson Groevius
+# Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
 import upemtk
 from default import *
@@ -35,10 +35,8 @@ def f_boutons(variante, rec_x1, rec_x2, rec_y1, rec_y2, txt_x, txt_y, txt_in, na
     """
     upemtk.efface(nametag), upemtk.efface(f"text_{nametag}")
     variante = not variante
-    upemtk.rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage=button_background_variantes(variante),
-                     epaisseur=3, tag=nametag)
-    upemtk.texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18,
-                 tag=f"text_{nametag}")
+    upemtk.rectangle(rec_x1, rec_y1, rec_x2, rec_y2, couleur='black', remplissage=button_background_variantes(variante), epaisseur=3, tag=nametag)
+    upemtk.texte(txt_x, txt_y, txt_in, couleur='black', ancrage="center", police=game_font, taille=18, tag=f"text_{nametag}")
     return variante
 
 
@@ -61,6 +59,7 @@ def default_buttons(variantes):
     return variantes
 
 
+# Les 4 fonctions suivantes ne sont pas utilisées dans le jeu étant donné que leurs fonctionnalités ne sont pas complètes.
 def pause_button():
     """Cette fonction permet de dessiner un bouton pause au centre de l'écran de jeu."""
     upemtk.rectangle(75, 25, 25, 75, remplissage='green', epaisseur=3, tag='pause')

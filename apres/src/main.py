@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Programmeurs : Cédric Mariya Constantine et Wilson Groevius
+# Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
 import upemtk
 from default import largeur_Fenetre, hauteur_Fenetre, game_font

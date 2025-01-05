@@ -1,4 +1,4 @@
-# Programmeurs : Cédric Mariya Constantine et Wilson Groevius
+# Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
 from time import time, sleep
 from random import randint

@@ -1,4 +1,4 @@
-# Programmeurs : Cédric Mariya Constantine et Wilson Groevius
+# Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
 import upemtk
 from default import *
@@ -23,71 +23,59 @@ def colors():
         color1 (str): Couleur du joueur 1.
         color2 (str): Couleur du joueur 2.
     """
-    # ------------------------------ Choix des couleurs des joueurs première ligne
-    rec1 = upemtk.rectangle(largeur_Fenetre//2-700, 100, largeur_Fenetre//2-550, 250, remplissage="#FF7900", epaisseur=0)
-    rec2 = upemtk.rectangle(largeur_Fenetre // 2 - 550, 100, largeur_Fenetre // 2 - 400, 250, remplissage="#F7E360", epaisseur=0)
-    rec3 = upemtk.rectangle(largeur_Fenetre // 2 - 350, 100, largeur_Fenetre // 2 - 200, 250, remplissage="#F33129", epaisseur=0)
-    rec4 = upemtk.rectangle(largeur_Fenetre//2-200, 100, largeur_Fenetre//2-50, 250, remplissage="#0179C0", epaisseur=0)
-    rec5 = upemtk.rectangle(largeur_Fenetre//2+50, 100, largeur_Fenetre//2+200, 250, remplissage="#2C6452", epaisseur=0)
-    rec6 = upemtk.rectangle(largeur_Fenetre//2+200, 100, largeur_Fenetre//2+350, 250, remplissage="#F7777F", epaisseur=0)
-    rec7 = upemtk.rectangle(largeur_Fenetre//2+400, 100, largeur_Fenetre//2+550, 250, remplissage="#552B24", epaisseur=0)
-    rec8 = upemtk.rectangle(largeur_Fenetre//2+550, 100, largeur_Fenetre//2+700, 250, remplissage="#F33129", epaisseur=0)
+    lst_graphic_elements = [] # Liste des éléments graphiques à afficher.
+    coords = {
+        1: [
+            (-700, -550, -625, "#FF7900", "J1"),
+            (-550, -400, -475, "#F7E360", "J2"),
+            (-350, -200, -275, "#F33129", "J1"),
+            (-200, -50, -125, "#0179C0", "J2"),
+            (50, 200, 125, "#2C6452", "J1"),
+            (200, 350, 275, "#F7777F", "J2"),
+            (400, 550, 475, "#552B24", "J1"),
+            (550, 700, 625, "#F33129", "J2")
+        ],
+        2: [
+            (-700, -550, -625, "#0179C0", "J1"),
+            (-550, -400, -475, "#65419C", "J2"),
+            (400, 550, 475, "#F7777F", "J1"),
+            (550, 700, 625, "#0179C0", "J2")
+        ],
+        3: [
+            (-700, -550, -625, "#65419C", "J1"),
+            (-550, -400, -475, "#F7777F", "J2"),
+            (-350, -200, -275, "#2C6452", "J1"),
+            (-200, -50, -125, "#F7E360", "J2"),
+            (50, 200, 125, "#F33129", "J1"),
+            (200, 350, 275, "#F7E360", "J2"),
+            (400, 550, 475, "#552B24", "J1"),
+            (550, 700, 625, "#F7777F", "J2")
+        ]
+    }
 
-    # ------------------------------ Choix des couleurs des joueurs deuxième ligne
-    rec9 = upemtk.rectangle(largeur_Fenetre//2-700, hauteur_Fenetre//2-75, largeur_Fenetre//2-550, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
-    rec10 = upemtk.rectangle(largeur_Fenetre//2-550, hauteur_Fenetre//2-75, largeur_Fenetre//2-400, hauteur_Fenetre//2+75, remplissage="#65419C", epaisseur=0)
-    rec11 = upemtk.rectangle(largeur_Fenetre//2+400, hauteur_Fenetre//2-75, largeur_Fenetre//2+550, hauteur_Fenetre//2+75, remplissage="#F7777F", epaisseur=0)
-    rec12 = upemtk.rectangle(largeur_Fenetre//2+550, hauteur_Fenetre//2-75, largeur_Fenetre//2+700, hauteur_Fenetre//2+75, remplissage="#0179C0", epaisseur=0)
+    # Affichage des rectangles de couleurs et des textes.
+    for (x1, x2, x3, color, text) in coords[1]:
+        rec = upemtk.rectangle(largeur_Fenetre // 2 + x1, 100, largeur_Fenetre // 2 + x2, 250, remplissage=color, epaisseur=0)
+        txt = upemtk.texte(largeur_Fenetre // 2 + x3, 175, text, taille=45, couleur="white", ancrage="center")
+        lst_graphic_elements.append((rec, txt))
 
-    # ------------------------------ Choix des couleurs des joueurs troisième ligne
-    rec13 = upemtk.rectangle(largeur_Fenetre//2-700, hauteur_Fenetre-100, largeur_Fenetre//2-550, hauteur_Fenetre-250, remplissage="#65419C", epaisseur=0)
-    rec14 = upemtk.rectangle(largeur_Fenetre//2-550, hauteur_Fenetre-100, largeur_Fenetre//2-400, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
-    rec15 = upemtk.rectangle(largeur_Fenetre//2-350, hauteur_Fenetre-100, largeur_Fenetre//2-200, hauteur_Fenetre-250, remplissage="#2C6452", epaisseur=0)
-    rec16 = upemtk.rectangle(largeur_Fenetre//2-200, hauteur_Fenetre-100, largeur_Fenetre//2-50, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
-    rec17 = upemtk.rectangle(largeur_Fenetre//2+50, hauteur_Fenetre-100, largeur_Fenetre//2+200, hauteur_Fenetre-250, remplissage="#F33129", epaisseur=0)
-    rec18 = upemtk.rectangle(largeur_Fenetre//2+200, hauteur_Fenetre-100, largeur_Fenetre//2+350, hauteur_Fenetre-250, remplissage="#F7E360", epaisseur=0)
-    rec19 = upemtk.rectangle(largeur_Fenetre//2+400, hauteur_Fenetre-100, largeur_Fenetre//2+550, hauteur_Fenetre-250, remplissage="#552B24", epaisseur=0)
-    rec20 = upemtk.rectangle(largeur_Fenetre//2+550, hauteur_Fenetre-100, largeur_Fenetre//2+700, hauteur_Fenetre-250, remplissage="#F7777F", epaisseur=0)
+    for (x1, x2, x3, color, text) in coords[2]:
+        rec = upemtk.rectangle(largeur_Fenetre // 2 + x1, hauteur_Fenetre // 2 - 75, largeur_Fenetre // 2 + x2, hauteur_Fenetre // 2 + 75, remplissage=color, epaisseur=0)
+        txt = upemtk.texte(largeur_Fenetre // 2 + x3, hauteur_Fenetre // 2, text, taille=45, couleur="white", ancrage="center")
+        lst_graphic_elements.append((rec, txt))
 
-    # ------------------------------ Texte des couleurs des joueurs première ligne
-    txt1 = upemtk.texte(largeur_Fenetre//2-625, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt2 = upemtk.texte(largeur_Fenetre//2-475, 175, "J2", taille=45, couleur="white", ancrage="center")
-    txt3 = upemtk.texte(largeur_Fenetre//2-275, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt4 = upemtk.texte(largeur_Fenetre//2-125, 175, "J2", taille=45, couleur="white", ancrage="center")
-    txt5 = upemtk.texte(largeur_Fenetre//2+125, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt6 = upemtk.texte(largeur_Fenetre//2+275, 175, "J2", taille=45, couleur="white", ancrage="center")
-    txt7 = upemtk.texte(largeur_Fenetre//2+475, 175, "J1", taille=45, couleur="white", ancrage="center")
-    txt8 = upemtk.texte(largeur_Fenetre//2+625, 175, "J2", taille=45, couleur="white", ancrage="center")
-
-    # ------------------------------ Texte des couleurs des joueurs deuxième ligne
-    txt9 = upemtk.texte(largeur_Fenetre//2-625, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
-    txt10 = upemtk.texte(largeur_Fenetre//2-475, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
-    txt11 = upemtk.texte(largeur_Fenetre//2+475, hauteur_Fenetre//2, "J1", taille=45, couleur="white", ancrage="center")
-    txt12 = upemtk.texte(largeur_Fenetre//2+625, hauteur_Fenetre//2, "J2", taille=45, couleur="white", ancrage="center")
-
-    # ------------------------------ Texte des couleurs des joueurs troisième ligne
-    txt13 = upemtk.texte(largeur_Fenetre//2-625, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt14 = upemtk.texte(largeur_Fenetre//2-475, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
-    txt15 = upemtk.texte(largeur_Fenetre//2-275, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt16 = upemtk.texte(largeur_Fenetre//2-125, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
-    txt17 = upemtk.texte(largeur_Fenetre//2+125, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt18 = upemtk.texte(largeur_Fenetre//2+275, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
-    txt19 = upemtk.texte(largeur_Fenetre//2+475, hauteur_Fenetre-175, "J1", taille=45, couleur="white", ancrage="center")
-    txt20 = upemtk.texte(largeur_Fenetre//2+625, hauteur_Fenetre-175, "J2", taille=45, couleur="white", ancrage="center")
+    for (x1, x2, x3, color, text) in coords[3]:
+        rec = upemtk.rectangle(largeur_Fenetre // 2 + x1, hauteur_Fenetre - 100, largeur_Fenetre // 2 + x2, hauteur_Fenetre - 250, remplissage=color, epaisseur=0)
+        txt = upemtk.texte(largeur_Fenetre // 2 + x3, hauteur_Fenetre - 175, text, taille=45, couleur="white", ancrage="center")
+        lst_graphic_elements.append((rec, txt))
     
     color1, color2 = menu.choose_colors()
     if color1 == "quit" or color2 == "quit":
         return [color1, color2]
-    # Efface les rectangles de la première ligne
-    upemtk.efface(rec1), upemtk.efface(rec2), upemtk.efface(rec3), upemtk.efface(rec4), upemtk.efface(rec5), upemtk.efface(rec6), upemtk.efface(rec7), upemtk.efface(rec8)
-    upemtk.efface(rec9), upemtk.efface(rec10), upemtk.efface(rec11), upemtk.efface(rec12) # Efface les rectangles de la deuxième ligne
-    # Efface les rectangles de la troisième ligne
-    upemtk.efface(rec13), upemtk.efface(rec14), upemtk.efface(rec15), upemtk.efface(rec16), upemtk.efface(rec17), upemtk.efface(rec18), upemtk.efface(rec19), upemtk.efface(rec20)
-    # Efface les textes de la première ligne
-    upemtk.efface(txt1), upemtk.efface(txt2), upemtk.efface(txt3), upemtk.efface(txt4), upemtk.efface(txt5), upemtk.efface(txt6), upemtk.efface(txt7), upemtk.efface(txt8)
-    upemtk.efface(txt9), upemtk.efface(txt10), upemtk.efface(txt11), upemtk.efface(txt12) # Efface les textes de la deuxième ligne
-    # Efface les textes de la troisième ligne
-    upemtk.efface(txt13), upemtk.efface(txt14), upemtk.efface(txt15), upemtk.efface(txt16), upemtk.efface(txt17), upemtk.efface(txt18), upemtk.efface(txt19), upemtk.efface(txt20)
+
+    # Effacement des éléments graphiques.
+    for (rec, txt) in lst_graphic_elements:
+        upemtk.efface(rec), upemtk.efface(txt)
     return color1, color2
 
 

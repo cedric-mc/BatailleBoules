@@ -1,6 +1,7 @@
-# Programmeurs : Cédric Mariya Constantine et Wilson Groevius
+# Programmeurs : Cédric Mariya Constantine, Wilson Groevius et Enzo Létocart
 # ------------------------------ Importation
 from math import sqrt, dist, atan2, cos, sin
+
 import upemtk
 
 
@@ -17,32 +18,13 @@ def intersection(dico, x, y, rayon):
     Returns:
         bool: Retourne vrai s'il y a une intersection, sinon faux.
     """
+    # Si le dictionnaire est vide, on retourne faux.
+    if not dico:
+        return False
     for _, (dx, dy, dr) in dico.items():
-        if ((x - dx) ** 2 + (y - dy) ** 2) ** 0.5 < rayon + dr:
+        if sqrt((dx - x) ** 2 + (dy - y) ** 2) <= rayon + dr:
             return True
     return False
-
-
-def in_cercle(dico, x, y, color):
-    """Cette fonction permet de vérifier si le clic est à l'intérieur d'un cercle et de le diviser en deux si c'est le cas.
-    On utilise la formule de la distance entre deux points (racine carrée de ((Xb-Xa)^2 + (Yb-Ya)^2)) soit dist((x1, x2), (y1, y2)).
-
-    Args:
-        dico (dict): Dictionnaire de cercles.
-        x (int): Coordonnée x du clic.
-        y (int): Coordonnée y du clic.
-        color (str): Couleur du cercle à diviser.
-
-    Returns:
-        _type_ (bool): Retourne vrai s'il y a une intersection, sinon faux.
-        dict: Retourne le dictionnaire avec les deux nouveaux cercles et celui du clic supprimé.
-    """
-    for circle_id, circle_data in dico.items():
-            distance = sqrt((circle_data[0] - x)**2 + (circle_data[1] - y)**2)
-            if distance <= circle_data[2]:
-                dico = div_cercle(color, circle_id, x, y, circle_data[0], circle_data[1], circle_data[2], dico)
-                return True, dico
-    return False, dico
 
 
 def div_cercle(color, key, x1, y1, xc, yc, rc, dico):
@@ -61,8 +43,10 @@ def div_cercle(color, key, x1, y1, xc, yc, rc, dico):
     Returns:
         dico (dict) : Retourne le dictionnaire avec les deux nouveaux cercles et celui du clic supprimé.
     """
-    upemtk.efface(key) # Suppression du cercle qui va être divisé en deux
+    # Suppression du cercle qui va être divisé en deux dans le dictionnaire et dans la fenêtre
+    upemtk.efface(key)
     dico.pop(key)
+
     dx, dy = x1 - xc, y1 - yc # La distance entre le clic et le centre du cercle
     angle = atan2(dy, dx) # La tangente entre les distances
     x2, y2 = x1 - rc * cos(angle), y1 - rc * sin(angle) # Les coordonnées du centre du nouveau cercle
@@ -74,6 +58,27 @@ def div_cercle(color, key, x1, y1, xc, yc, rc, dico):
     dico[c1] = [x1, y1, rp]
     dico[c2] = [x2, y2, rg]
     return dico
+
+
+def in_cercle(dico, x, y, color):
+    """Cette fonction permet de vérifier si le clic est à l'intérieur d'un cercle et de le diviser en deux si c'est le cas.
+    On utilise la formule de la distance entre deux points (racine carrée de ((Xb-Xa)^2 + (Yb-Ya)^2)) soit dist((x1, x2), (y1, y2)).
+
+    Args:
+        dico (dict): Dictionnaire de cercles.
+        x (int): Coordonnée x du clic.
+        y (int): Coordonnée y du clic.
+        color (str): Couleur du cercle à diviser.
+
+    Returns:
+        _type_ (bool): Retourne vrai s'il y a une intersection, sinon faux.
+        dict: Retourne le dictionnaire avec les deux nouveaux cercles et celui du clic supprimé.
+    """
+    for circle_id, (cx, cy, rayon) in dico.items():
+            if sqrt((cx - x)**2 + (cy - y)**2) <= rayon:
+                dico = div_cercle(color, circle_id, x, y, cx, cy, rayon, dico)
+                return True, dico
+    return False, dico
 
 
 def calcul_aire(dico_j1, dico_j2):
